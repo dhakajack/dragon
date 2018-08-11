@@ -1,0 +1,81 @@
+/*
+  
+Style sheet Dragon 2
+
+*/
+
+body {
+	background-color: #00a;
+}
+
+#window0 {
+	width: 20px;
+	height: 20px;
+}
+
+.logo {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 200px;
+	height: 100px;
+	text-align: left;
+	font-size: 40px;
+	color: yellow;
+}
+
+.folders {
+	position: fixed;
+	top: 120px;
+	left: 30px;
+	width: 200px;
+	text-align:left;
+	font-size: 20px;
+}
+
+.mailContent {
+	position: fixed;
+	top: 120px;
+	left: 200px;
+	text-align: left;
+	font-size: 15px;
+	color: white;
+	width: 800px;
+	height: 450px;
+	background-color: #ccc;
+}
+
+.dragonWindow {
+	position: fixed;
+	top: 130px;
+	left: 210px;
+	width: 780px;
+	height: 440px;
+	background-color: #aaa;
+}
+
+.debugWindow {
+	position: fixed;
+	top: 600px;
+	left: 20px;
+	width: 600px;
+	height: 150px;
+	text-align: left;
+	font-size: 15px;
+	color: black;
+	background-color: white;
+	overflow-y: scroll;
+}
+
+
+
+
+
+
+a {
+	color:#0a0;
+}
+
+.command {
+	color:green;
+}
