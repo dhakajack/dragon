@@ -12,7 +12,6 @@ body {
 	background-color: #009;
 }
 
-//override the default template
 #output {
 	max-width: none;
 	padding: 0px;
@@ -46,20 +45,23 @@ body {
     color: black;
 }
 
-/* Create unequal columns that floats next to each other */
-.column {
+/* Left and right column */
+.column-left {
     float: left;
     padding: 10px;
-}
-
-/* Left and right column */
-.column.left {
     width: 25%;
 	background-color: #bbb;
 }
 
+.column-left a {
+	display: block;
+	padding: .5em 2em .5em 2em;
+}
+
 /* Middle column */
-.column.right {
+.column-right {
+    float: left;
+    padding: 10px;
     width: 75%;
 	background-color: #9ee;
 }
@@ -75,8 +77,21 @@ body {
     background-color: #c9ffdd;
     text-align: center;
     padding: 10px;
+	height: 2em;
 }
 
+.debugWindow {
+	color:yellow;
+	background-color: #000;
+    text-align: left;
+    padding: 10px;
+	max-height: 6em;
+	overflow-y: scroll;
+}
+
+#lineinput {
+	display:none;
+}
 
 
 /*

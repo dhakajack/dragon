@@ -17,17 +17,12 @@ The lab is a room.
 [Get ride of the three line feeds that occur before the start of play; they are hardwired into the the built in startup routine, which is found in OrderOfPlay.i6t]
 
 Include (-
-[ NEW_VM_STARTUP_R;
-	CarryOutActivity(STARTING_VIRTUAL_MACHINE_ACT);
-	VM_Initialise();
-	rfalse;
+[ VIRTUAL_MACHINE_STARTUP_R;
+   CarryOutActivity(STARTING_VIRTUAL_MACHINE_ACT);
+   VM_Initialise();
+   rfalse;
 ];
--)
-
-The virtual machine startup rule is not listed in any rulebook.
-The new VM startup rule translates into I6 as "NEW_VM_STARTUP_R".
-The new VM startup rule is listed first in the startup rulebook.
-
+-) instead of "Virtual Machine Startup Rule" in "OrderOfPlay.i6t".
 
 When play begins:
 	hide the prompt;
@@ -43,35 +38,36 @@ Rule for printing the name of a room:
 	do nothing.
 
 To layout the screen:	
-	open HTML tag "div" called "header";
-	open HTML tag "div" called "logo";
+	place a block level element called "header";
+	place a block level element called "logo";
+	place a block level element called "controls";
+	move the element called "logo" under "header";
+	move the element called "controls" under "header";
+	place a block level element called "row";
+	place a block level element called "column-left";
+	place a block level element called "column-right";
+	move the element called "column-left" under "row";
+	move the element called "column-right" under "row";
+	place a block level element called "footer";
+	place a block level element called "debugWindow";
 	display text "JMAIL" in element called "logo";
-	close HTML tag;[/logo]
-	[place a link to the command "link close" called "closeButton" reading "Close";]
-	close HTML tag; [/header]
-	open HTML tag "div" called "row";
-	open HTML tag "div" called "column left";
-	place a link to the command "link inbox" called "folderOption" reading "Inbox";
-	say line break;
-	place a link to the command "link sent" called "folderOption" reading "Sent";
-	say line break;
-	place a link to the command "link junk" called "folderOption" reading "Junk";
-	say line break;
-	place a link to the command "link about" called "folderOption" reading "About";
-	say line break;
-	place a link to the command "link credits" called "folderOption" reading "Credits";
-	say line break;
-	place a link to the command "link TDWTYFN" called "folderOption" reading "TDWTYFN";
-	say line break;
-	close HTML tag; [/column.left]
-	open HTML tag "div" called "column right";
-	close HTML tag; [/column.right]
-	close HTML tag; [/row]
-	open HTML tag "div" called "footer";
-	close HTML tag;[/footer]
-	set output focus to the element called "column right";
+	set output focus to the element called "column-right";
 	say "Here is some mail content.";	
-	set output focus to the element called "footer".
+	place a block level element called "folders";
+	move the element called "folders" under "column-left";
+	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
+	place a link to the command "link sent" called "folder-sent" reading "Sent";
+	place a link to the command "link junk" called "folder-junk" reading "Junk";
+	place a link to the command "link about" called "folder-about" reading "About";
+	place a link to the command "link credits" called "folder-credits" reading "Credits";
+	place a link to the command "link TDWTYFN" called "folder-tdwtyfn" reading "TDWTYFN";
+	move the element called "folder-inbox" under "folders";
+	move the element called "folder-sent" under "folders";
+	move the element called "folder-junk" under "folders";
+	move the element called "folder-about" under "folders";
+	move the element called "folder-credits" under "folders";
+	move the element called "folder-tdwtyfn" under "folders";
+	set output focus to the element called "debugWindow".
 
 
 
