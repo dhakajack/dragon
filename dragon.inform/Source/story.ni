@@ -31,9 +31,6 @@ When play begins:
 
 The display Vorple credits rule is not listed in any rulebook.
 	
-Rule for printing the banner text:
-	do nothing.
-	
 Rule for printing the name of a room:
 	do nothing.
 
@@ -49,6 +46,8 @@ To layout the screen:
 	move the element called "column-left" under "row";
 	move the element called "column-right" under "row";
 	place a block level element called "footer";
+	place a block level element called "powered";
+	move the element called "powered" under "footer";
 	place a block level element called "debugWindow";
 	display text "JMAIL" in element called "logo";
 	set output focus to the element called "column-right";
@@ -67,32 +66,16 @@ To layout the screen:
 	move the element called "folder-about" under "folders";
 	move the element called "folder-credits" under "folders";
 	move the element called "folder-tdwtyfn" under "folders";
+	set output focus to the element called "powered";
+	say "Powered by ";
+	place a link to the command "link inform" reading "Inform";
+	say " and ";
+	place a link to the command "link vorple" reading "Vorple";
+	say ".";
 	set output focus to the element called "debugWindow".
+	[later, the debug window will be made invisible]
+	
 
-
-
-[To setUpMail:
-	place a block level element called "logo";
-	display text "JMAIL" in the element called "logo";
-	place a block level element called "mailContent";
-	open HTML tag "div" called "folders";
-	place a link to the command "link inbox" called "folderOption" reading "Inbox";
-	say line break;
-	place a link to the command "link sent" called "folderOption" reading "Sent";
-	say line break;
-	place a link to the command "link junk" called "folderOption" reading "Junk";
-	say line break;
-	place a link to the command "link about" called "folderOption" reading "About";
-	say line break;
-	place a link to the command "link credits" called "folderOption" reading "Credits";
-	say line break;
-	place a link to the command "link TDWTYFN" called "folderOption" reading "TDWTYFN";
-	say line break;
-	close HTML tag;
-	place a block level element called "debugWindow";
-	set output focus to the element called "mailContent";
-	say "Here is some mail content.";
-	set output focus to the element called "debugWindow".]
 	
 Linkaging is an action applying to one topic.  Understand "link [text]" as linkaging.
 
@@ -104,13 +87,36 @@ Report Linkaging:
 	
 After Linkaging when topicDuJour is "TDWTYFN":
 	clear the element called "column-right";
-	set output focus to the main window;
 	open HTML tag "iframe" called "dragonWindow";
 	close HTML tag;
 	move the element called "dragonWindow" under "column-right";
 	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://ifarchive.org/if-archive/games/competition2017/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now.html')";
 	set output focus to the element called "debugWindow".
-
-
+	
 After Linkaging when topicDuJour is "junk":
 	display a notification with title "Achievement" reading "Checked Junk!".
+	
+After Linkaging when topicDuJour is "inform":
+	clear the element called "column-right";
+	set output focus to the element called "column-right";
+	say banner text;
+	say line break;
+	say "Thanks to all those who have worked on Inform and in the Inform ecosystem. This story was written in [bold type]Inform 7[roman type] and compiled for the [bold type]Glulx[roman type] virtual machine.";
+	set output focus to the element called "debugWindow".
+	
+After Linkaging when topicDuJour is "vorple":
+	clear the element called "column-right";
+	set output focus to the element called "column-right";
+	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
+	open HTML tag "u";
+	say "Modules";
+	close HTML tag;
+	say ":[line break]";
+	open HTML tag "ul";
+	place "li" element reading "Vorple Element Manipulation";
+	place "li" element reading "Command Prompt Control";
+	place "li" element reading "Vorple Hyperlinks";
+	place "li" element reading "Notifications";
+	close HTML tag;
+	set output focus to the element called "debugWindow".
+

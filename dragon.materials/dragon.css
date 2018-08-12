@@ -33,16 +33,16 @@ body {
     text-decoration: none;
 }
 
-.logo {
-	text-align: left;
-	font-size: 40px;
-	color: blue;
-}
-
 /* Change color on hover */
 .header a:hover {
     background-color: #ddd;
     color: black;
+}
+
+.logo {
+	text-align: left;
+	font-size: 40px;
+	color: blue;
 }
 
 /* Left and right column */
@@ -58,7 +58,6 @@ body {
 	padding: .5em 2em .5em 2em;
 }
 
-/* Middle column */
 .column-right {
     float: left;
     padding: 10px;
@@ -66,6 +65,7 @@ body {
 	background-color: #9ee;
 }
 
+/* iframe for playing original game */
 .dragonWindow {
 	width: 95%;
 	height: 95%;
@@ -81,9 +81,14 @@ body {
 
 .footer {
     background-color: #c9ffdd;
-    text-align: center;
+	color: black;
+	height: 3em;
     padding: 10px;
-	height: 2em;
+}
+
+.powered {
+	display: inline;
+	float: left;
 }
 
 .debugWindow {
@@ -106,78 +111,5 @@ body {
         width: 100%;
     }
 }
-
-*/
-
-
-/*
-
-#window0 {
-	width: 20px;
-	height: 20px;
-}
-
-.logo {
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	width: 200px;
-	height: 100px;
-	text-align: left;
-	font-size: 40px;
-	color: yellow;
-}
-
-.folders {
-	position: fixed;
-	top: 120px;
-	left: 30px;
-	width: 200px;
-	text-align:left;
-	font-size: 20px;
-}
-
-.mailContent {
-	position: fixed;
-	top: 120px;
-	left: 200px;
-	text-align: left;
-	font-size: 15px;
-	color: white;
-	width: 800px;
-	height: 450px;
-	background-color: #ccc;
-}
-
-.dragonWindow {
-	position: fixed;
-	top: 130px;
-	left: 210px;
-	width: 780px;
-	height: 440px;
-	background-color: #aaa;
-}
-
-.debugWindow {
-	position: fixed;
-	top: 600px;
-	left: 20px;
-	width: 600px;
-	height: 150px;
-	text-align: left;
-	font-size: 15px;
-	color: black;
-	background-color: white;
-	overflow-y: scroll;
-}
-
-a {
-	color:#0a0;
-}
-
-.command {
-	color:green;
-}
-
 
 */
