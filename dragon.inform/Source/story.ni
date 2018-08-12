@@ -94,19 +94,29 @@ Chapter 3 - Linkaging
 Linkaging is an action applying to one topic.  Understand "link [text]" as linkaging.
 
 Check Linkaging:
+	[don't do something unless it's a change from current display]
 	if the topicDuJour is the topic understood:
 		stop the action.
 	
 Carry out Linkaging:
-	add the topic understood to the history buffer;
-	now the topicDuJour is the topic understood;
-	clear the element called "column-right".
+	say "The topic understood is [quotation mark][topic understood][quotation mark].";
+	if "back" is the topic understood:
+		say "Going back!";
+		let N be the number of entries in the history buffer minus one;
+		say "N is [N].";
+		if N is greater than 1:
+			now the topicDuJour is entry N of the history buffer;
+			say "Changing the topicDuJour to [topicDuJour].";
+			change the history buffer to have N entries;
+			clear the element called "column-right";
+	otherwise:
+		now the topicDuJour is the topic understood;
+		add the topicDuJour to the history buffer;
+		say "history buffer added [topicDuJour] for [number of entries of the history buffer] entries.";
+		clear the element called "column-right".
 		
 Report Linkaging:
-	say "The [topic understood] link was selected."
-	
-Last After Linkaging:
-	set output focus to the element called "debugWindow".
+	say "The [topic understood] link was selected and the current topic is [topicDuJour]."
 	
 After Linkaging when topicDuJour is "TDWTYFN":
 	open HTML tag "iframe" called "dragonWindow";
@@ -137,8 +147,9 @@ After Linkaging when topicDuJour is "vorple":
 	place "li" element reading "Notifications";
 	place "li" element reading "Multimedia";
 	close HTML tag.
+
 	
-Chapter 4 - Every Turn
+Chapter 5 - Every Turn
 
 Every turn:
 	set output focus to the element called "debugWindow".
