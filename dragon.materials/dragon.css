@@ -22,6 +22,9 @@ body {
 .header {
     background-color: #f47742;
     padding: 20px;
+	border-bottom-style: double;
+	border-width: medium;
+	border-color: #ededed;
 }
 
 .header a {
@@ -41,8 +44,12 @@ body {
 
 .logo {
 	text-align: left;
-	font-size: 40px;
+	font-size: 3em;
 	color: blue;
+}
+
+.row {
+	width: 100%;
 }
 
 /* Left and right column */
@@ -55,14 +62,18 @@ body {
 
 .column-left a {
 	display: block;
-	padding: .5em 2em .5em 2em;
+	padding: .2em 2em .2em 2em;
 }
 
 .column-right {
     float: left;
     padding: 10px;
     width: 75%;
+	min-height: 25em;
 	background-color: #9ee;
+	border-left-style: solid;
+	border-width: thin;
+	border-color: #ededed;
 }
 
 /* iframe for playing original game */
@@ -102,6 +113,14 @@ body {
 
 #lineinput {
 	display:none;
+}
+
+.bigred {
+	position:relative;
+	top: 1em;
+	font-size:2em;
+	color:red;
+	text-align: center;
 }
 
 

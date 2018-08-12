@@ -5,9 +5,11 @@ Include Vorple Hyperlinks by Juhana Leinonen.
 Include Vorple Command Prompt Control by Juhana Leinonen.
 Include Vorple Modal Windows by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
+Include Vorple Multimedia by Juhana Leinonen.
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
+Release along with the file "balloons.png" and the file "plucky.mp3".
 
 The topicDuJour is a text that varies.
 
@@ -51,7 +53,11 @@ To layout the screen:
 	place a block level element called "debugWindow";
 	display text "JMAIL" in element called "logo";
 	set output focus to the element called "column-right";
-	say "Here is some mail content.";	
+	place an image "balloons.png" with the description "A cluster of colorful party balloons", centered;
+	place a block level element called "bigred";
+	set output focus to the element called "bigred";
+	say "Congratulations![paragraph break]You have hit zero inbox!";	
+	move the element called "bigred" under "column-right";
 	place a block level element called "folders";
 	move the element called "folders" under "column-left";
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
@@ -117,6 +123,7 @@ After Linkaging when topicDuJour is "vorple":
 	place "li" element reading "Command Prompt Control";
 	place "li" element reading "Vorple Hyperlinks";
 	place "li" element reading "Notifications";
+	place "li" element reading "Multimedia";
 	close HTML tag;
 	set output focus to the element called "debugWindow".
 
