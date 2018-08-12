@@ -103,10 +103,11 @@ Report Linkaging:
 	say "The [topic understood] link was selected."
 	
 After Linkaging when topicDuJour is "TDWTYFN":
-	say "Doing something.";
+	clear the element called "column-right";
 	set output focus to the main window;
 	open HTML tag "iframe" called "dragonWindow";
 	close HTML tag;
+	move the element called "dragonWindow" under "column-right";
 	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://ifarchive.org/if-archive/games/competition2017/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now.html')";
 	set output focus to the element called "debugWindow".
 

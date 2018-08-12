@@ -66,6 +66,12 @@ body {
 	background-color: #9ee;
 }
 
+.dragonWindow {
+	width: 95%;
+	height: 95%;
+	background-color: #fff;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
