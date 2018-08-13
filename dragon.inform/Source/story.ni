@@ -178,6 +178,14 @@ After Linkaging when topicDuJour is "inform":
 	say line break;
 	say "Thanks to all those who have worked on Inform and in the Inform ecosystem. This story was written in [bold type]Inform 7[roman type] and compiled for the [bold type]Glulx[roman type] virtual machine."
 	
+After Linkaging when topicDuJour is "about":
+	set output focus to the element called "column-right";
+	repeat with minOffset running from 1 to 24:
+		execute JavaScript command "var today=new Date(); today.setMinutes(today.getMinutes()-[minOffset]*60); var min=today.getMinutes(); var hr=today.getHours(); if (hr == 0) { hr = 12; } else if ( hr > 12) { hr -= 12;} [bracket]'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'[close bracket][bracket]today.getMonth()[close bracket]+' '+today.getDate()+', '+today.getFullYear()+' '+(hr < 10 ? ' ' : '')+hr+':'+(min < 10 ? '0':'')+min+' '+(today.getHours() > 11 ? 'PM' : 'AM')";
+		say the text returned by the JavaScript command;
+		say line break.
+
+	
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
