@@ -339,12 +339,15 @@ Section 2 - Mail Folders
 
 InboxFolder is a mailfolder. The manifest of InboxFolder is { Intemp1 , Intemp2 , Intemp3 }.
 The maxAge of inboxFolder is 8000.
+The printed name of inboxfolder is "Inbox".
 
 JunkFolder is a mailfolder. The manifest of JunkFolder is { SEO , Chow , Fatima }.
 The maxAge of junkFolder is 120.
+The printed name of junkFolder is "Junk".
 
 SentFolder is a mailfolder. The manifest of SentFolder is { senttemp1 , senttemp2 , senttemp3 }.
 The maxAge of sentFolder is 180.
+The printed name of sentFolder is "Sent".
 
 Section 3 - Incoming Mail
 
@@ -364,6 +367,8 @@ To receive (email - an epistle) into (folder - a mailfolder):
 	execute Javascript command "timestamp(0);";
 	now the date of email is the text returned by the JavaScript command;
 	add email to the manifest of folder;
+	play the sound effect file "plucky.mp3";
+	display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
 	say "added [email] to [folder]."
 
 
