@@ -76,6 +76,15 @@ body {
 	border-color: #ededed;
 }
 
+.hrsub { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-style: inset;
+    border-width: 1px;
+	border-color: black;
+}
+
 /* iframe for playing original game */
 .dragonWindow {
 	width: 95%;
@@ -124,11 +133,9 @@ body {
 }
 
 
-/*
 @media screen and (max-width: 600px) {
-    .column.left, .column.right {
+    .column-left, .column-right {
         width: 100%;
     }
 }
 
-*/

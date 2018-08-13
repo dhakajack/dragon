@@ -145,16 +145,9 @@ Carry out Linkaging:
 		
 Report Linkaging:
 	say "The [topic understood] link was selected and the current topic is [topicDuJour]."
-	
 
-[Mailreading is an action applying to one thing. Understand "readmail [any thing]" as mailreading.
- 
-Carry out Mailreading:
-	clear the element called "column-right";
-	set output focus to the element called "column-right";
-	say payload of the noun.]
 
-Section 1 - Top Level
+Section 1 - Handle Links
 
 [This wonky bit handles all display of all the epistles]
 After Linkaging when topicDuJour matches the text "mail-":
@@ -166,6 +159,10 @@ After Linkaging when topicDuJour matches the text "mail-":
 		if "[item]" is "[v]":
 			clear the element called "column-right";
 			set output focus to the element called "column-right";
+			say "[bold type]Subject: [subject of item][roman type][line break][bold type]Date: [roman type][date of item][line break][bold type]To: [roman type]IFTF Admin[line break]";
+			if carboncopy of the item is not "":
+				say "[bold type]CC: [roman type][carboncopy of the item][line break]";
+			place a block level element called "hrsub";
 			say payload of item;
 			break.
 	
@@ -197,7 +194,7 @@ After Linkaging when topicDuJour is "vorple":
 	close HTML tag.
 	
 After Linkaging when topicDuJour is "junk":
-	display a notification with title "Achievement" reading "Checked Junk!";
+	[display a notification with title "Achievement" reading "Checked Junk!";]
 	set output focus to the element called "column-right";
 	repeat with item running through manifest of junkFolder:
 		place a link to command "link mail-[item]" reading "[subject of item]";
