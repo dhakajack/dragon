@@ -218,12 +218,39 @@ After Linkaging when topicDuJour is "vorple":
 After Linkaging when topicDuJour is "junk":
 	show index of junkFolder.
 	
-		
 To show index of (dossier - a mailfolder):
 	set output focus to the element called "column-right";
+	open HTML tag "table";
+	open HTML tag "tr";
+	open HTML tag "th";
+	if dossier is SentFolder:
+		say "To:";
+	otherwise:
+		say "From:";
+	close HTML tag;
+	open HTML tag "th";
+	say "Subject:";
+	close HTML tag;
+	open HTML tag "th";
+	say "Date:";
+	close HTML tag;
+	close HTML tag;
 	repeat with item running through manifest of dossier:
+		open HTML tag "tr";
+		open HTML tag "td";
+		if dossier is SentFolder:
+			say recipient of item;
+		otherwise:
+			say "IFTFF admin";
+		close HTML tag;
+		open HTML tag "td";
 		place a link to command "link mail-[item]" reading "[subject of item]";
-		say paragraph break.
+		close HTML tag;
+		open HTML tag "td";
+		say date of the item;
+		close HTML tag;
+		close HTML tag;
+	close HTML tag.
 		
 Section 2 - Story Links
 
@@ -249,8 +276,7 @@ The payload of XXX is "YYY".
 
 SEO is an epistle. SEO is read.
 The subject of SEO is "Huge SEO Oppourtunity".
-The payload of SEO is "HI[paragraph break]Hope you are doing well.[paragraph break]
-My name is Ephram Zockspoon and working with reputed leading Search Engine Optimization Company having the experience of getting our customer's websites top in Zoodle and producing high revenue with top page rank.[paragraph break]I was searching related to your business on Zoodle and saw your website is not on first page on Zoodle for most of the relevant and user oriented keywords pertaining to your domain so I was wondering.[paragraph break]If you would be interested in getting very Affordable Search engine optimization done for your website.[paragraph break]You Can contact me with:-[paragraph break]I'd be happy to send you our package, pricing and past work details, if you'd like to assess our work.[paragraph break]Feel free to discuss any other any queries.[paragraph break]Thanks & Regards[line break]Ephram Zockspoon[line break]Manager-Business Development Team."
+The payload of SEO is "HI[paragraph break]Hope you are doing well.[paragraph break]My name is Ephram Zockspoon and working with reputed leading Search Engine Optimization Company having the experience of getting our customer's websites top in Zoodle and producing high revenue with top page rank.[paragraph break]I was searching related to your business on Zoodle and saw your website is not on first page on Zoodle for most of the relevant and user oriented keywords pertaining to your domain so I was wondering.[paragraph break]If you would be interested in getting very Affordable Search engine optimization done for your website.[paragraph break]You Can contact me with:-[paragraph break]I'd be happy to send you our package, pricing and past work details, if you'd like to assess our work.[paragraph break]Feel free to discuss any other any queries.[paragraph break]Thanks & Regards[line break]Ephram Zockspoon[line break]Manager-Business Development Team."
 
 Chow is an epistle. Chow is read.
 The subject of Chow is "Private Bank Communication".
