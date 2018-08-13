@@ -155,6 +155,19 @@ Carry out Mailreading:
 	say payload of the noun.]
 
 Section 1 - Top Level
+
+[This wonky bit handles all display of all the epistles]
+After Linkaging when topicDuJour matches the text "mail-":
+	let V be topicDuJour;
+	replace the text "mail-" in V with "";
+	say "V is [V].";
+	repeat with item running through epistles:
+		say "Checking out [item].";
+		if "[item]" is "[v]":
+			clear the element called "column-right";
+			set output focus to the element called "column-right";
+			say payload of item;
+			break.
 	
 After Linkaging when topicDuJour is "TDWTYFN":
 	open HTML tag "iframe" called "dragonWindow";
@@ -221,7 +234,6 @@ The payload of SEO is usually "HI[paragraph break]Hope you are doing well.[parag
 My name is Ephram Zockspoon and working with reputed leading Search Engine Optimization Company having the experience of getting our customer's websites top in Zoodle and producing high revenue with top page rank.[paragraph break]I was searching related to your business on Zoodle and saw your website is not on first page on Zoodle for most of the relevant and user oriented keywords pertaining to your domain so I was wondering.[paragraph break]If you would be interested in getting very Affordable Search engine optimization done for your website.[paragraph break]You Can contact me with:-[paragraph break]I'd be happy to send you our package, pricing and past work details, if you'd like to assess our work.[paragraph break]Feel free to discuss any other any queries.[paragraph break]Thanks & Regards[line break]Ephram Zockspoon[line break]Manager-Business Development Team."
 
 Chow is an epistle. Chow is read.
-Understand "Chow" as Chow.
 The date of Chow is usually "YYY".
 The recipient of Chow is usually "YYY".
 The carboncopy of Chow is usually "YYY".
@@ -234,8 +246,6 @@ The recipient of Fatima is usually "YYY".
 The carboncopy of Fatima is usually "YYY".
 The subject of Fatima is usually "sallut".
 The payload of Fatima is usually "Cher Ami,[paragraph break]S'il vous plaît, ne soyez pas surpris dans ce message. Acceptez mes excuses si Cela vous a embarrassé. Cependant, il est urgent d'avoir un partenaire étranger qui m'a fait prendre contact avec vous.[paragraph break]Avec tout le respect que je vous dois, je m'appelle Mme Fatima, l'épouse de l'ancien directeur de l'aviation de mon pays, la République de Sahara Oriental, mais a été tué dans un conflit politique. Je suis basé au Fauzania pour un asile politique à cause de l'allégation contre mon mari selon laquelle il a détourné les fonds publics, et maintenant le gouvernement est derrière moi, c'est pourquoi j'ai dû fuir. Pour l'instant je ne peux pas retourner jusqu'à ce que toute la situation soit réglée.[paragraph break]Je dois visiter votre pays pour savoir s'il est possible d'investir l'argent de ma famille. Mais, les chambres de commerce m'ont conseillé de faire équipe avec le citoyen du pays, de sorte que je trouverai facile d'établir l'entreprise, c'est pourquoi j'ai besoin de quelqu'un en qui j'ai confiance.[paragraph break]J'aimerai investir sept millions, cinq cent mille dollars (7 500 000 $) et je veux que vous promettiez la transparence et le respect dans les contrats de partenariat. Ce sera un plaisir de vous donner 15% de l'argent total que je vais investir dans l'investissement, à cause de toute l'assistance nécessaire que vous ferez pendant l'installation.[paragraph break]J'apprécierai si vous pouvez me répondre, afin que nous puissions discuter plus loin.[paragraph break]Merci, que Dieu vous bénisse.[line break]Mme, Fatima Kala-Azar.".
-
-
 
 
 Section 2 - Mail Folders
