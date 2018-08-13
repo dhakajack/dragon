@@ -199,7 +199,6 @@ After Linkaging when topicDuJour is "about":
 		say the text returned by the JavaScript command;
 		say line break.
 
-	
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
@@ -217,6 +216,12 @@ After Linkaging when topicDuJour is "vorple":
 	
 After Linkaging when topicDuJour is "junk":
 	show index of junkFolder.
+	
+After Linkaging when topicDuJour is "inbox":
+	show index of inboxFolder.
+	
+After Linkaging when topicDuJour is "sent":
+	show index of sentFolder.
 	
 To show index of (dossier - a mailfolder):
 	set output focus to the element called "column-right";
