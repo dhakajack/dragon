@@ -70,6 +70,19 @@ Rule for printing the name of a room:
 	do nothing.
 
 To layout the screen:	
+	execute Javascript command "function timestamp(temporalOffset) {
+		var today=new Date(); 
+		today.setMinutes(today.getMinutes()- temporalOffset); 
+		var min=today.getMinutes(); 
+		var hr=today.getHours(); 
+		if (hr == 0) {
+			hr = 12; 
+		}
+		else if ( hr > 12) {
+			hr -= 12;
+		}
+		return ([bracket]'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'[close bracket][bracket]today.getMonth()[close bracket]+' '+today.getDate()+', '+today.getFullYear()+' '+(hr < 10 ? ' ' : '')+hr+':'+(min < 10 ? '0':'')+min+' '+(today.getHours() > 11 ? 'PM' : 'AM'));
+	}";
 	place a block level element called "header";
 	place a block level element called "logo";
 	[place a block level element called "controls";]
@@ -122,7 +135,7 @@ To backdate email:
 		repeat with mail running through manifest of folder:
 			now timeOffset is timeOffset + minuteDecrement;
 			say "folder [folder] / mail [mail] - maxage [maxage of the folder], minutedec [minuteDecrement], timeOffset [timeOffset].";
-			execute JavaScript command "var today=new Date(); today.setMinutes(today.getMinutes()- [timeOffset] ); var min=today.getMinutes(); var hr=today.getHours(); if (hr == 0) { hr = 12; } else if ( hr > 12) { hr -= 12;} [bracket]'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'[close bracket][bracket]today.getMonth()[close bracket]+' '+today.getDate()+', '+today.getFullYear()+' '+(hr < 10 ? ' ' : '')+hr+':'+(min < 10 ? '0':'')+min+' '+(today.getHours() > 11 ? 'PM' : 'AM')";
+			execute JavaScript command "timestamp([timeOffset]);";
 			now the date of the mail is the text returned by the JavaScript command.
 	
 Chapter 4 - Linkaging
@@ -194,10 +207,8 @@ After Linkaging when topicDuJour is "inform":
 	
 After Linkaging when topicDuJour is "about":
 	set output focus to the element called "column-right";
-	repeat with minOffset running from 1 to 24:
-		execute JavaScript command "var today=new Date(); today.setMinutes(today.getMinutes()-[minOffset]*60); var min=today.getMinutes(); var hr=today.getHours(); if (hr == 0) { hr = 12; } else if ( hr > 12) { hr -= 12;} [bracket]'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'[close bracket][bracket]today.getMonth()[close bracket]+' '+today.getDate()+', '+today.getFullYear()+' '+(hr < 10 ? ' ' : '')+hr+':'+(min < 10 ? '0':'')+min+' '+(today.getHours() > 11 ? 'PM' : 'AM')";
-		say the text returned by the JavaScript command;
-		say line break.
+	receive arrive1 into junkFolder;
+	say "About text here."
 
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
@@ -324,8 +335,6 @@ The carboncopy of senttemp3 is  "YYY".
 The subject of senttemp3 is  "sent3".
 The payload of senttemp3 is  "YYY".
 
-
-
 Section 2 - Mail Folders
 
 InboxFolder is a mailfolder. The manifest of InboxFolder is { Intemp1 , Intemp2 , Intemp3 }.
@@ -336,6 +345,26 @@ The maxAge of junkFolder is 120.
 
 SentFolder is a mailfolder. The manifest of SentFolder is { senttemp1 , senttemp2 , senttemp3 }.
 The maxAge of sentFolder is 180.
+
+Section 3 - Incoming Mail
+
+arrive1 is an epistle. arrive1 is read.
+The recipient of arrive1 is  "YYY".
+The carboncopy of arrive1 is  "YYY".
+The subject of arrive1 is  "arrive1".
+The payload of arrive1 is  "YYY".
+
+arrive2 is an epistle. arrive2 is read.
+The recipient of arrive2 is  "YYY".
+The carboncopy of arrive2 is  "YYY".
+The subject of arrive2 is  "arrive2".
+The payload of arrive2 is  "YYY".
+
+To receive (email - an epistle) into (folder - a mailfolder):
+	execute Javascript command "timestamp(0);";
+	now the date of email is the text returned by the JavaScript command;
+	add email to the manifest of folder;
+	say "added [email] to [folder]."
 
 
 
