@@ -127,14 +127,14 @@ Carry out Linkaging:
 	if "back" is the topic understood:
 		if debug flag is true:
 			say "Going back!";
-		let N be the number of entries in the history buffer minus one;
+		let N be the number of entries in the history buffer;
 		if debug flag is true:
 			say "N is [N].";
-		if N is greater than 0:
-			now the topicDuJour is entry N of the history buffer;
+		if N is greater than 1:
+			now the topicDuJour is entry (N - 1) of the history buffer;
 			if debug flag is true:
 				say "Changing the topicDuJour to [topicDuJour].";
-			change the history buffer to have N entries;
+			change the history buffer to have (N - 1) entries;
 			clear the element called "column-right";
 	otherwise:
 		now the topicDuJour is the topic understood;
@@ -146,14 +146,13 @@ Carry out Linkaging:
 Report Linkaging:
 	say "The [topic understood] link was selected and the current topic is [topicDuJour]."
 	
-Chapter 5 - Reading the mail
 
-Mailreading is an action applying to one thing. Understand "readmail [any thing]" as mailreading.
+[Mailreading is an action applying to one thing. Understand "readmail [any thing]" as mailreading.
  
 Carry out Mailreading:
 	clear the element called "column-right";
 	set output focus to the element called "column-right";
-	say payload of the noun.
+	say payload of the noun.]
 
 Section 1 - Top Level
 	
@@ -188,9 +187,8 @@ After Linkaging when topicDuJour is "junk":
 	display a notification with title "Achievement" reading "Checked Junk!";
 	set output focus to the element called "column-right";
 	repeat with item running through manifest of junkFolder:
-		place a link to command "readmail [item]" reading "[subject of item]";
+		place a link to command "link mail-[item]" reading "[subject of item]";
 		say paragraph break.
-	
 	
 Section 2 - Story Links
 
