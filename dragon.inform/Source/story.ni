@@ -19,6 +19,10 @@ The topicDuJour is a text that varies. The topicDuJour is "inbox".
 
 The history buffer is a list of text that varies. The history buffer is {"inbox"}.
 
+The turn hold flag is a truth state that varies. The turn hold flag is false.
+The turnTimer is a number that varies. The turnTimer is 0.
+BingoTime is always 3.
+
 Chapter 2 - Kinds
 
 Section 1 - Epistles
@@ -62,8 +66,7 @@ When play begins:
 	[hide the prompt;   <-- is this really necessary given the output redirection each turn?]
 	now the default notification duration is 3;
 	layout the screen;
-	backdate email;
-	bingo happens in two turns from now.
+	backdate email.
 
 The display Vorple credits rule is not listed in any rulebook.
 	
@@ -148,6 +151,7 @@ Check Linkaging:
 	if the topicDuJour is the topic understood:
 		if debug flag is true:
 			say "Duplicate action rejected: [topicDuJour].";
+			now the turn hold flag is true;
 		stop the action.
 	
 Carry out Linkaging:
@@ -290,7 +294,13 @@ To say pick (optionTable - a table name) options:
 Chapter 6 - Every Turn
 
 Every turn:
-	set output focus to the element called "debugWindow".	
+	set output focus to the element called "debugWindow";
+	if the turn hold flag is false:
+		increase the turnTimer by one;
+	otherwise:
+		now the turn hold flag is false;
+	if the TurnTimer is bingoTime:
+		receive Bingo into inboxFolder.
 
 Chapter 7 - Mail Objects
 
@@ -322,7 +332,7 @@ The correspondent of Fatima is "Lady Fatima".
 The payload of Fatima is "Cher Ami,[paragraph break]S'il vous plaît, ne soyez pas surpris dans ce message. Acceptez mes excuses si Cela vous a embarrassé. Cependant, il est urgent d'avoir un partenaire étranger qui m'a fait prendre contact avec vous.[paragraph break]Avec tout le respect que je vous dois, je m'appelle Mme Fatima, l'épouse de l'ancien directeur de l'aviation de mon pays, la République de Sahara Oriental, mais a été tué dans un conflit politique. Je suis basé au Fauzania pour un asile politique à cause de l'allégation contre mon mari selon laquelle il a détourné les fonds publics, et maintenant le gouvernement est derrière moi, c'est pourquoi j'ai dû fuir. Pour l'instant je ne peux pas retourner jusqu'à ce que toute la situation soit réglée.[paragraph break]Je dois visiter votre pays pour savoir s'il est possible d'investir l'argent de ma famille. Mais, les chambres de commerce m'ont conseillé de faire équipe avec le citoyen du pays, de sorte que je trouverai facile d'établir l'entreprise, c'est pourquoi j'ai besoin de quelqu'un en qui j'ai confiance.[paragraph break]J'aimerai investir sept millions, cinq cent mille dollars (7 500 000 $) et je veux que vous promettiez la transparence et le respect dans les contrats de partenariat. Ce sera un plaisir de vous donner 15% de l'argent total que je vais investir dans l'investissement, à cause de toute l'assistance nécessaire que vous ferez pendant l'installation.[paragraph break]J'apprécierai si vous pouvez me répondre, afin que nous puissions discuter plus loin.[paragraph break]Merci, que Dieu vous bénisse.[line break]Mme, Fatima Kala-Azar.".
 
 Bingo is an epistle. Bingo is read.
-The subject of Bingo is  "Bingo Bonanza".
+The subject of Bingo is  "Re: Re: Re: Re: Re: Bingo Bonanza".
 The correspondent of Bingo is "Mildred Sneedpox".
 The payload of Bingo is "Dear George,[paragraph break]I have put it in the mail and it should arrive shortly. I ran out of packing peanuts, so I used some actual ones, so if it smells a bit like peanut butter, now you know why. I am so excited to be part of your competition![paragraph break]Mildred[paragraph break][previous mail][paragraph break]Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction – most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
@@ -338,11 +348,11 @@ The carboncopy of Intemp3 is  "YYY".
 The subject of Intemp3 is  "inbox3".
 The payload of Intemp3 is  "YYY".
 
-senttemp1 is an epistle. senttemp1 is read.
-The correspondent of senttemp1 is "YYY".
-The carboncopy of senttemp1 is  "YYY".
-The subject of senttemp1 is  "sent1".
-The payload of senttemp1 is  "YYY".
+secondToMildred is an epistle. secondToMildred is read.
+The correspondent of secondToMildred is "Mildred Sneedpox".
+The carboncopy of secondToMildred is "mail room".
+The subject of secondToMildred is "Re: Re: Re: Bingo Bonanza".
+The payload of secondToMildred is "Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction – most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
 senttemp2 is an epistle. senttemp2 is read.
 The correspondent of senttemp2 is "YYY".
@@ -350,11 +360,11 @@ The carboncopy of senttemp2 is  "YYY".
 The subject of senttemp2 is  "sent2".
 The payload of senttemp2 is  "YYY".
 
-senttemp3 is an epistle. senttemp3 is read.
-The correspondent of senttemp3 is "YYY".
-The carboncopy of senttemp3 is  "YYY".
-The subject of senttemp3 is  "sent3".
-The payload of senttemp3 is  "YYY".
+firstToMildred is an epistle. firstToMildred is read.
+The correspondent of firstToMildred is "Mildred Sneedpox".
+The carboncopy of firstToMildred is  "IFFComp Coordinator".
+The subject of firstToMildred is "Re: Bingo Bonanza".
+The payload of firstToMildred is "Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
 Section 2 - Mail Folders
 
@@ -366,15 +376,12 @@ JunkFolder is a mailfolder. The manifest of JunkFolder is { SEO , Chow , Fatima}
 The maxAge of junkFolder is 120.
 The printed name of junkFolder is "Junk".
 
-SentFolder is a mailfolder. The manifest of SentFolder is { senttemp1 , senttemp2 , senttemp3 }.
+SentFolder is a mailfolder. The manifest of SentFolder is { secondToMildred , senttemp2 , firstToMildred }.
 The maxAge of sentFolder is 180.
 The printed name of sentFolder is "Sent".
 
 Section 3 - Incoming Mail
 
-At the time when bingo happens:
-	receive Bingo into inboxFolder.
-	
 arrive1 is an epistle. arrive1 is read.
 The correspondent of arrive1 is  "YYY".
 The carboncopy of arrive1 is  "YYY".
@@ -393,8 +400,13 @@ To receive (email - an epistle) into (folder - a mailfolder):
 	add email to the manifest of folder;
 	play the sound effect file "plucky.mp3";
 	display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
-	say "added [email] to [folder]."
+	say "added [email] to [folder].";
+	if the topicDuJour is "inbox":
+		clear the element called "column-right";
+		show index of inboxFolder;
+		set output focus to the element called "debugWindow".
 
+	
 Section 4 - Previous Mail
 
 To say previous mail:
