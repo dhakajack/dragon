@@ -137,7 +137,8 @@ To backdate email:
 		let timeOffset be 0;
 		let minuteDecrement be maxAge of folder / (number of entries in the manifest of folder + 1);
 		repeat with mail running through manifest of folder:
-			now timeOffset is timeOffset + minuteDecrement;
+			let timeSalt be a random number between 1 and 13;
+			now timeOffset is timeOffset + minuteDecrement + timeSalt;
 			say "folder [folder] / mail [mail] - maxage [maxage of the folder], minutedec [minuteDecrement], timeOffset [timeOffset].";
 			execute JavaScript command "timestamp([timeOffset]);";
 			now the date of the mail is the text returned by the JavaScript command.
