@@ -96,6 +96,22 @@ th, td {
 	border-color: black;
 }
 
+.hrminisub {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-style: inset;
+    border-width: 1px;
+	border-color: black;
+	width: 25%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pickOption {
+	color: red;
+}
+
 /* iframe for playing original game */
 .dragonWindow {
 	width: 95%;

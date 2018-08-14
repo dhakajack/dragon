@@ -24,10 +24,10 @@ Chapter 2 - Kinds
 Section 1 - Epistles
 
 An epistle is a kind of thing.
-An epistle has some text called date, recipient, carboncopy, subject, and payload.
+An epistle has some text called date, correspondent, carboncopy, subject, and payload.
 An epistle can be read. An epistle is usually not read.
 The date of an epistle is usually "".
-The recipient of an epistle is usually "IFTFF Admin".
+The correspondent of an epistle is usually "IFTFF Admin".
 The carboncopy of an epistle is usually "".
 The subject of an epistle is usually "".
 The payload of an epistle is usually "".
@@ -62,7 +62,8 @@ When play begins:
 	[hide the prompt;   <-- is this really necessary given the output redirection each turn?]
 	now the default notification duration is 3;
 	layout the screen;
-	backdate email.
+	backdate email;
+	bingo happens in two turns from now.
 
 The display Vorple credits rule is not listed in any rulebook.
 	
@@ -186,7 +187,7 @@ After Linkaging when topicDuJour matches the text "mail-":
 		if "[item]" is "[v]":
 			clear the element called "column-right";
 			set output focus to the element called "column-right";
-			say "[bold type]Subject: [subject of item][roman type][line break][bold type]Date: [roman type][date of item][line break][bold type]To: [roman type][recipient of item][line break]";
+			say "[bold type]Subject: [subject of item][roman type][line break][bold type]Date: [roman type][date of item][line break][bold type]To: [roman type][correspondent of item][line break]";
 			if carboncopy of the item is not "":
 				say "[bold type]CC: [roman type][carboncopy of the item][line break]";
 			place a block level element called "hrsub";
@@ -207,8 +208,7 @@ After Linkaging when topicDuJour is "inform":
 	
 After Linkaging when topicDuJour is "about":
 	set output focus to the element called "column-right";
-	receive arrive1 into junkFolder;
-	say "About text here."
+	say start.
 
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
@@ -254,10 +254,7 @@ To show index of (dossier - a mailfolder):
 	repeat with item running through manifest of dossier:
 		open HTML tag "tr";
 		open HTML tag "td";
-		if dossier is SentFolder:
-			say recipient of item;
-		otherwise:
-			say "IFTFF admin";
+		say correspondent of item;
 		close HTML tag;
 		open HTML tag "td";
 		place a link to command "link mail-[item]" reading "[subject of item]";
@@ -270,7 +267,26 @@ To show index of (dossier - a mailfolder):
 		
 Section 2 - Story Links
 
+To say start:
+	say "Polymorphed into bipedal form so you can fit through door of your secluded sylvan office, you breeze into the waiting room.[paragraph break][quotation mark]What have we got tonight?[quotation mark] you ask Dmitri, the cream-colored spectacled owl sitting behind the reception.[paragraph break][quotation mark]Greetings, your Draconic Lordship,[quotation mark] says Dmitri bowing at his spindly talons. [quotation mark]We have one client, a Mr. Nobspike, a half-orc, half-gnome born in the seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration.[quotation mark][paragraph break][quotation mark]How does that even happen?[quotation mark] you ask.[paragraph break][quotation mark]Reevan-the-Warrior was eclipsed by Borimar-the-Devastator until this afternoon, your Lordship.[quotation mark][paragraph break][quotation mark]No, I mean the half-orc, half-gnome part.[quotation mark][paragraph break][quotation mark]Yes, your Lordship. A curious pairing, indeed.[quotation mark] Dmitri hands you a stack of papers including the client’s chart, the latest astrological report, and the evening news.[paragraph break][pick table of start options]".
 	
+Table of Start
+OptionText	Link
+"[quotation mark]How was your day, Dmitri?[quotation mark]"	"yourDay"
+"[quotation mark]Could you be a bit less formal?[quotation mark]"	"lessFormal"
+"[quotation mark]Did you speak to this client?[quotation mark]"	"speakClient"
+"[quotation mark]Where is my coffee?[quotation mark]"	"whereCoffee"
+	
+Section 3 - Pick An Option
+
+To say pick (optionTable - a table name) options:
+	open HTML tag "ul" called "pickOption";
+	repeat through optionTable:
+		open HTML tag "li";
+		place a link to the command "link [Link entry]" reading "[OptionText entry]";
+		close HTML tag;
+	close HTML tag.
+
 Chapter 6 - Every Turn
 
 Every turn:
@@ -292,56 +308,61 @@ The payload of XXX is "YYY".
 
 SEO is an epistle. SEO is read.
 The subject of SEO is "Huge SEO Oppourtunity".
+The correspondent of SEO is "Ephram B. Zockspoon".
 The payload of SEO is "HI[paragraph break]Hope you are doing well.[paragraph break]My name is Ephram Zockspoon and working with reputed leading Search Engine Optimization Company having the experience of getting our customer's websites top in Zoodle and producing high revenue with top page rank.[paragraph break]I was searching related to your business on Zoodle and saw your website is not on first page on Zoodle for most of the relevant and user oriented keywords pertaining to your domain so I was wondering.[paragraph break]If you would be interested in getting very Affordable Search engine optimization done for your website.[paragraph break]You Can contact me with:-[paragraph break]I'd be happy to send you our package, pricing and past work details, if you'd like to assess our work.[paragraph break]Feel free to discuss any other any queries.[paragraph break]Thanks & Regards[line break]Ephram Zockspoon[line break]Manager-Business Development Team."
 
 Chow is an epistle. Chow is read.
 The subject of Chow is "Private Bank Communication".
+The correspondent of Chow is "R. Chow".
 The payload of Chow is "Hello,[paragraph break]I am Roderick Chow, Business Relationship Manager with Hsing Pu Bank Ltd. I am getting in touch with you regarding the estate of a deceased client with similar last name as you, and an investment placed under our banks management some years ago.[paragraph break]Please note that I am making this contact in a private capacity, rather than on behalf of the bank. Sending you this mail is not without a measure of apprehension as to the consequences, should you not be interested in my proposal.[paragraph break]However, I appreciate within me that nothing worthwhile is ever gained without a bold venture, and that success and riches never come easy. This is the one truth I have learned from my private banking clients.[paragraph break]I will respect your freewill if you do not want to be involved. kindly let me know so I shall refrain from further communication with you.[paragraph break]Thanking you for taking the time to read my proposal, I await your response.[paragraph break]Sincerely,[paragraph break]Roderick Chow[paragraph break]".
 
 Fatima is an epistle. Fatima is read.
 The subject of Fatima is "sallut".
+The correspondent of Fatima is "Lady Fatima".
 The payload of Fatima is "Cher Ami,[paragraph break]S'il vous plaît, ne soyez pas surpris dans ce message. Acceptez mes excuses si Cela vous a embarrassé. Cependant, il est urgent d'avoir un partenaire étranger qui m'a fait prendre contact avec vous.[paragraph break]Avec tout le respect que je vous dois, je m'appelle Mme Fatima, l'épouse de l'ancien directeur de l'aviation de mon pays, la République de Sahara Oriental, mais a été tué dans un conflit politique. Je suis basé au Fauzania pour un asile politique à cause de l'allégation contre mon mari selon laquelle il a détourné les fonds publics, et maintenant le gouvernement est derrière moi, c'est pourquoi j'ai dû fuir. Pour l'instant je ne peux pas retourner jusqu'à ce que toute la situation soit réglée.[paragraph break]Je dois visiter votre pays pour savoir s'il est possible d'investir l'argent de ma famille. Mais, les chambres de commerce m'ont conseillé de faire équipe avec le citoyen du pays, de sorte que je trouverai facile d'établir l'entreprise, c'est pourquoi j'ai besoin de quelqu'un en qui j'ai confiance.[paragraph break]J'aimerai investir sept millions, cinq cent mille dollars (7 500 000 $) et je veux que vous promettiez la transparence et le respect dans les contrats de partenariat. Ce sera un plaisir de vous donner 15% de l'argent total que je vais investir dans l'investissement, à cause de toute l'assistance nécessaire que vous ferez pendant l'installation.[paragraph break]J'apprécierai si vous pouvez me répondre, afin que nous puissions discuter plus loin.[paragraph break]Merci, que Dieu vous bénisse.[line break]Mme, Fatima Kala-Azar.".
 
-Intemp1 is an epistle. Intemp1 is read.
-The carboncopy of Intemp1 is  "YYY".
-The subject of Intemp1 is  "inbox1".
-The payload of Intemp1 is  "YYY".
+Bingo is an epistle. Bingo is read.
+The subject of Bingo is  "Bingo Bonanza".
+The correspondent of Bingo is "Mildred Sneedpox".
+The payload of Bingo is "Dear George,[paragraph break]I have put it in the mail and it should arrive shortly. I ran out of packing peanuts, so I used some actual ones, so if it smells a bit like peanut butter, now you know why. I am so excited to be part of your competition![paragraph break]Mildred[paragraph break][previous mail][paragraph break]Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction – most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
 Intemp2 is an epistle. Intemp2 is read.
+The correspondent of intemp2 is "YYY".
 The carboncopy of Intemp2 is  "YYY".
 The subject of Intemp2 is  "inbox2".
 The payload of Intemp2 is  "YYY".
 
 Intemp3 is an epistle. Intemp3 is read.
+The correspondent of intemp3 is "YYY".
 The carboncopy of Intemp3 is  "YYY".
 The subject of Intemp3 is  "inbox3".
 The payload of Intemp3 is  "YYY".
 
 senttemp1 is an epistle. senttemp1 is read.
-The recipient of senttemp1 is  "YYY".
+The correspondent of senttemp1 is "YYY".
 The carboncopy of senttemp1 is  "YYY".
 The subject of senttemp1 is  "sent1".
 The payload of senttemp1 is  "YYY".
 
 senttemp2 is an epistle. senttemp2 is read.
-The recipient of senttemp2 is  "YYY".
+The correspondent of senttemp2 is "YYY".
 The carboncopy of senttemp2 is  "YYY".
 The subject of senttemp2 is  "sent2".
 The payload of senttemp2 is  "YYY".
 
 senttemp3 is an epistle. senttemp3 is read.
-The recipient of senttemp3 is  "YYY".
+The correspondent of senttemp3 is "YYY".
 The carboncopy of senttemp3 is  "YYY".
 The subject of senttemp3 is  "sent3".
 The payload of senttemp3 is  "YYY".
 
 Section 2 - Mail Folders
 
-InboxFolder is a mailfolder. The manifest of InboxFolder is { Intemp1 , Intemp2 , Intemp3 }.
+InboxFolder is a mailfolder. The manifest of InboxFolder is {}.
 The maxAge of inboxFolder is 8000.
 The printed name of inboxfolder is "Inbox".
 
-JunkFolder is a mailfolder. The manifest of JunkFolder is { SEO , Chow , Fatima }.
+JunkFolder is a mailfolder. The manifest of JunkFolder is { SEO , Chow , Fatima}.
 The maxAge of junkFolder is 120.
 The printed name of junkFolder is "Junk".
 
@@ -351,14 +372,17 @@ The printed name of sentFolder is "Sent".
 
 Section 3 - Incoming Mail
 
+At the time when bingo happens:
+	receive Bingo into inboxFolder.
+	
 arrive1 is an epistle. arrive1 is read.
-The recipient of arrive1 is  "YYY".
+The correspondent of arrive1 is  "YYY".
 The carboncopy of arrive1 is  "YYY".
 The subject of arrive1 is  "arrive1".
 The payload of arrive1 is  "YYY".
 
 arrive2 is an epistle. arrive2 is read.
-The recipient of arrive2 is  "YYY".
+The correspondent of arrive2 is  "YYY".
 The carboncopy of arrive2 is  "YYY".
 The subject of arrive2 is  "arrive2".
 The payload of arrive2 is  "YYY".
@@ -371,6 +395,9 @@ To receive (email - an epistle) into (folder - a mailfolder):
 	display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
 	say "added [email] to [folder]."
 
+Section 4 - Previous Mail
 
+To say previous mail:
+	place a block level element called "hrminisub".
 
 
