@@ -22,7 +22,12 @@ The history buffer is a list of text that varies. The history buffer is {"inbox"
 The turn hold flag is a truth state that varies. The turn hold flag is false.
 The turnTimer is a number that varies. The turnTimer is 0.
 
+
+Section 1 - State Flags
+
 The reviewed flag is a truth state that varies. The reviewed flag is false.
+The informal flag is a truth state that varies. The informal flag is false.
+The coffee flag is a truth state that varies. The coffee flag is false.
 
 Chapter 2 - Kinds
 
@@ -75,6 +80,7 @@ Rule for printing the name of a room:
 	do nothing.
 
 To layout the screen:	
+	[stick the function on the page -- we'll call it later, e.g., when timestamping mail messages]
 	execute Javascript command "function timestamp(temporalOffset) {
 		var today=new Date(); 
 		today.setMinutes(today.getMinutes()- temporalOffset); 
@@ -179,6 +185,8 @@ Report Linkaging:
 
 
 Section 1 - Handle Links
+
+[Evrything is a link. Pages are links, options are links, emails are links, yada, yada.]
 
 [This wonky bit handles all display of all the epistles]
 After Linkaging when topicDuJour matches the text "mail-":
@@ -296,28 +304,92 @@ After Linkaging when topicDuJour is "start":
 	say "[start]".
 		
 To say start:
-	say "Polymorphed into bipedal form so you can fit through door of your secluded sylvan office, you breeze into the waiting room.[paragraph break][quotation mark]What have we got tonight?[quotation mark] you ask Dmitri, the cream-colored spectacled owl sitting behind the reception.[paragraph break][quotation mark]Greetings, your Draconic Lordship,[quotation mark] says Dmitri bowing at his spindly talons. [quotation mark]We have one client, a Mr. Nobspike, a half-orc, half-gnome born in the seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration.[quotation mark][paragraph break][quotation mark]How does that even happen?[quotation mark] you ask.[paragraph break][quotation mark]Reevan-the-Warrior was eclipsed by Borimar-the-Devastator until this afternoon, your Lordship.[quotation mark][paragraph break][quotation mark]No, I mean the half-orc, half-gnome part.[quotation mark][paragraph break][quotation mark]Yes, your Lordship. A curious pairing, indeed.[quotation mark] Dmitri hands you a stack of papers including the client’s chart, the latest astrological report, and the evening news.[paragraph break][pick table of start options]".
+	say "Polymorphed into bipedal form so you can fit through door of your secluded sylvan office, you breeze into the waiting room.[paragraph break][quotation mark]What have we got tonight?[quotation mark] you ask Dmitri, the cream-colored spectacled owl sitting behind the reception.[paragraph break][quotation mark]Greetings, your Draconic Lordship,[quotation mark] says Dmitri bowing at his spindly talons. [quotation mark]We have one client, a Mr. Nobspike, a half-orc, half-gnome born in the seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration.[quotation mark][paragraph break][quotation mark]How does that even happen?[quotation mark] you ask.[paragraph break][quotation mark]Reevan-the-Warrior was eclipsed by Borimar-the-Devastator until this afternoon, your Lordship.[quotation mark][paragraph break][quotation mark]No, I mean the half-orc, half-gnome part.[quotation mark][paragraph break][quotation mark]Yes, your Lordship. A curious pairing, indeed.[quotation mark] Dmitri hands you a stack of papers including the client’s chart, the latest astrological report, and the evening news. [pick table of start options]";
+	if the number of filled rows in Table of Start is less than 1:
+		say enterDoors.
 	
 Table of Start
 OptionText	Link
 "[quotation mark]How was your day, Dmitri?[quotation mark]"	"yourDay"
 "[quotation mark]Could you be a bit less formal?[quotation mark]"	"lessFormal"
-"[quotation mark]Did you speak to this client?[quotation mark]"	"speakClient"
 "[quotation mark]Where is my coffee?[quotation mark]"	"whereCoffee"
+
+After Linkaging when topicDuJour is "yourDay":
+	set output focus to the element called "column-right";
+	say "[yourDay]".	
 	
+To say yourDay:
+	say “[quotation mark]Your Draconic Lordship is most kind to inquire.[quotation mark] Dmitri’s feathers fluff proudly. [quotation mark]I was up with the setting of the sun and since no clients were booked until tonight’s midnight read, I thought I would spend the early evening tightening up the tolerances on the threshold.[quotation mark][paragraph break][quotation mark]Did you?[quotation mark][paragraph break][quotation mark]I was interrupted several times by phone calls from Mr. Nobspike, our client, but I did have time to check the threshold, and the tolerances are quite tight, essentially unchanged since the last calibration. Time is on spec to within 1ppm, and all the other axes are balanced.[quotation mark][paragraph break][quotation mark]Fine work, Dmitri. Precision astrology is only as good as our referents, after all.[quotation mark][paragraph break][quotation mark]Service to your Draconic Lordship is my most delightful reward.[quotation mark][enterDoors]";
+	wipe row "yourDay" in Table of Start.
+	
+To say enterDoors:
+	say "[paragraph break]You open the ";
+	place a link to the command "link doors" reading "doors";
+	say " to your office.".
+	
+To say dragonName:
+	if informal flag is false:
+		say "Your Draconic Lordship";
+	otherwise:
+		say "Lord Venkath".
+	
+After Linkaging when topicDuJour is "lessFormal":
+	set output focus to the element called "column-right";
+	say "[quotation mark]How do you desire that I address you, my Draconic Lordship?[quotation mark][paragraph break][quotation mark]How about [apostrophe]Lord Venkath[apostrophe]? That seems much less stuffy that all this [apostrophe]your Draconic Lordship[apostrophe] business.[quotation mark][paragraph break][quotation mark]Your Lordship[apostrophe]s kindness touches me deeply. Do you prefer, [apostrophe]Lord Venkath of the Seven Plates[apostrophe] or just [apostrophe]Lord Venkath[apostrophe]?[paragraph break][quotation mark]Just [apostrophe]Lord Venkath[apostrophe] seems adequate.[quotation mark][paragraph break][quotation mark]Yes, Lord Venkath, so it shall be. But I could not possibly address you so in the presence of our clients, of course.[quotation mark][paragraph break][quotation mark]Of course. Etiquette must prevail.[quotation mark][paragraph break][quotation mark]Your Lordship[apostrophe]s wisdom is incontrovertible.[quotation mark] [enterDoors]";
+	now the informal flag is true;
+	wipe row "lessFormal" in Table of Start.
+	
+After Linkaging when topicDuJour is "whereCoffee":
+	set output focus to the element called "column-right";
+	say "[quotation mark]I have it right here in my flight sack, [dragonName]. A twenty-ounce Costa Rican Tarazu with frosthy spider eggs and a touch of salt.[quotation mark][paragraph break][quotation mark]Excellent,[quotation mark] you say, taking the proffered Styrofoam cup. While taking human form is in many ways a crippling inconvenience, being able to experience caffeine makes it all worthwhile. [enterDoors]";
+	now the coffee flag is true;
+	wipe row "whereCoffee" in Table of Start.
 
 	
+After Linkaging when topicDuJour is "doors":
+	set output focus to the element called "column-right";
+	say "[one of][firstDoor][or][secondDoor][or][thirdDoor][stopping][paragraph break]".
+	
+To say firstDoor:
+	say "The heavy mahogany doors swing inward, over the dimensional discontinuity that leads into your office. You remark that one of the hinges is a bit creaky and instruct Dmitri to pick up some DW-40 next time he’s on the Mundane Plane. You proceed into your [office1link]."
+	
+To say secondDoor:
+	say "[quotation mark]Dmitri, we have a problem.[quotation mark][paragraph break]Since he can[apostrophe]t widen his eyes any further, Dmitri[apostrophe]s ears perk up in surprise. [quotation mark]A problem, [dragonName]?[quotation mark][paragraph break][quotation mark]Yes, we are being scryed upon. I only got a brief glimpse, but if I am not mistaken, someone employing a theosophic mentality worm is watching our every action.[quotation mark][paragraph break][quotation mark]Most disconcerting, [dragonName]. Why ever would anyone wish to do that? Is this an audit?[quotation mark][paragraph break][quotation mark]No, I don[apostrophe]t think so, Dmitri, as audits are contemporaneous and to be effective have to be more discreet. No, this person is entirely lacking in finesse [unicode 8212] it felt like they just ham-handedly rewound time a bit. A moment from now I was in my office, and now I[apostrophe]m back out here.[quotation mark][paragraph break][quotation mark]What shall we do about it, [dragonName]? Shall I dial up the Association?[quotation mark][paragraph break][quotation mark]No, let[apostrophe]s see how this plays out. There is usually a reason for this sort of thing, although it is annoying. Also, I[apostrophe]m afraid we have little choice in the matter if someone wants to play willy-nilly with time[apostrophe]s arrow. We[apostrophe]ll just have to go along with it, repeating our actions and choices ad infinitum for their amusement.[quotation mark][paragraph break][quotation mark]Sounds dreadful.[quotation mark][paragraph break][quotation mark]Yes, but unless I pull myself out of the stream, we won[apostrophe]t even notice it, so best to just ignore it. But I do say this [unicode 8212] and now I am addressing myself our ill-mannered interloper: realize that if you back your way through time, any future events will be undone entirely and you risk forking the multiverse in an untrue fashion and destroying an untold number of realities.[quotation mark][paragraph break][quotation mark]Now then,[quotation mark] you continue, [quotation mark]I[apostrophe]m off to my [office2link].[quotation mark]".
+	
+To say thirdDoor:
+	say "With some annoyance, you again explain to Dmitri that some busybody has been scrying on you and monkeying with causality and temporal flow. With a shrug of your shoulders, you just head back (for the first time) to your [office2link]."
+		
+To say office1link:
+	place a link to the command "link office" reading "office".
+	
+To say office2link:
+	place a link to the command "link office2" reading "office".
+
+After Linkaging when topicDuJour is "office":
+	set output focus to the element called "column-right";
+	say "As you stride into your office[if coffee flag is true] sipping your coffee[end if], something doesn’t quite feel right.[paragraph break]You set [if coffee flag is true]the coffee and [end if]your papers down on your desk and heighten your awareness along the anterior temporal gradient."
+	
+
+After Linkaging when topicDuJour is "office2":
+	set output focus to the element called "column-right";
+	say "Entering the office for realsies."	
 	
 Section 3 - Pick An Option
 
 To say pick (optionTable - a table name) options:
-	open HTML tag "ul" called "pickOption";
-	repeat through optionTable:
-		open HTML tag "li";
-		place a link to the command "link [Link entry]" reading "[OptionText entry]";
-		close HTML tag;
-	close HTML tag.
-
+	if the number of filled rows in optionTable is greater than 0:
+		open HTML tag "ul" called "pickOption";
+		repeat through optionTable:
+			open HTML tag "li";
+			place a link to the command "link [Link entry]" reading "[OptionText entry]";
+			close HTML tag;[/li]
+		close HTML tag.[/ul]
+		
+To wipe row (linkname - text) in (tableName - a table name):
+	if linkname is a Link listed in tableName:
+		choose the row with the Link of linkname in tableName;
+		blank out the whole row.
+		
 Chapter 6 - Every Turn
 
 BingoTime is always 3.
@@ -449,7 +521,7 @@ The payload of finalVictor is "[finalVictorPayload]".
 To say finalVictorPayload:
 	say "[CragneLawFirmHeader]";
 	if the reviewed flag is true:
-		say "My Draconian friends inform me that you have indeed followed my instructions to review the shameful document that you and your ilk let into your contest last year and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to a change, at least for now, in the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh. [run paragraph on]";
+		say "My Draconian friends inform me that you have indeed followed my instructions to review the shameful document that you and your ilk let into your contest last year and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to alter, at least for now, in the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh. [run paragraph on]";
 	otherwise:
 		say "I can’t really say that I blame you. Much. Except in a legally binding sense.[paragraph break]Your reluctance to again cast your eyes for even the most infinitesimal instant of time on that pile of suppurating invective is amongst the sensible things you have ever done.[paragraph break]My associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh.[run paragraph on]";
 	say "I reminded them that I personally wrote eight of the twelve Indominatable Torments in the Unmerciful Book of Zamru, but they suggested we try settling out of court first.[paragraph break]Therefore, I propose the following: Through the magic invested in my office in legal matters pertaining to the Good Repute of Draconian Oracles, I decree that you [unicode 8212] and this so-called Competition of yours [unicode 8212] shall become the very instrument of their Redemption. To wit, I have attached to this electronic letter a ";
