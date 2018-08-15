@@ -22,6 +22,8 @@ The history buffer is a list of text that varies. The history buffer is {"inbox"
 The turn hold flag is a truth state that varies. The turn hold flag is false.
 The turnTimer is a number that varies. The turnTimer is 0.
 
+The reviewed flag is a truth state that varies. The reviewed flag is false.
+
 Chapter 2 - Kinds
 
 Section 1 - Epistles
@@ -197,6 +199,7 @@ After Linkaging when topicDuJour matches the text "mail-":
 			break.
 	
 After Linkaging when topicDuJour is "TDWTYYFN":
+	now the reviewed flag is true;
 	open HTML tag "iframe" called "dragonWindow";
 	close HTML tag;
 	move the element called "dragonWindow" under "column-right";
@@ -280,6 +283,18 @@ To show index of (dossier - a mailfolder):
 		
 Section 2 - Story Links
 
+After Linkaging when topicDuJour is "satanNipples":
+	set output focus to the element called "column-right";
+	say "The Book of Revelations had to stop at some point and it was an editorial decision to omit mention of the seven nipples of the Beast and all of his piercings, multitudinous though they be. Also, I should mention that this is an area of some sensitivity, so if you could refrain from mousing over the seven nipple rings of Our Dark Lord repeatedly, that would be appreciated.[paragraph break]Now that you have had your jollies, click the [quotation mark]Back[quotation mark] button to return to my email of extreme importance."
+	
+After Linkaging when topicDuJour is "worm":
+	set output focus to the element called "column-right";
+	say "Oh, don’t bother going looking for the theosophic mentality worm, it has already devoured its way through some superfluous memories (were they? I suppose they are now) and has sunk its hooked anchor limbs deep into the fleshy pit of your soul. Already, it is leaching away your awareness of your surroundings and infiltrating your thoughts with its hallucinatory mind poisons. Oh, you are going to have some magnificent dreams tonight, if you survive."
+	
+After Linkaging when topicDuJour is "start":
+	set output focus to the element called "column-right";
+	say "[start]".
+		
 To say start:
 	say "Polymorphed into bipedal form so you can fit through door of your secluded sylvan office, you breeze into the waiting room.[paragraph break][quotation mark]What have we got tonight?[quotation mark] you ask Dmitri, the cream-colored spectacled owl sitting behind the reception.[paragraph break][quotation mark]Greetings, your Draconic Lordship,[quotation mark] says Dmitri bowing at his spindly talons. [quotation mark]We have one client, a Mr. Nobspike, a half-orc, half-gnome born in the seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration.[quotation mark][paragraph break][quotation mark]How does that even happen?[quotation mark] you ask.[paragraph break][quotation mark]Reevan-the-Warrior was eclipsed by Borimar-the-Devastator until this afternoon, your Lordship.[quotation mark][paragraph break][quotation mark]No, I mean the half-orc, half-gnome part.[quotation mark][paragraph break][quotation mark]Yes, your Lordship. A curious pairing, indeed.[quotation mark] Dmitri hands you a stack of papers including the client’s chart, the latest astrological report, and the evening news.[paragraph break][pick table of start options]".
 	
@@ -289,6 +304,9 @@ OptionText	Link
 "[quotation mark]Could you be a bit less formal?[quotation mark]"	"lessFormal"
 "[quotation mark]Did you speak to this client?[quotation mark]"	"speakClient"
 "[quotation mark]Where is my coffee?[quotation mark]"	"whereCoffee"
+	
+
+	
 	
 Section 3 - Pick An Option
 
@@ -302,16 +320,33 @@ To say pick (optionTable - a table name) options:
 
 Chapter 6 - Every Turn
 
+BingoTime is always 3.
+FirstVictorTime is always 6.
+NextVictorTime is a number that varies. NextVictorTime is -1.
+FinalVictorTime is a number that varies. FinalVictorTime is -1.
+
 Every turn:
 	set output focus to the element called "debugWindow";
 	if the turn hold flag is false:
 		increase the turnTimer by one;
 	otherwise:
 		now the turn hold flag is false;
-	if the TurnTimer is bingoTime and Bingo is not listed in the manifest of inBoxFolder:
+	if the TurnTimer is bingoTime:
 		receive Bingo into inboxFolder;
-	if the TurnTimer is firstVictorTime and FirstVictor is not listed in the manifest of inboxFolder:
-		receive firstVictor into inboxFolder.
+	if the TurnTimer is firstVictorTime:
+		receive firstVictor into inboxFolder;
+	if reviewed Flag is true:
+		if finalVictorTime is -1:
+			now finalVictorTime is turnTimer plus 2;
+	otherwise:
+		if firstVictor is read and NextVictorTime is -1:
+			now nextVictorTime is turnTimer plus 3;
+	if the TurnTimer is nextVictorTime and reviewed flag is false:
+		receive nextVictor into inboxFolder;
+		now finalVictorTime is turnTimer plus 3;
+	if the TurnTimer is finalVictorTime:
+		receive finalVictor into inboxFolder.
+		
 
 Chapter 7 - Mail Objects
 
@@ -374,24 +409,57 @@ The payload of firstToMildred is "Dear Mildred,[paragraph break]Please create a 
 
 Section 2 - Timed Epistles
 
-BingoTime is always 3.
+
 Bingo is an epistle. Bingo is not read.
 The subject of Bingo is  "Re: Re: Re: Re: Re: Bingo Bonanza".
 The correspondent of Bingo is "Mildred Sneedpox".
 The payload of Bingo is "Dear George,[paragraph break]I have put it in the mail and it should arrive shortly. I ran out of packing peanuts, so I used some actual ones, so if it smells a bit like peanut butter, now you know why. I am so excited to be part of your competition![paragraph break]Mildred[paragraph break][previous mail][paragraph break]Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction – most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
-FirstVictorTime is always 6.
+
 FirstVictor is an epistle. FirstVictor is not read.
-The date of FirstVictor is "YYY".
 The correspondent of FirstVictor is "Victor Cragne, Attorney".
 The carboncopy of FirstVictor is "AAPDO litigation".
 The subject of FirstVictor is "Dragon".
 The payload of FirstVictor is "[FirstVictorPayload]".
 
 To say FirstVictorPayload:
-	say "The Law Offices of Victor Cragne[line break]201 N. Wormwood Drive[line break]Backwater, Vermont[paragraph break]Dear Mr. MacBraeburn,[paragraph break]I am writing to you in your capacity as Chief Administrator of the Interactive Fiction Technological Freedom Foundation, or as it is more commonly known, the IFTFF on behalf of my client, AAPDO, the American Association of Professional Draconian Oracles.[paragraph break]My client seeks redress for the libel perpetuated in the outrageous and vile misrepresentation of their professional activities as depicted in an article hosted on your website as part of last year’s competition, entitled [italic type][quotation mark]The Dragon Will Tell You Your Fortune Now[quotation mark][roman type]. Go ahead and ";
+	say "[CragneLawFirmHeader]I am writing to you in your capacity as Chief Administrator of the Interactive Fiction Technological Freedom Foundation, or as it is more commonly known, the IFTFF on behalf of my client, AAPDO, the American Association of Professional Draconian Oracles.[paragraph break]My client seeks redress for the libel perpetuated in the outrageous and vile misrepresentation of their professional activities as depicted in an article hosted on your website as part of last year’s competition, entitled [italic type][quotation mark]The Dragon Will Tell You Your Fortune Now[quotation mark][roman type]. Go ahead and ";
 	place a link to the command "link TDWTYYFN" reading "revisit it";
 	say ", if the intervening year has somehow washed the putrid taste of its baseless calumny from your maw.[paragraph break]In that particular story, circumstances were taken out of context, exaggerated by a disgruntled and unreasonable client, and important aspects of the referenced dragon’s professional behavior were omitted. The dragon in question, no less than a Supreme Prophet of the Ninth Draconian Plate, made every reasonable attempt to address unusual and extenuating paranormal circumstances on the evening in question, but his efforts were entirely glossed over in the rubbish that you saw fit to publish and continue to maintain on your site.[paragraph break]I demand that you immediately remove from the internet and destroy all copies of the above-cited twaddle in your possession.  Additionally, I demand compensation in the amount of $1,000,000 for your blatant and willful maligning of my client and consequent reputational damage, pain, and suffering.[paragraph break]Furthermore, this communication is intended for settlement purposes and is without prejudice to and shall not affect, in any manner, the rights, claims, remedies, actions or causes of action which I have, had or may have, at law or in equity, including my right to be reimbursed for all legal fees associated with this matter.  This letter is inadmissible in any future proceeding pursuant to Federal Rule of Evidence 408.[paragraph break]Please be further advised that I reserve my right to commence and prosecute to completion, without further notice, any and all actions or proceedings I feel is necessary and/or appropriate.[paragraph break]You have not heard the last from me, MacBraeburn!".
+	
+nextVictor is an epistle. nextVictor is not read.
+The correspondent of nextVictor is "Victor Cragne, Attorney".
+The carboncopy of nextVictor is "AAPDO litigation".
+The subject of nextVictor is "RE: Dragon".
+The payload of nextVictor is "[nextVictorPayload]".
+
+To say nextVictorPayload:
+	say "[CragneLawFirmHeader]What in the name of ";
+	place a link to the command "link satanNipples" reading "Satan’s seven silver-spiked nipple rings";
+	say " is taking you so long to review this matter of utmost importance?[paragraph break]Yes, of course I know that you didn’t bother to click on the ";
+	place a link to the command "link TDWTYYFN" reading "link to that abysmal story from last year";
+	say " [unicode 8212] I am literally surrounded by the thirteen Trustees of the American Association of Professional Draconian Oracles [unicode 8212]  all of whom are psychic dragons. Thirteen very irritable, flame-breathing dragons of venerable age, immeasurable wisdom, and as is the way with dragons, dangerously short tempers.[paragraph break]I again recommend you spend some time rolling in the frothy bilge of that contested account, until your very pores are saturated with the rancid stench of the unforgiveable folderol cranked out by that ill-bred hack.[paragraph break]We’re not through with you yet, MacBraeburn![paragraph break][unicode 8212] Victor Cragne".
+	
+finalVictor is an epistle. finalVictor is not read.
+The correspondent of finalVictor is "Victor Cragne, Attorney".
+The carboncopy of finalVictor is "AAPDO litigation".
+The subject of finalVictor is "RE: RE: Dragon".
+The payload of finalVictor is "[finalVictorPayload]".
+
+To say finalVictorPayload:
+	say "[CragneLawFirmHeader]";
+	if the reviewed flag is true:
+		say "My Draconian friends inform me that you have indeed followed my instructions to review the shameful document that you and your ilk let into your contest last year and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to a change, at least for now, in the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh. [run paragraph on]";
+	otherwise:
+		say "I can’t really say that I blame you. Much. Except in a legally binding sense.[paragraph break]Your reluctance to again cast your eyes for even the most infinitesimal instant of time on that pile of suppurating invective is amongst the sensible things you have ever done.[paragraph break]My associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh.[run paragraph on]";
+	say "I reminded them that I personally wrote eight of the twelve Indominatable Torments in the Unmerciful Book of Zamru, but they suggested we try settling out of court first.[paragraph break]Therefore, I propose the following: Through the magic invested in my office in legal matters pertaining to the Good Repute of Draconian Oracles, I decree that you [unicode 8212] and this so-called Competition of yours [unicode 8212] shall become the very instrument of their Redemption. To wit, I have attached to this electronic letter a ";
+	place a link to the command "link worm" reading "theosophic mentality worm";
+	say ", which has already penetrated and has become lodged in the core of your essence. Soon the ";
+	place a link to the command "link start" reading "world will begin to appear ";	
+	say "to all of you as it did to my client, that evening last year when all this took place.[paragraph break]Ignore this gift at your peril! I have started polishing up Indominatable Torture Number Seven as a contingency, and I assure, it would be my most sincere pleasure to inflict it upon you.[paragraph break]Sincerely,[paragraph break]Victor Cragne".
+	
+To say CragneLawFirmHeader:
+	say "The Law Offices of Victor Cragne[line break]201 N. Wormwood Drive[line break]Backwater, Vermont[paragraph break]Dear Mr. MacBraeburn,[paragraph break]".
 
 Section 3 - Mail Folders
 
@@ -422,16 +490,17 @@ The subject of arrive2 is  "arrive2".
 The payload of arrive2 is  "YYY".
 
 To receive (email - an epistle) into (folder - a mailfolder):
-	execute Javascript command "timestamp(0);";
-	now the date of email is the text returned by the JavaScript command;
-	add email to the manifest of folder;
-	play the sound effect file "plucky.mp3";
-	display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
-	say "added [email] to [folder].";
-	if the topicDuJour is "inbox":
-		clear the element called "column-right";
-		show index of inboxFolder;
-		set output focus to the element called "debugWindow".
+	if email is not listed in the manifest of folder:
+		execute Javascript command "timestamp(0);";
+		now the date of email is the text returned by the JavaScript command;
+		add email to the manifest of folder;
+		play the sound effect file "plucky.mp3";
+		display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
+		say "added [email] to [folder].";
+		if the topicDuJour is "inbox":
+			clear the element called "column-right";
+			show index of inboxFolder;
+			set output focus to the element called "debugWindow".
 
 	
 Section 5 - Previous Mail

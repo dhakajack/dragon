@@ -76,6 +76,16 @@ body {
 	border-color: #ededed;
 }
 
+.column-right a:link, a:visited {
+	color: blue;
+	font-weight: bold;
+}
+
+.column-right a:hover, a:active {
+	color: tomato;
+	font-weight: bold;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -108,9 +118,11 @@ th, td {
 	margin-right: auto;
 }
 
-.read {}
+.read a:link,a:visited {
+	font-weight: normal;
+}
 
-.unread {
+.unread a:link,a:visited {
 	font-weight: bold;
 }
 
