@@ -222,8 +222,16 @@ After Linkaging when topicDuJour is "inform":
 	
 After Linkaging when topicDuJour is "about":
 	set output focus to the element called "column-right";
-	say "Background material goes here."
+	say "There really was a game entered into the 2018 IFcomp with the title [quotation mark]Now The Dragon Will Tell You Your Fortune[quotation mark]. There is some debate as to whether it was a joke entry, as it was unwinnable and the author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]Last year when I reviewed the original game on my [blog], I thought it was well-written, but thought it was a shame it didn't go anywhere. I found myself wondering why the client had gone to see the dragon, and most of all, why it was so hard to get into the next room to meet the dragon. Well, now the story can be told at last."
 	
+To say blog:
+	place a link to the command "link blog" reading "blog".
+	
+After Linkaging when topicDuJour is "blog":
+	open HTML tag "iframe" called "dragonWindow";
+	close HTML tag;
+	move the element called "dragonWindow" under "column-right";
+	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://blog.templaro.com/review-dragon-will-tell-future-now')".
 	
 After Linkaging when topicDuJour is "credits":
 	set output focus to the element called "column-right";
@@ -348,7 +356,7 @@ After Linkaging when topicDuJour is "lessFormal":
 	
 After Linkaging when topicDuJour is "whereCoffee":
 	set output focus to the element called "column-right";
-	say "[quotation mark]I have it right here in my flight sack, [dragonName]. A twenty-ounce Costa Rican Tarazu with frosthy spider eggs and a touch of salt.[quotation mark][paragraph break][quotation mark]Excellent,[quotation mark] you say, taking the proffered Styrofoam cup. While taking human form is in many ways a crippling inconvenience, being able to experience caffeine makes it all worthwhile. [enterDoors]";
+	say "[quotation mark]I have it right here in my flight sack, [dragonName]. A twenty-ounce Costa Rican Tarazu with frosty spider eggs and a touch of salt.[quotation mark][paragraph break][quotation mark]Excellent,[quotation mark] you say, taking the proffered Styrofoam cup. While taking human form is in many ways a crippling inconvenience, being able to experience caffeine makes it all worthwhile. [enterDoors]";
 	now the coffee flag is true;
 	wipe row "whereCoffee" in Table of Start.
 
@@ -397,8 +405,90 @@ After Linkaging when topicDuJour is "drinkCoffee":
 	
 After Linkaging when topicDuJour is "deskPapers":
 	set output focus to the element called "column-right";
-	say "Additional Content Branches from here."
+	say "[one of]When you walked in you tossed the documents that Dmitri had handed you onto some other [or]There are a number of [stopping]papers on the corner of your desk. Poking through the pile, you see tomorrow’s [newspaper], a freshly printed astrological [update], and your client’s [chart]. Further down in the pile, you [one of]dig out the invitation to speak at this year’s Soothsaying Guild Annual Awards Dinner.[pick Table of Guild Dinner options][or]find an old bill from the Dimension Dwarves.[pick Table of DDbill options][or][stopping]".
 	
+To say newspaper:
+	place a link to the command "link newspaper" reading "newspaper".
+	
+To say update:
+	place a link to the command "link update" reading "update".
+	
+To say chart:
+	place a link to the command "link chart" reading "chart".
+	
+After Linkaging when topicDuJour is "newspaper":
+	set output focus to the element called "column-right";
+	say "You leaf through tomorrow’s newspaper looking for any short term perturbations or causal inconsistencies, but ignore the news itself, which is too fluid to be reliable.[no line break][one of] You take particular joy in reading through the sham horoscopes and weather forecasts, which keep professional seers like you in business.[no line break][or][stopping][paragraph break]".
+	
+After Linkaging when topicDuJour is "update":
+	set output focus to the element called "column-right";
+	say "You start with the headlines: The long-anticipated Age of Boort-the-Deceiver is only a few days away, so there will be a mad rush to align those temples in the next couple days (despite Dentar Ten Plate having forecasted the event almost two hundred years ago). Above the ecliptic, Togam-the-Fishwife is transiting the Hoary Field of Incertitude, the meaning of which, of course, is anyone’s guess. On the broad sheet, the Houses of Yaptog-the-Willful and Erelam-the-Incontinent are nearing opposition along a line roughly orthogonal to Peetsokh-the-Unready. That may open up some interesting opportunities for some of your elven conjurer corporate clients. Nothing interesting going on in the Minor Houses, and there are no Shadow Aspects that bear mentioning. In more mundane matters, you make note of a continuing coronal mass ejection, which sometimes prompts clients to drop by when they take the appearance of an aurora as a supernatural sign."
+	
+After Linkaging when topicDuJour is "chart":
+	set output focus to the element called "column-right";
+	say "You flip past the HIPAA-compliant coversheet and glance at the demographic info:[paragraph break]Name: Paisley Nobspike[line break]Race: He has checked the boxes for orc and gnome.[line break]Birth: The 17th of Ubij in the Systematized Year 128A[paragraph break]Dmitri has helpfully penciled in some of the relevant influences at birth, noting that the client was born in seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration. There is no mention of crossed Shadow Aspects, but that will come out in the interview, so no worries there.[paragraph break][one of]You dutifully scan past his address and insurance information but are surprised that the rest of the pages are blank.[pick table of bob options][or]The rest of his chart is blank. Unfortunately, the client did not provide the necessary information to Dmitri. You’ll have to waste time during the intake session completing this drudgery. If you weren’t in human form, tendrils of black smoke would now be rising from your nostrils.[stopping]".
+
+Table of Guild Dinner
+OptionText	Link
+"Throw out the invitation, it’s been on your desk too long."	"garbageInvitation"
+"[quotation mark]Dmitri? Did we respond to the Awards Dinner Invitation?[quotation mark]"	"didWeReply"
+"[quotation mark]Dmitri, let the awards folks know that I’ll do the talk.[quotation mark]"	"willTalk"
+"[quotation mark]Dmitri, make up some excuse to get me out of the Awards Dinner talk.[quotation mark]"	"wontTalk"
+
+After Linkaging when topicDuJour is "garbageInvitation":
+	set output focus to the element called "column-right";
+	say "You toss the balled-up invitation backwards over your shoulder towards a rift in space-time that you manifest near the bookshelves. The wad of paper goes wide and lands on the floor. You pick it up again with annoyance and chuck it into the depthless absence of being and award yourself two points rather than three. You can’t be too critical of yourself, after all: the eyes on your current face are just too close together to afford reasonable depth perception.";
+	wipe row "garbageInvitation" in Table of Start.
+	
+After Linkaging when topicDuJour is "didWeReply":
+	set output focus to the element called "column-right";
+	say "[quotation mark]Let me see, [dragonName].[quotation mark] You hear a fluttering of wings over the intercom, as Dmitri shuffles back through his outgoing mails. [quotation mark]No, [dragonName], I don[apostrophe]t see anything.[quotation mark]"
+	
+After Linkaging when topicDuJour is "willTalk":
+	set output focus to the element called "column-right";
+	say "[quotation mark]Is that the Draconian Prophecy Alliance Gala, [dragonName]?[quotation mark] Dmitri asks you over the office intercom.[paragraph break][quotation mark]No, it[apostrophe]s the Soothsaying Guild Annual Awards Dinner – at the Hill Giant Lodge, if I recall.[quotation mark][paragraph break][quotation mark]Ah, fine. Okay, I will send a reply on the first rabbit that hops by. What shall I say will be your topic?[quotation mark][paragraph break][quotation mark]Let[apostrophe]s brush off the [apostrophe]Teach An Old Dragon New Tricks[apostrophe] talk from last year[apostrophe]s convention. No one on this Plane of Existence has heard it.[quotation mark][paragraph break][quotation mark]Very good, your [dragonName].[quotation mark]".
+
+After Linkaging when topicDuJour is "wontTalk":
+	set output focus to the element called "column-right";
+	say "You inform Dmitri over the office intercom of your decision not to speak at this year[apostrophe]s Awards Dinner.[paragraph break][quotation mark]I am sure your absence will be greatly felt by them, [dragonName].[quotation mark][paragraph break][quotation mark]That would be fine by me. If they miss me enough, maybe next year they[apostrophe]ll comp their speakers. These awards dinners are a self-congratulatory scam.[quotation mark]"
+
+
+Table of DDbill
+OptionText	Link
+"Throw out the bill, surely it’s been paid by now."	"garbageBill"
+"[quotation mark]Dmitri? I found an old double-D invoice [unicode 8212] should I throw it out?[quotation mark]"	"checkBill"
+
+After Linkaging when topicDuJour is "garbageBill":
+	set output focus to the element called "column-right";
+	say "You open the tiniest portal deep within a gravity well and watch the invoice be torn atom-from-atom as its spaghettifies and spirals out of existence awash in a burst of hard X-rays. In an instant, it is gone and the rupture seals behind it. Done and done.".
+	
+After Linkaging when topicDuJour is "checkBill":
+	set output focus to the element called "column-right";
+	say "Your inquiry about the Dimension Dwarf invoice elicits a worried clucking from the other end of the intercom.[paragraph break][quotation mark][dragonName], may I respectfully beseech that we retain that invoice?[quotation mark][paragraph break][quotation mark]You don[apostrophe]t think we[apostrophe]re paid up?[quotation mark][paragraph break][quotation mark]We make automatic payments from the Unicorn account, but there was a billing issue last month [unicode 8212] the waiting room portals got bent around into sort of a Klein bottle topology and they tried to charge us an infinite sum. I don[apostrophe]t know if they[apostrophe]ve credited that back to the account yet.[quotation mark][paragraph break][quotation mark]Fine,[quotation mark] you reply and hand the receipt over to Dmitri. He hops in and out, and closes the squeaky door behind him.".
+
+Table of Bob
+OptionText	Link
+"[quotation mark]Dmitri, how am I supposed to tell a fortune without an intake sheet?[quotation mark]"	"whereIntake"
+"[quotation mark]Dmitri, tell Mr. Nobspike to reschedule after he fills out the intake sheet.[quotation mark]"	"bump"
+"[quotation mark]Dmitri, cancel Nobspike and set him up next week with HDL Cormouth.[quotation mark]"	"turf"
+
+
+After Linkaging when topicDuJour is "whereIntake":
+	set output focus to the element called "column-right";
+	say "[quotation mark]I do most humbly apologize, [dragonName]. Mr. Nobspike called several times today – he is a most anxious individual.[quotation mark][paragraph break][quotation mark]And you didn[apostrophe]t get his history on any of those calls?[quotation mark][paragraph break][quotation mark]Again, [dragonName], I beg your indulgence. Every time he called, I had to reassure him about coming here, specifically, that you would not eat him.[quotation mark][paragraph break][quotation mark]Eat him![quotation mark] Your teeth begin to elongate and wing stubs stir in your back, but you quell the transformation. [quotation mark]Of all the prejudiced… You know, maybe I should.[quotation mark][paragraph break]Polite, nervous laughter over the intercom.".
+
+After Linkaging when topicDuJour is "bump":
+	set output focus to the element called "column-right";
+	say "[quotation mark]Why don[apostrophe]t we call it a night. You can bump his appointment to the next alignment, I think the 25th should do.[quotation mark][commonDisposition]".
+	
+After Linkaging when topicDuJour is "turf":
+	set output focus to the element called "column-right";
+	say "[quotation mark]I can[apostrophe]t be wasting my time on trivial cases like this – see if you can reach him and send him over to Cormouth. He[apostrophe]s always looking for clients.[quotation mark][commonDisposition]".
+
+To say commonDisposition:
+	say "[paragraph break][quotation mark]I weep sorrowfully that I cannot do as you command, [dragonName].[quotation mark][paragraph break][quotation mark]But it[apostrophe]s almost midnight and he[apostrophe]s not even here. Also, knock it off with the weeping. That[apostrophe]s not what I want clients to see when the step into the waiting room. Now what[apostrophe]s the issue?[quotation mark][paragraph break][quotation mark]Mr. Nobspike is a Class-A with direct referral from the Spire.[quotation mark][paragraph break][quotation mark]Fine. Send him in whenever he deigns grace our doorstep and we[apostrophe]ll muddle through.[quotation mark][paragraph break][quotation mark]It will be my greatest joy to so serve you, [dragonName].[quotation mark]".
+
+
 Section 3 - Pick An Option
 
 To say pick (optionTable - a table name) options:
@@ -585,7 +675,7 @@ To say VenkathReprimand:
  	say "[CragneLawFirmHeader]I am instructing you to disregard the recent missive sent by Lord Venkath, who spoke without counsel, and whose remarks should only be considered figurative in nature, and not at all a threat or any indication of his intention to conduct himself in a way that could be seen as an attack upon your person or mind, or otherwise render him liable to legal response.[paragraph break][unicode 8212] V. Cragne[paragraph break][previous mail][paragraph break]Your Most Worshipped Draconic Lordship Venkath,[paragraph break]As your legal counsel, I must instruct to refrain from any communications with the defendant in this matter.[paragraph break]Ever Your Humble Servant,[paragraph break]Victor".
 
 AAPDOReprimand is an epistle. AAPDOReprimand is not read.
-The correspondent of AAPDOReprimand is "HDL Marzitrex of the Withered Claw".
+The correspondent of AAPDOReprimand is "Marzitrex of the Withered Claw".
 The carboncopy of AAPDOReprimand is "IFTFF Admin; Dmitri Rasputinov; HDL Venkath, 9th P; AAPDO litigation".
 The subject of AAPDOReprimand is "Silence, dog!".
 The payload of AAPDOReprimand is "[AAPDOReprimand]".
