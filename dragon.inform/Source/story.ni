@@ -17,7 +17,7 @@ The debug flag is a truth state that varies. The debug flag is true.
 
 The topicDuJour is a text that varies. The topicDuJour is "inbox".
 
-The history buffer is a list of text that varies. The history buffer is {"inbox"}.
+The lastWormTopic is a text that varies. The lastWormTopic is "".
 
 The turn hold flag is a truth state that varies. The turn hold flag is false.
 The turnTimer is a number that varies. The turnTimer is 0.
@@ -100,8 +100,6 @@ To layout the screen:
 	[place a block level element called "controls";]
 	move the element called "logo" under "header";
 	display text "JMAIL" in element called "logo";
-	place a link to the command "link back" called "control-back" reading "Back";
-	move the element called "control-back" under "header";
 	place a block level element called "row";
 	place a block level element called "column-left";
 	place a block level element called "column-right";
@@ -160,30 +158,13 @@ Check Linkaging:
 	
 Carry out Linkaging:
 	say "The topic understood is [quotation mark][topic understood][quotation mark].";
-	if "back" is the topic understood:
-		now the turn hold flag is true;[no advancement of story for clicking back button]
-		if debug flag is true:
-			say "Going back!";
-		let N be the number of entries in the history buffer;
-		if debug flag is true:
-			say "Before back, N is [N].";
-		if N is greater than 1:
-			now N is N minus 1;
-		now the topicDuJour is entry (N) of the history buffer;
-		if debug flag is true:
-			say "Changing the topicDuJour to [topicDuJour].";
-		change the history buffer to have (N) entries;
-		clear the element called "column-right";
-	otherwise:
-		now the topicDuJour is the topic understood;
-		add the topicDuJour to the history buffer;
-		if debug flag is true:
-			say "history buffer added [topicDuJour] for [number of entries of the history buffer] entries.";
-		clear the element called "column-right".
+	now the topicDuJour is the topic understood;[it's a new topic]
+	if the topicDuJour matches the text "worm-":
+		now the lastWormTopic is the topicDuJour;[book mark it as the most recent worm command]
+	clear the element called "column-right". [get ready to write to the right column div]
 		
-Report Linkaging:
-	say "The [topic understood] link was selected and the current topic is [topicDuJour]."
-
+Report Linkaging:[fires if no after rule supercedes it]
+	say "The [topic understood] link was selected and the current topic is [topicDuJour]. Tracking the last worm topic as [lastWormTopic]."
 
 Section 1 - Handle Links
 
@@ -308,7 +289,8 @@ Section 2 - Story Links
 
 After Linkaging when topicDuJour is "satanNipples":
 	set output focus to the element called "column-right";
-	say "The Book of Revelations had to stop at some point and it was an editorial decision to omit mention of the seven nipples of the Beast and all of his piercings, multitudinous though they be. Also, I should mention that this is an area of some sensitivity, so if you could refrain from mousing over the seven nipple rings of Our Dark Lord repeatedly, that would be appreciated.[paragraph break]Now that you have had your jollies, click the [quotation mark]Back[quotation mark] button to return to my email of extreme importance."
+	say "The Book of Revelations had to stop at some point and it was an editorial decision to omit mention of the seven nipples of the Beast and all of his piercings, multitudinous though they be. Also, I should mention that this is an area of some sensitivity, so if you could refrain from mousing over the seven nipple rings of Our Dark Lord repeatedly, that would be appreciated.[paragraph break]Now that you have had your jollies, return to my email of extreme importance."
+	
 	
 After Linkaging when topicDuJour is "worm":
 	set output focus to the element called "column-right";
