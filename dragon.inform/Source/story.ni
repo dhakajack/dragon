@@ -28,6 +28,7 @@ Section 1 - State Flags
 The reviewed flag is a truth state that varies. The reviewed flag is false.
 The informal flag is a truth state that varies. The informal flag is false.
 The coffee flag is a truth state that varies. The coffee flag is false.
+The coffee_gone flag is a truth state that varies. The coffee_gone flag is false.
 
 Chapter 2 - Kinds
 
@@ -220,7 +221,13 @@ After Linkaging when topicDuJour is "inform":
 	say "Thanks to all those who have worked on Inform and in the Inform ecosystem. This story was written in [bold type]Inform 7[roman type] and compiled for the [bold type]Glulx[roman type] virtual machine."
 	
 After Linkaging when topicDuJour is "about":
-	do nothing.
+	set output focus to the element called "column-right";
+	say "Background material goes here."
+	
+	
+After Linkaging when topicDuJour is "credits":
+	set output focus to the element called "column-right";
+	say "Credits go here."
 
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
@@ -369,10 +376,28 @@ After Linkaging when topicDuJour is "office":
 	set output focus to the element called "column-right";
 	say "As you stride into your office[if coffee flag is true] sipping your coffee[end if], something doesn’t quite feel right.[paragraph break]You set [if coffee flag is true]the coffee and [end if]your papers down on your desk and heighten your awareness along the anterior temporal gradient."
 	
-
 After Linkaging when topicDuJour is "office2":
 	set output focus to the element called "column-right";
-	say "Entering the office for realsies."	
+	say "[one of]The heavy mahogany doors swing shut behind you with an annoying squeak.[paragraph break]As you set your [if coffee flag is true][drinkCoffee] and [end if][deskPapers] down, you are vaguely aware of a passive temporal merge taking place and time assumes the more comfortable shape to which you have become accustomed[or]A stack of [deskPapers] stands on your desk[if coffee flag is true and coffee_gone flag is false] next to a full cup of steaming hot [drinkCoffee][end if][stopping].[no line break][one of] Before you start the evening's work, which has already gotten off to a bumpy start, you decide to take a moment and center yourself. You recline in the black ergonomic chair and prop your feet up on the broad antique desk that fills half your office. It has been a while since you’ve seen your actual feet, which spend most of their time tucked between your ponderous body and the hoard that you have amassed over the millennia, but you find your human feet pleasing enough and enjoy wearing stylish leather shoes.[no line break][or][stopping][paragraph break]Daylight pours in through the window to the side of your desk, and outside fairies and sprites dart back and forth between the trees of the dense forest surrounding your office.";
+	set output focus to the element called "debugWindow";
+	receive VenkathAware into inboxFolder.
+	
+To say drinkCoffee:
+	place a link to the command "link drinkCoffee" reading "coffee".
+	
+To say deskPapers:
+	place a link to the command "link deskPapers" reading "papers".
+	
+After Linkaging when topicDuJour is "drinkCoffee":
+	set output focus to the element called "column-right";
+	say "The warmth of the coffee instantly puts you at ease and you fork your tongue slightly to fully appreciate its most subtle flavors. Coffee is an expensive luxury, but indispensable to achieve optimal focus for your readings. Coffee beans are not native and are only delivered sporadically when a ship piloted by a woman and her dog arrives in Holsberg with a cargo hold full of mundane delicacies.[paragraph break]You finish sipping your coffee and toss the cup into the timeless void between space.";
+	set output focus to the element called "debugWindow";
+	now the coffee_gone flag is true;
+	receive rover into inboxFolder.
+	
+After Linkaging when topicDuJour is "deskPapers":
+	set output focus to the element called "column-right";
+	say "Additional Content Branches from here."
 	
 Section 3 - Pick An Option
 
@@ -396,6 +421,8 @@ BingoTime is always 3.
 FirstVictorTime is always 6.
 NextVictorTime is a number that varies. NextVictorTime is -1.
 FinalVictorTime is a number that varies. FinalVictorTime is -1.
+VenkathReprimandTime is a number that varies. VenkathReprimandTime is -1.
+AAPDOReprimandTime is a number that varies. AAPDOReprimandTime is -1.
 
 Every turn:
 	set output focus to the element called "debugWindow";
@@ -417,7 +444,11 @@ Every turn:
 		receive nextVictor into inboxFolder;
 		now finalVictorTime is turnTimer plus 3;
 	if the TurnTimer is finalVictorTime:
-		receive finalVictor into inboxFolder.
+		receive finalVictor into inboxFolder;
+	if the TurnTimer is VenkathReprimandTime:
+		receive VenkathReprimand into InboxFolder;
+	if the TurnTimer is AAPDOReprimandTime:
+		receive AAPDOReprimand into InboxFolder.
 		
 
 Chapter 7 - Mail Objects
@@ -532,6 +563,44 @@ To say finalVictorPayload:
 	
 To say CragneLawFirmHeader:
 	say "The Law Offices of Victor Cragne[line break]201 N. Wormwood Drive[line break]Backwater, Vermont[paragraph break]Dear Mr. MacBraeburn,[paragraph break]".
+	
+VenkathAware is an epistle. VenkathAware is not read.
+The correspondent of VenkathAware is "HDL Venkath, 9th P".
+The carboncopy of VenkathAware is "Dmitri Rasputinov".
+The subject of VenkathAware is "Damnable Interloper".
+The payload of VenkathAware is "[VenkathAwarePayload]".
+
+To say VenkathAwarePayload:
+	say "Dear Mr. MacBraeburn,[paragraph break]With the infalliable hindsight afforded me through the efforts of my legal counsel provided by the AAPDO, I am now aware of your unscrupulous activities and complicity in this tawdry affair, both in publicizing an inaccurate account of the evening in question and now in rudely scrying upon and, even worse, tampering with, those events. This is the worst sort of unprofessional behavior, and I would be well within my rights to fly right over there now and breathe you to ash![paragraph break]Lord Venkath of the Ninth Plate,[line break]Guildmaster of Holsberg,[line break]Luminary.";
+	now VenkathReprimandTime is turnTimer plus 2;
+	now AAPDOReprimandTime is turnTimer plus 4.
+	
+VenkathReprimand is an epistle. VenkathReprimand is not read.
+The correspondent of VenkathReprimand is "Victor Cragne, Attorney".
+The carboncopy of VenkathReprimand is "Dmitri Rasputinov".
+The subject of VenkathReprimand is "Disregard Above.".
+The payload of VenkathReprimand is "[VenkathReprimand]".
+
+To say VenkathReprimand:
+ 	say "[CragneLawFirmHeader]I am instructing you to disregard the recent missive sent by Lord Venkath, who spoke without counsel, and whose remarks should only be considered figurative in nature, and not at all a threat or any indication of his intention to conduct himself in a way that could be seen as an attack upon your person or mind, or otherwise render him liable to legal response.[paragraph break][unicode 8212] V. Cragne[paragraph break][previous mail][paragraph break]Your Most Worshipped Draconic Lordship Venkath,[paragraph break]As your legal counsel, I must instruct to refrain from any communications with the defendant in this matter.[paragraph break]Ever Your Humble Servant,[paragraph break]Victor".
+
+AAPDOReprimand is an epistle. AAPDOReprimand is not read.
+The correspondent of AAPDOReprimand is "HDL Marzitrex of the Withered Claw".
+The carboncopy of AAPDOReprimand is "IFTFF Admin; Dmitri Rasputinov; HDL Venkath, 9th P; AAPDO litigation".
+The subject of AAPDOReprimand is "Silence, dog!".
+The payload of AAPDOReprimand is "[AAPDOReprimand]".
+
+To say AAPDOReprimand:
+	say "Remember your place, Mr. Cragne. How dare you gainsay one of our Association, much less one of such prominence! What a dragon has said, let no mortal contradict.[paragraph break]You should know better. One more outburst like that, and we will leave you to rot in that 19th Century opium den, where we dredged you up.[paragraph break]Marzitrex of the Withered Claw,[line break]On Behalf of the AAPDO Board of Trustees".
+
+Rover is an epistle. Rover is not read.
+The correspondent of Rover is "Jack Welch".
+The carboncopy of Rover is "IFTFF Admin".
+The subject of Rover is "Shamless plug".
+The payload of Rover is "[Rover]".
+
+To say rover:
+	say "Dear gmac,[paragraph break]Since the fourth wall is already compromised beyond economic repair, I thought I’d mention that I included a blatant Easter egg making reference to an earlier game, Rover’s Day Out, that I wrote a few years back with Ben Collins-Sussman.[paragraph break]Hope that’s okay.[paragraph break][unicode 8212]Jack".
 
 Section 3 - Mail Folders
 
