@@ -65,6 +65,14 @@ body {
 	padding: .2em 2em .2em 2em;
 }
 
+.navSelect {
+	padding: 1em 0em;
+}
+
+.navSelect a {
+	font-weight: bold;
+}
+
 .column-right {
     float: left;
     padding: 10px;
