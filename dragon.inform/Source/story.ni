@@ -214,7 +214,7 @@ After Linkaging when topicDuJour is "TDWTYYFN":
 	open HTML tag "iframe" called "dragonWindow";
 	close HTML tag;
 	move the element called "dragonWindow" under "column-right";
-	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://ifarchive.org/if-archive/games/competition2017/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now.html')";
+	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://templaro.com/games/test-dr/TDWTYYFN.html')";
 	hide the element called "ReviewLastYear".
 		
 After Linkaging when topicDuJour is "inform":
