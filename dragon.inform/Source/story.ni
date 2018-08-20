@@ -657,7 +657,7 @@ After Linkaging when topicDuJour is "worm-writOfRetcon":
 
 After Linkaging when topicDuJour is "worm-intakeForm":
 	set output focus to the element called "column-right";
-	say "[quotation mark]First things first: there is a reason why we do things the way we do. Let[apostrophe]s start with the intake form that Mr. Nobspike was supposed to have furnished us before this appointment was ever accepted. Dmitri, would you put Mr. Nobspike on the intercom?[quotation mark][paragraph break][quotation mark]Right away, Your Draconic Lordship. Mr. Nobspike, please step over here. You are now speaking to His Draconic Lordship, Venkath of the Nine Plates, Supreme Seer and Prophet of the Order of Snodbroom, High Oracle of Silvery Sliver, and Eminent Soothsayer of the Guild of Imperial Fortune Tellers.[quotation mark][paragraph break][quotation mark]Hi.[quotation mark][paragraph break][quotation mark]Yes, hello, Mr. Nobspike. I understand your apprehension in approaching this appointment, and despite the irregularities which with you have conducted yourself, I now insist that we proceed strictly according to proper protocol.[quotation mark][paragraph break][quotation mark]Okay.[quotation mark][paragraph break][quotation mark]Right, so then, let us begin at the top of the intake form. Dmitri, would you hand him a blank copy?[quotation mark][paragraph break][quotation mark]So, can you tell me my fortune now?[quotation mark][paragraph break][quotation mark]What? Over the intercom?[quotation mark][paragraph break][quotation mark]Sure, why not?[quotation mark] whines your client.[pick Table of Privilege options]".
+	say "[quotation mark]First things first: there is a reason why we do things the way we do. Let[apostrophe]s start with the intake form that Mr. Nobspike was supposed to have furnished us before this appointment was ever accepted. Dmitri, would you put Mr. Nobspike on the intercom?[quotation mark][paragraph break][quotation mark]Right away, Your Draconic Lordship. Mr. Nobspike, please step over here. You are now speaking to His Draconic Lordship, Venkath of the Nine Plates, Supreme Seer and Prophet of the Order of Snodbroom, High Oracle of Silvery Sliver, and Eminent Soothsayer of the Guild of Imperial Fortune Tellers.[quotation mark][paragraph break][quotation mark]Hi.[quotation mark][paragraph break][quotation mark]Yes, hello, Mr. Nobspike. I understand your apprehension in approaching this appointment, and despite the irregularities which with you have conducted yourself, I now insist that we proceed strictly according to proper protocol.[quotation mark][paragraph break][quotation mark]Okay.[quotation mark][paragraph break][quotation mark]Right, so then, let us begin at the top of the intake form. Dmitri, would you hand him a blank copy?[quotation mark][paragraph break][quotation mark]So, why don't we call someone in to repair the door and we can meet somewhere else while they work on the doo?[quotation mark][paragraph break][quotation mark]What? Somewhere other than my office?[quotation mark][paragraph break][quotation mark]Sure, why not?[quotation mark] whines your client.[pick Table of Privilege options]".
 
 Table of Privilege
 OptionText	Link
@@ -666,19 +666,120 @@ OptionText	Link
 	
 After Linkaging when topicDuJour is "worm-privilege":
 	set output focus to the element called "column-right";
-	say "By Hastur[apostrophe]s hairy armpits, it[apostrophe]s not that simple. Do you think my office is right next door to the waiting room?[quotation mark][paragraph break][quotation mark]It[apostrophe]s not?[quotation mark][paragraph break][quotation mark]No. It[apostrophe]s halfway across the universe, down about three Planes of Being, and folded out through about eight dimensions.[quotation mark][paragraph break][quotation mark]Jeez. Sounds complicated[quotation mark][paragraph break][quotation mark]Yes. It is. It has to be. All Dragons tell fortunes from this area, which we call temporo-spatially privileged because it is in a sort of eddy area in the multiverse, where all the various influences, motives, and shadow aspects null out. From here, we can get the closest thing possible to an absolute reading, without having to run through an endless list of corrections for each and every fortune that we tell.[quotation mark][paragraph break][quotation mark]Okay. I get it. But you[apostrophe]re a dragon, right? Couldn[apostrophe]t you just teleport me there?[quotation mark]".
+	say "By Hastur[apostrophe]s hairy armpits, it[apostrophe]s not that simple. Do you think my office is right next door to the waiting room?[quotation mark][paragraph break][quotation mark]It[apostrophe]s not?[quotation mark][paragraph break][quotation mark]No. It[apostrophe]s halfway across the universe, down about three Planes of Being, and folded out through about eight dimensions.[quotation mark][paragraph break][quotation mark]Jeez. Sounds complicated[quotation mark][paragraph break][quotation mark]Yes. It is. It has to be. All Dragons tell fortunes from this area, which we call temporo-spatially privileged because it is in a sort of eddy area in the multiverse, where all the various influences, motives, and shadow aspects null out. From here, we can get the closest thing possible to an absolute reading, without having to run through an endless list of corrections for each and every fortune that we tell.[quotation mark][paragraph break][quotation mark]Okay. I get it. But you[apostrophe]re a dragon, right? Couldn[apostrophe]t you just teleport me there?[quotation mark][pick Table of Teleport options]".
 	
 After Linkaging when topicDuJour is "worm-getOnWith-1":
 	set output focus to the element called "column-right";
-	say "You dig through the top drawer of your desk trying to find your favorite quill.[paragraph break]While you rummage through an endless hoard of paperclips, stapes, name tags, post-it notes, and divining rods, your client prattles on endlessly.[paragraph break][quotation mark]You[apostrophe]re a dragon aren[apostrophe]t you?[quotation mark] he asks again.[paragraph break][quotation mark]What? Sorry, I missed what you said.[quotation mark][paragraph break][quotation mark]I said, why don[apostrophe]t you teleport me into the office, you[apostrophe]re a dragon aren[apostrophe]t you? Don[apostrophe]t dragons have dominion over time and space? Why are we fussing about the door?[quotation mark]".
+	say "You dig through the top drawer of your desk trying to find your favorite quill.[paragraph break]While you rummage through an endless hoard of paperclips, stapes, name tags, post-it notes, and divining rods, your client prattles on endlessly.[paragraph break][quotation mark]You[apostrophe]re a dragon aren[apostrophe]t you?[quotation mark] he asks again.[paragraph break][quotation mark]What? Sorry, I missed what you said.[quotation mark][paragraph break][quotation mark]I said, why don[apostrophe]t you teleport me into the office, you[apostrophe]re a dragon aren[apostrophe]t you? Don[apostrophe]t dragons have dominion over time and space? Why are we fussing about the door?[quotation mark][pick Table of Teleport options]".
+	
+Table of Teleport
+OptionText	Link
+"Sigh."	"worm-noTeleport"
+"Sigh. [quotation mark]No, Mr. Nobspike, It’s not that simple.[quotation mark]"	"worm-noTeleport"
+"Just get on with filling out the intake form"	"worm-getOnWith-2"
+
+After Linkaging when topicDuJour is "worm-noTeleport":
+	set output focus to the element called "column-right";
+	say "[quotation mark]As a dragon, I do, of course, have dominion over time and space. That is part and parcel of what we do. I can open a portal to the surface of your sun with a snap of my fingers.[quotation mark][paragraph break][quotation mark]A nice trick![quotation mark][paragraph break][quotation mark]It[apostrophe]s not a trick. It is an innate ability.[quotation mark][paragraph break][quotation mark]Sorry. So why not just snap me through this door?[quotation mark][paragraph break][quotation mark]What we dragons do not have dominion over is dimensionality. As I mentioned, we[apostrophe]re not only displaced in space-time, but there are some finicky dimensional transforms involved – the type that can turn a client inside out very easily.[quotation mark][paragraph break][quotation mark]And you can[apostrophe]t do the dimensional stuff?[quotation mark][paragraph break][quotation mark]That[apostrophe]s not the issue, although I will admit that I[apostrophe]m fuzzy on the math. Rather, it is a contractual matter: the Dimension Dwarves have dominion in this matter. I pay a hefty fee for them to bridge the waiting room to my office through the door that you have repeatedly battered.[quotation mark][paragraph break][quotation mark]Huh.[quotation mark] It takes a moment for Mr. Norspike to digest all of this, but you have to admit, he isn[apostrophe]t doing half bad for someone entirely new to these concepts. [quotation mark]So… you are in your office, where you do your fortune telling. Why don't you just tell me my fortune over the intercom?[quotation mark][pick Table of Intercom options]".
+	
+After Linkaging when topicDuJour is "worm-getOnWith-2":
+	set output focus to the element called "column-right";
+	say "You find your favorite quill in the very back of your top desk drawer, having pulled every other item out of the drawer. You methodically stuff your hoard of stationary items back into the that drawer.[paragraph break]You reassure your client on the other end of the intercom, [quotation mark]Just one more moment, Mr. Nobspike, and we can start the intake form.[quotation mark] [paragraph break]It is only now that you realize that you did not see any ink in top drawer, where it is usually kept, so you start going through the drawers on the right side of your desk.[paragraph break]Mr. Nobspike pipes up with another suggestion: [quotation mark]Why don[apostrophe]t we just do the whole fortune telling thing over the intercom? I can hear you just fine.[quotation mark][pick Table of Intercom options]".
+	
+Table of Intercom
+OptionText	Link
+"[quotation mark]Over the intercom! Are you kidding![quotation mark]"	"worm-notIntercom"
+"Just fill out the intake form"	"worm-getOnWith-3"
+
+After Linkaging when topicDuJour is "worm-notIntercom":
+	set output focus to the element called "column-right";
+	say "Maybe you gave your client too much credit *TODO condition for intercomIrate* You push your horns back into your skull, sit back, and ** try to dim down your explanation to Mr. Nobspike[apostrophe]s level of understanding.[paragraph break][quotation mark]Mr. Nobspike, have you been following me so far?[quotation mark][paragraph break]Yes. I think so.[quotation mark][paragraph break][quotation mark]Aside from some regulatory and ethical reasons that require you to be in front of me when I pronounce your future, the overwhelming practical consideration is that you need to be in this space with me. You[apostrophe]re the one that all the astrological forces are acting upon, after all.[quotation mark][paragraph break][quotation mark]Oh, I see. Yes, I suppose that does make some sense.[quotation mark][paragraph break][quotation mark]I am so honored that you agree with my professional opinion. Now, this conversation has consumed enough of my valuable time, let us focus on completing this [thriceDamnedIntakeSheet].[quotation mark]"
+	
+To say thriceDamnedIntakeSheet:
+	place a link to the command "link worm-getOnWith-3" reading "thrice damned intake sheet".
+	
+After Linkaging when topicDuJour is "worm-getOnWith-3":
+	set output focus to the element called "column-right";
+	say "Setting aside Mr. Nobspike[apostrophe]s seemingly endless list of questions, objections, and amateur speculation, you get down to brass tacks: filling out the intake form.[paragraph break][quotation mark]Dmitri filled all the demographics earlier with you on the phone [unicode 8212] all except this one item: profession.[quotation mark][paragraph break][quotation mark]Ah, yes. I tried to explain this to him. I am a writer of interactive fiction.[quotation mark][paragraph break][quotation mark]Sounds dismal.[quotation mark][paragraph break][quotation mark]No actually, it[apostrophe]s a fascinating…[quotation mark][paragraph break][quotation mark]Okay, I wrote it on the form [unicode 8212] I don[apostrophe]t need to know anything more about it. Let[apostrophe]s get right to the existential questions.[paragraph break][itemOne]."
+	
+To say itemOne:
+	place a link to the command "link worm-item1" reading "Item one".
+
+To say itemTwo:
+	place a link to the command "link worm-item2" reading "item two".
+	
+To say itemThree:
+	place a link to the command "link worm-item3" reading "item three".
+	
+To say justAfew:
+	place a link to the command "link worm-justAfew" reading "Just a few".
+	
+To say lastItem:
+	place a link to the command "link worm-lastItem" reading "One last item".
+	
+After Linkaging when topicDuJour is "worm-item1":
+	set output focus to the element called "column-right";
+	say "Item one: have you ever had your future told before?[quotation mark][paragraph break][quotation mark]Last summer at the amusement park, I put a quarter into…[quotation mark][paragraph break][quotation mark]Enough. I meant, professionally.[quotation mark][paragraph break][quotation mark]I suppose not. But why does that matter?[quotation mark][paragraph break][quotation mark]It[apostrophe]s a long list, Mr. Norspike. If you interrupt me at every item, we will be here all night. I inquire because if you came here based on another fortune telling, the two readings could intermodulate, potentially setting up a strangle vortex and ending all life as we know it in the vicinity of anywhere you have ever been.[quotation mark][paragraph break][quotation mark]I see. Then, no. What is [itemTwo]?[quotation mark]".
+	
+After Linkaging when topicDuJour is "worm-item2":
+	set output focus to the element called "column-right";
+	say "[quotation mark]Item two: Have you recently come into possession of any books of Acursed Knowledge such as Hambi[apostrophe]s Book of Tortured Souls, any edition of the Necronomicon, Forzed[apostrophe]s Anthology of Modern Verse, or any books bearing the Equation of Zoran?[quotation mark][paragraph break][quotation mark]I bought a cookbook two weeks ago.[quotation mark][paragraph break][quotation mark]Was it in fact a cookbook, or an alien manual about subjugation of the human race?[quotation mark][paragraph break][quotation mark]It was a low-carb cookbook.[quotation mark][paragraph break][quotation mark]So, another ‘no[apostrophe]. Moving on: [itemThree]."
+	
+After Linkaging when topicDuJour is "worm-item3":
+	set output focus to the element called "column-right";
+	say "Item three: Aside from enduring the petty tyranny of time[apostrophe]s arrow, have you ever actively traveled in time? I assume that you see why that question is relevant for telling your future?[quotation mark][paragraph break][quotation mark]Yes.[quotation mark][paragraph break][quotation mark]Yes, you have traveled in time or yes, it is obvious?[quotation mark][paragraph break][quotation mark]Yes, it is obvious, no, I have never time traveled. Are there many more of these?[quotation mark][paragraph break][quotation mark][justAfew].[quotation mark]".
+	
+After Linkaging when topicDuJour is "worm-justAfew":
+	set output focus to the element called "column-right";
+	say "[quotation mark]Almost done with this part. Item four: To your knowledge, were you the subject of any prophecy delivered to your parents or more remote ancestors?[quotation mark][paragraph break][quotation mark]No.[quotation mark][paragraph break][quotation mark]Fine, fine,[quotation mark] you hum, relieved to be past the universe-threatening questions. [quotation mark]Any travel to other planes, dimensions, or states of being in the last month?[quotation mark][paragraph break][quotation mark]No.[quotation mark][paragraph break][quotation mark]Are you currently possessed by any being other than yourself by astral projection, demonic means, or any other mechanism?[quotation mark][paragraph break][quotation mark]No.[quotation mark][paragraph break][quotation mark]Are you pursuing this fortune telling in an attempt to commit a crime or to escape justice for a crime already committed?[quotation mark][paragraph break][quotation mark]No. Does that happen?[quotation mark][paragraph break][quotation mark]Every so often we get investors who want to play the futures market. Also, some people try to stay a step ahead of the law, although that is obvious doomed to fail given the way fate works.[quotation mark][paragraph break][quotation mark]I should write a story about this.[quotation mark][paragraph break][quotation mark]No, Mr. Nobspike you should not. Once the fortune reading starts, the session is considered to be bound by a non-disclosure agreement except to authorized scrying.[paragraph break][lastItem]."
+	
+After Linkaging when topicDuJour is "worm-lastItem":
+	set output focus to the element called "column-right";
+	say "One last item: Are you aware of any circumstance by which this fortune telling would constitute a conflict of interest on my part?[quotation mark][paragraph break][quotation mark]No, I don[apostrophe]t even know you.[quotation mark] Your client[apostrophe]s voice brightens, [quotation mark]Hey! I just had a great idea. Your office has a window – I saw it when I came in. Why don[apostrophe]t I come in that way?[quotation mark][pick Table of Window options]".
+	
+Table of Window
+OptionText	Link
+"Explain why that couldn’t possibly work"	"worm-windowImpossible"
+"What the hell. It’s worth a shot"	"worm-worthAshot"
+"Ignore the suggestion and finish the intake form"	"worm-finishForm"
+
+To say windowCommon:
+	say "TODO: make this conditional: You reiterate that your office is not physically located anywhere near the waiting room / You explain to the client that the doors between your office and waiting room are actually a warded interdimensional bridge and that your office is not physically next to the reception area.[paragraph break][quotation mark]But I saw you through the window. You could just open it and I could come in, couldn[apostrophe]t I?[quotation mark][paragraph break][quotation mark]How could you… wait, when did you see me through the window?[quotation mark][paragraph break][quotation mark]Earlier today. I was worried about coming tonight so I spent some time watching the office from the woods. I know it sounds foolish, but you scared me because you were yelling at your receptionist, and I saw you grow much larger and get covered with scales. Horns popped out of your head and spikes along your back, and I thought you were going to eat him.[quotation mark][paragraph break][quotation mark]No, first of all, I would never eat a receptionist, second, what you saw were the events of this evening, shortly after you arrived in the reception room. Like the door, the window is a dimensional portal, except it connects the office to a time frame shifted twelve hours earlier.[quotation mark]".
+	
+After Linkaging when topicDuJour is "worm-windowImpossible":
+	set output focus to the element called "column-right";
+	say "[windowCommon][paragraph break][quotation mark]Why have a time-shifted window in your office?[quotation mark][paragraph break][quotation mark]First of all, because the building code requires two exits. Second, because if it weren[apostrophe]t time-shifted, I wouldn[apostrophe]t have anything to look at when I[apostrophe]m here all night telling fortunes.[quotation mark][paragraph break][quotation mark]Oh well, I thought it was worth a try.[quotation mark][pick Table of Window2 options]".
+	
+Table of Window2
+OptionText	Link
+"[quotation mark]Maybe there is a way we could make it work.[quotation mark]"	"worm-maybeAway"
+"[quotation mark]Let’s just finish the intake form.[quotation mark]"	"worm-finishForm"
+
+After Linkaging when topicDuJour is "worm-worthAshot":
+	set output focus to the element called "column-right";
+	say "[windowCommon][paragraph break]Your client takes a moment to process that.[paragraph break][quotation mark]So, how about you open your window and tell me to come in [unicode 8212] it would be this afternoon for me, but that[apostrophe]s okay since I would just get my fortune read earlier in the day. Then I guess we wouldn[apostrophe]t need this session tonight.[quotation mark][paragraph break]You are sorely tempted to give it a try but feel ethically compelled to point out the fallacy in Mr. Norspike[apostrophe]s argument.[paragraph break][quotation mark]Mr Norspike, at face value it is not a bad plan, but you are somewhat naïve when it comes to the nature of time. While there would be no problem if I had to bail out of the window if the building were on fire (aside from a temporary inconvenience of there then being two of me earlier in the day), if you attempted to enter the building through the window, you would cease to exist.[quotation mark][paragraph break][quotation mark]Why is it different for me?[quotation mark][paragraph break][quotation mark]I am already in the future, relative to the area outside the window. I did exist in that time, so there is no contradiction. However, if you attempt to transit from existence in that time to existing in this relative future time without having existed in between [unicode 8212] well, you can see the problem.[quotation mark][paragraph break][quotation mark]Sort of,[quotation mark] your client admits with a tone of defeat.[pick Table of Window2 options]".
+	
+To say crouchingShrubs:
+	say "You walk over the window and spot your client crouching inexpertly in the shrubs near an oak tree, binoculars dangling from his neck. As you haul the window pane upward for the first time in as long as you have rented his office, Mr. Nobspike presses himself lower and lower to the ground to avoid being seen.[paragraph break][quotation mark]Mr. Nobspike,[quotation mark] you yell. Most of the sound makes it through the portal, although a portion is reflected back and phase shifted, creating an awkward, tinny ringing. [quotation mark]I need to talk to you – everything is alright. I am not going to eat you.[quotation mark][paragraph break]Slowly, the imp emerges from the bushes and timidly approaches the [nearerWindow].[line break]".
+	
+To say nearerWindow:
+	place a link to the command "link worm-nearerWindow" reading "window".
+	
+After Linkaging when topicDuJour is "worm-maybeAway":
+	set output focus to the element called "column-right";
+	say "You warn your client in the waiting room that you are going to attempt to converse with his earlier self out the window and that as a result, he might experience some strange sensations and/or cease to exist. This elicits frantic banging at the doors and owl scuffling sounds from the waiting room.[paragraph break][crouchingShrubs]".
+	
+After Linkaging when topicDuJour is "worm-nearerWindow":
+	set output focus to the element called "column-right";
+	say "[quotation mark]How did you know it was me?[quotation mark] asks the imp.[paragraph break][quotation mark]Well, that raises an interesting ethical dilemma for me because I am twelve hours in your future. Unfortunately, anything I say could be considered, from your point of view as fortune telling.[quotation mark][paragraph break][quotation mark]How is that a problem? I have an appointment with you tonight for just that. That[apostrophe]s what I[apostrophe]m paying your for.[quotation mark][paragraph break][quotation mark]First of all, by the guidelines of my Order, I am supposed to have you in front of me when I tell your fortune.[quotation mark][paragraph break][quotation mark]I am in front of you,[quotation mark] he complains.[paragraph break][quotation mark]By ‘in front of me[apostrophe], I think they mean in both time and space, neither of which is true.  More to the point, anything that I tell you right now is almost guaranteed not to be true later. Not only does this put my reputation as a fortune teller at risk, but we are skating dangerously close to a strangulation vortex.[quotation mark][paragraph break][quotation mark]Excuse me for saying so,[quotation mark] says the imp with some annoyance, [quotation mark]but this all seems a little far-fetched. Do you have any proof about any of this? Are you sure you[apostrophe]re a real fortune teller?[quotation mark]".
+	
+
 	
 
 
-
-
-
-
-
+	
+	
+	
 
 
 
@@ -871,6 +972,8 @@ To say victorRetCon2:
 	
 To say writOfRetcon:
 	place a link to the command "link worm-writOfRetcon" reading "Writ of RetCon".
+	
+
 
 
 
