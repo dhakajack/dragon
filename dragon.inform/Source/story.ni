@@ -9,7 +9,7 @@ Include Vorple Multimedia by Juhana Leinonen.
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
-Release along with the file "balloons.png" and the file "plucky.mp3".
+Release along with the file "balloons.png", the file "plucky.mp3", and the file "Fax-machine-sound.mp3".
 
 Chapter 1 - Globals
 
@@ -62,7 +62,7 @@ Chapter 3 - Start Up
 
 The lab is a room.
 
-[Get ride of the three line feeds that occur before the start of play; they are hardwired into the the built in startup routine, which is found in OrderOfPlay.i6t]
+[Get ride of the three line feeds that occur before the start of play; they are hardwired into the the built in startup routine, which is found in OrderOfPlay.i6t -- thanks Zarf for that info]
 
 Include (-
 [ VIRTUAL_MACHINE_STARTUP_R;
@@ -238,8 +238,8 @@ After Linkaging when topicDuJour is "blog":
 	
 After Linkaging when topicDuJour is "credits":
 	set output focus to the element called "column-right";
-	say "Credits go here."
-
+	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of The Dragon Will Tell You Your Fortune Now, known by the pseudonym [bold type]Newsreparter.[roman type][paragraph break]I would also like to acknowledge XXX concept reviewer, XXX beta tester, and XXX other folks.[paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
+	
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
@@ -773,14 +773,85 @@ After Linkaging when topicDuJour is "worm-nearerWindow":
 	set output focus to the element called "column-right";
 	say "[quotation mark]How did you know it was me?[quotation mark] asks the imp.[paragraph break][quotation mark]Well, that raises an interesting ethical dilemma for me because I am twelve hours in your future. Unfortunately, anything I say could be considered, from your point of view as fortune telling.[quotation mark][paragraph break][quotation mark]How is that a problem? I have an appointment with you tonight for just that. That[apostrophe]s what I[apostrophe]m paying your for.[quotation mark][paragraph break][quotation mark]First of all, by the guidelines of my Order, I am supposed to have you in front of me when I tell your fortune.[quotation mark][paragraph break][quotation mark]I am in front of you,[quotation mark] he complains.[paragraph break][quotation mark]By ‘in front of me[apostrophe], I think they mean in both time and space, neither of which is true.  More to the point, anything that I tell you right now is almost guaranteed not to be true later. Not only does this put my reputation as a fortune teller at risk, but we are skating dangerously close to a strangulation vortex.[quotation mark][paragraph break][quotation mark]Excuse me for saying so,[quotation mark] says the imp with some annoyance, [quotation mark]but this all seems a little far-fetched. Do you have any proof about any of this? Are you sure you[apostrophe]re a real fortune teller?[quotation mark]".
 	
+Table of Nearer
+OptionText	Link
+"Jump through the window and devour the imp for his insolence"	"worm-devourImp"
+"Roar angrily until he is driven off"	"worm-roarAngrily"
+"Tell him what which tarot cards he is carrying"	"worm-whichTarots"
 
+After Linkaging when topicDuJour is "worm-devourImp":
+	set output focus to the element called "column-right";
+	say "The imp looked like easy prey: bookish and a bit chubby, but when you pounce, he turns out to be surprisingly spry, disappearing immediately into the underbrush.[paragraph break]In your anger, you go full dragon – scales, wings, everything, and napalm the forest in every direction around your office, all to no avail. [paragraph break]When you calm down, you fly to your lair and calmly the events of the day to yourself, who is just waking up in the late afternoon and still a bit groggy. [paragraph break]Between the two of yourself, you decide to let the other you have the night off, which you convince yourself you will richly deserve, given the night that you are about to have. [paragraph break]While the other you curls back up on your hoard, you set off again for the office as the sun sets, intent on getting there early enough to watch carefully for the moment that the imp appears out your office window. You realize that you are flirting with any number of potential temporal paradox issues, so you play it conservatively, handling things just as you did earlier (later) today, and not tipping off Dmitri.[paragraph break]Eventually, the imp appears and this time you notice him earlier than the subjectively previous iteration, so he is again surprised to see you at your office window. [paragraph break]You have essentially the same conversation that you did, except this time, you make a concerted effort to keep your cool and to try to [convinceHim] that you are telling the truth."
+	
+To say convinceHim:
+	place a link to the command "link worm-whichTarot" reading "convince him".
+	
+After Linkaging when topicDuJour is "worm-roarAngrile":
+	set output focus to the element called "column-right";
+	say "Your heart beat sounds loud in your ears and you exalt in the moment as the imp disappears like a frightened rabbit into the forest. As the mood wains, though, you realize that it would be prudent to check in with Dmitri.[paragraph break]Pressing the intercom, you call for your assistant.[paragraph break][quotation mark]Yes, [dragonName]?[quotation mark][paragraph break][quotation mark]Is Mr. Nobspike still there?[quotation mark][paragraph break][quotation mark]No, he continues to be a no-show. It is half-past twelve, and Mr. Porkhammer, your midnight-thirty just arrived. Shall I bring you his file?[quotation mark][paragraph break][quotation mark]No, hold on,[quotation mark] you say, realizing what a mistake you[apostrophe]ve made. When word gets around that you scared off a client, your reputation will be irreparably stained.[paragraph break]Reluctantly, you head back to the still-open window and implore Mr. Nobspike to return. After ten minutes of bellowing, he emerges from the bushes. [paragraph break]You swallow down a brief and bitter apology and try to [convinceHim] of both your sincerity and emotional stability."
+	
+After Linkaging when topicDuJour is "worm-whichTarot":
+	set output focus to the element called "column-right";
+	say "[quotation mark]Here, let me prove by bona fides,[quotation mark] you say, trying to appear friendly. [quotation mark]Right now you are walking around with three tarot cards, five fortune cookie fortunes, a wad of computer printouts and a magazine article from some tabloid.[paragraph break][quotation mark]Yes, that[apostrophe]s precisely right![quotation mark] The imp emerges from the bushes and is about to rest his arms on the window sill when you explain that if he does so, his arms will be sheered off at the elbows by a dimensional discontinuity. He takes a step back.[paragraph break]You try to put Mr. Nobspike more at ease with some additional explanation. [quotation mark]I realize that all of this may be a bit much, particularly for someone who does not deal day in and day out with complex branching choices and rule-driven realities.[quotation mark][paragraph break][quotation mark]Oh, but that is exactly what we Imps excel at. Just as Dragons have domain over space and time, Dimension Dwarves over dimensionality, and Continuity Elves over the between-time realm, we Imps are responsible for setting up choices and consequences in the universe. In fact, I must admit to a certain complicity in arranging tonight[apostrophe]s events for my own benefit. [paragraph break]Now it is your turn to look perplexed."
+	
+To say perplexed:
+	place a link to the command "link worm-perplexed" reading "perplexed".
+	
+After Linkaging when topicDuJour is "worm-perplexed":
+	set output focus to the element called "column-right";
+	say "The imp continues, [quotation mark]This evening, you will make the sorts of choices that you do every moment of the day: for example, whether to have a cup of coffee or whether to fix a squeaky door – those choices are what will lead us to this moment.[quotation mark][paragraph break][quotation mark]Then I should make a different choice?[quotation mark][paragraph break][quotation mark]Oh, heavens no![quotation mark] The imp looks alarmed. [quotation mark]You can[apostrophe]t. That would ruin everything. The whole thing would be entirely linear – it would take away player agency. I can[apostrophe]t begin to tell you the sort of complaints that would roll in.[quotation mark][paragraph break][quotation mark]You[apostrophe]re a strange cookie, Mr. Nobspike,[quotation mark] you conclude as you hand him his completed intake form. [quotation mark]Here[apostrophe]s your paperwork for tonight[apostrophe]s visit. Please try to show up promptly at midnight, and I would appreciate it if you wouldn[apostrophe]t pester my receptionist Dmitri with phone calls.[quotation mark][paragraph break][quotation mark]Agreed![quotation mark] The imp reaches out to shake on it, but yanks his hand back at the last moment, before crossing the threshold of the window.[paragraph break]As soon as you turn away from the window, you find yourself sitting at your desk."
+	
+To say perplexed:
+	place a link to the command "link worm-backAtDesk" reading "backAtDesk".
+	
+After Linkaging when topicDuJour is "worm-backAtDesk":
+	set output focus to the element called "column-right";
+	say "Before you start the evening, you decide to take a moment and center yourself. Finishing your coffee, you recline in the black ergonomic chair and prop your feet up on the broad antique desk that fills half your office. It has been a while since you[apostrophe]ve seen your actual feet, which spend most of their time tucked between your ponderous body and the hoard that you have amassed over the millennia, but you find your human feet pleasing enough and enjoy wearing stylish leather shoes.[paragraph break]Daylight pours in through the window to the side of your desk, and outside fairies and sprites dart back and forth between the trees of the dense forest surrounding your office.[paragraph break]For just a moment, you think you catch sight of someone with binoculars at the edge of the forest, but when you look again, no one is there.[paragraph break]Dmitri just announced that your new client is here for his midnight read, so you might as well read through his intake form, which to your surprise is written in handwriting uncannily similar to your own, except for where a misspelled name was corrected."
+	
+To say intakeFormDeux:
+	place a link to the command "link worm-intakeFormDeux" reading "intake form".
+	
+After Linkaging when topicDuJour is "worm-intakeFormDeux":
+	set output focus to the element called "column-right";
+	say "Name: Paisley ";
+	open HTML tag "span" called "stricken";
+	say "Nobspike";
+	close HTML tag;
+	say " Knobspike[line break]Race:  [unicode 9745] Imp[line break]Birth: The 17th of Ubij in the Systematized Year 128A[paragraph break]Dmitri has helpfully penciled in some of the relevant influences at birth, noting that the client was born in seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration. There is no mention of crossed Shadow Aspects, but that will come out in the interview, so no worries there.[paragraph break]He has checked [quotation mark]no[quotation mark] all through the section related to existential threats to the universe, so that[apostrophe]s good.[paragraph break]The rest of the form looks in order, no red flags, so you tell Dmitri to [enterKnobspike] into your office."
+	
+To say enterKnobspike:
+	place a link to the command "link worm-enterKnobspike" reading "call Mr. Knobspike".
+	
+After Linkaging when topicDuJour is "worm-intakeFormDeux":
+	set output focus to the element called "column-right";
+	now the manifest of InboxFolder is {};
+	now the manifest of JunkFolder is {};
+	now the manifest of SentFolder is {};
+	receive finalLetter into inboxFolder;
+	say "Mr. Knobspike walks in through heavy mahogany doors that lead to your office, and he pauses to give the door knob an extra few twists. [quotation mark]Well, that[apostrophe]s novel,[quotation mark] he remarks cryptically and walks fully into the office, the doors swinging shut silently/squeakily behind him.[paragraph break][quotation mark]If you[apostrophe]ll take a seat there,[quotation mark] you point towards the leather recliner at the center of the office pentacle, [quotation mark]I will get the candles placed and start the telling,[quotation mark] you say with practiced efficiency.[paragraph break]But the imp just stands there smiling, his arms crossed on the back of the chair and his gaze directed out your window towards the woods. [quotation mark]No,[quotation mark] he says, [quotation mark]I don[apostrophe]t think I need my fortune told after all. I have what I came for.[quotation mark][paragraph break][quotation mark]And what is that?[quotation mark] you ask.[paragraph break][quotation mark]A satisfying end to this story.[quotation mark][paragraph break]*** Congratulations! You Have Won! ***".
+	
+After Linkaging when topicDuJour is "worm-finishForm":
+	set output focus to the element called "column-right";
+	say "Working over the intercom, you and Mr. Nobspike breeze through the rest of the intake form. His background sounds entirely bland and raises no red flags.[paragraph break] Having entered all of the data on the form in fine draconic script, you stick the paper into your office fax machine and prepare to send it to Dmitri. It has been many years since you last used the machine, so it takes you a few tries to get it right. The whole process seems unnecessarily complex and prone to failure, so you check with Dmitri over the intercom to [fax2]."
+	
+To say fax2:
+	place a link to the command "link worm-fax2" reading "make sure it went through".
 	
 
+After Linkaging when topicDuJour is "worm-finishForm":
+	play the sound effect file "Fax-machine-sound.mp3";
+	set output focus to the element called "column-right";
+	say "[quotation mark]Dmitri, did you get it?[quotation mark][paragraph break][quotation mark]The client is pulling it off the fax now. It[apostrophe]s coming in real slowly.[quotation mark][paragraph break][quotation mark]It[apostrophe]s a miracle it works at all across half the universe and then some. When you get it all, have Mr. Nobspike give it a once over and if it[apostrophe]s all good to go, have him sign off on it.[quotation mark][paragraph break]In the background, you hear the imp exclaim, [quotation mark]Hah! So that[apostrophe]s the problem with the door – amazing.[quotation mark][paragraph break]Then, Dmitri[apostrophe]s panicked voice, [quotation mark][dragonName], he[apostrophe]s gone! The client just took the fax and left.[quotation mark][paragraph break]Unnerved by the sudden turn of events you rush into the waiting room, [quotation mark]Dmitri, bring him back! No one walks out on one of my fortune tellings![quotation mark] The owl swoops out of the reception area, his nocturnally adjusted eyes allowing him to scour the forest with predatory proficiency.[paragraph break]However, after another fifteen minutes with no word from Dmitri, you write it off as an embarrassing loss and sulk back to your office. [paragraph break]You stare out the window, a time-shifted dimensional portal to the forest around your office. You ordered this dimensional portal with the temporal offset so you enjoy the view of the forest even during midnight sessions at your office.[paragraph break]Just then, you notice some furtive movement in the bushes just outside the window. Maybe, you think to yourself, there is [stillAway] to bring this fortune telling to a successful conclusion."
+	
+To say stillAway:
+	place a link to the command "link worm-stillAway" reading "still away".
+	
+After Linkaging when topicDuJour is "worm-stillAway":
+	set output focus to the element called "column-right";
+	say "Yes, it is definitely your client out there doing Ialdagorth-knows-what at the edge of the forest. You will need to do your best to avoid scaring him off, knowing how jittery he was earlier in the day.[paragraph break][crouchingShrubs]".
+	
 
 	
-	
-	
-
 
 
 
@@ -973,10 +1044,14 @@ To say victorRetCon2:
 To say writOfRetcon:
 	place a link to the command "link worm-writOfRetcon" reading "Writ of RetCon".
 	
+finalLetter is an epistle. finalLetter is not read.
+The correspondent of finalLetter is "Victor Cragne, Attorney".
+The carboncopy of finalLetter is "Dmitri Rasputinov; HDL Venkath, 9th P; AAPDO litigation; Marzitrex of the Withered Claw".
+The subject of finalLetter is "Settlement".
+The payload of finalLetter is "[settlement]".
 
-
-
-
+To say settlement:
+	say "[CragneLawFirmHeader]My client, the American Associaton of Professional Draconic Oracles, and I are satisfied with this outcome, which demonstrates that at all times His Draconic Lordship Venkath of the Nine Plates conformed to the highest standards of professionalism in execution of his Oracular duties. [paragraph break]The Association has agreed that the original narrative can remain on your website, but enjoins you under penalty of further prosecution to retain in perpetuity the full text of the current, corrected narrative on the same site. I trust that you and your Foundation will likewise find this an agreeable resolution.[paragraph break]It is now clear that the earlier narrative was perpetrated by the imp, Paisley Knobspike, who intentionally misled HDL Venkath[apostrophe]s receptionist about the spelling of his name during their initia telephonic interview in order to exploit an administrative feature of His Lordship[apostrophe]s reception room door. Due to client confidentiality regulations, the door is warded to only admit the client specifically requested, and we all know how literal doors can be. According to subsequent testimony from the imp, he did this with the sole intent of provoking a legal response that would generate a more satisfying player experience. A jury of his peers cleared him of all further charges brought by my office, so we now consider this matter closed.[paragraph break]As is often the way with imps, his meddling resulted in an untold amount of work and complications for others, but as a legal consultant paid hourly, I have no complaints.[paragraph break]I regret that I will not have the opportunity to torture you further in this matter but look forward to our next encounter.[paragraph break]Sincerely,[paragraph break]Victor Cragne,[line break]Attorney".
 
 Section 3 - Mail Folders
 
