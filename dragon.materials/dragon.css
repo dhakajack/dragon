@@ -95,6 +95,10 @@ body {
 	font-weight: bold;
 }
 
+.stricken {
+	text-decoration: line-through;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
