@@ -111,7 +111,7 @@ th, td {
     margin-bottom: 0.5em;
     border-style: inset;
     border-width: 1px;
-	border-color: black;
+	border-color: #ddd;
 	width: 25%;
 	margin-left: auto;
 	margin-right: auto;
@@ -186,5 +186,13 @@ th, td {
     .column-left, .column-right {
         width: 100%;
     }
+	
+	.column-right {
+		border-left-style: none;
+	}
+	
+	.column-left {
+		text-align: center;
+	}
 }
 
