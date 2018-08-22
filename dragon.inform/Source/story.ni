@@ -6,6 +6,8 @@ Include Vorple Command Prompt Control by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
 Include Vorple Multimedia by Juhana Leinonen.
 
+The release number is 2. [preBeta]
+
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
 Release along with the file "balloons.png", the file "plucky.mp3", and the file "Fax-machine-sound.mp3".
@@ -240,7 +242,7 @@ After Linkaging when topicDuJour is "blog":
 	
 After Linkaging when topicDuJour is "credits":
 	set output focus to the element called "column-right";
-	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge XXX concept reviewer, XXX beta tester, and XXX other folks.[paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
+	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge XXX concept reviewer, XXX beta tester, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
 	
 After Linkaging when topicDuJour is "vorple":
 	set output focus to the element called "column-right";
