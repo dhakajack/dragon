@@ -180,7 +180,9 @@ Carry out Linkaging:
 	if the topicDuJour matches the text "worm-":
 		now the lastWormTopic is the topicDuJour;[book mark it as the most recent worm command];
 		hide the element called "ScryDragon";
+		add name "back-blue" to the element called "column-right";
 	otherwise:
+		remove name "back-blue" from the element called "column-right"; 
 		if ScryView enabled flag is true:
 			show the element called "ScryDragon";
 	clear the element called "column-right". [get ready to write to the right column div]
@@ -1121,6 +1123,7 @@ Every turn:
 	if the TurnTimer is VenkathReprimandTime:
 		receive VenkathReprimand into InboxFolder;
 	if the TurnTimer is AAPDOReprimandTime:
-		receive AAPDOReprimand into InboxFolder.
+		receive AAPDOReprimand into InboxFolder;
+	scroll to the element called "header".
 
 

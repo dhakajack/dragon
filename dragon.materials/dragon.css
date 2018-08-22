@@ -16,7 +16,7 @@ body {
 	max-width: none;
 	padding: 0px;
 	margin: 0px;
-	background-color: #1ff;
+	background-color: black;
 }
 
 .header {
@@ -64,21 +64,24 @@ body {
     padding: 10px;
     width: 75%;
 	min-height: 25em;
-	background-color: black;
 	border-left-style: solid;
 	border-width: thin;
 	border-color: #ededed;
 	color:white;
 }
 
+.back-blue {
+	background-color:#090969;
+}
+
 .column-right a:link, a:visited {
 	color: #ff5;
-	font-weight: bold;
+	//font-weight: bold;
 }
 
 .column-right a:hover, a:active {
 	color: tomato;
-	font-weight: bold;
+	//font-weight: bold;
 }
 
 .stricken {
