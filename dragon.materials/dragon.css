@@ -9,7 +9,7 @@ Style sheet Dragon
 }
 
 body {
-	background-color: #009;
+	background-color: black;
 }
 
 #output {
@@ -20,7 +20,7 @@ body {
 }
 
 .header {
-    background-color: #f47742;
+    background-color: #960f33;
     padding: 20px;
 	border-bottom-style: double;
 	border-width: medium;
@@ -45,7 +45,7 @@ body {
 .logo {
 	text-align: left;
 	font-size: 3em;
-	color: blue;
+	color: white;
 }
 
 .row {
@@ -58,7 +58,7 @@ body {
     float: left;
     padding: 10px;
     width: 25%;
-	background-color: #bbb;
+	background-color: black;
 }
 
 .column-left a {
@@ -79,14 +79,15 @@ body {
     padding: 10px;
     width: 75%;
 	min-height: 25em;
-	background-color: #9ee;
+	background-color: black;
 	border-left-style: solid;
 	border-width: thin;
 	border-color: #ededed;
+	color:white;
 }
 
 .column-right a:link, a:visited {
-	color: blue;
+	color: #ff5;
 	font-weight: bold;
 }
 
@@ -158,18 +159,19 @@ th, td {
 }
 
 .footer {
-    background-color: #c9ffdd;
-	color: black;
+    background-color: black;
+	color: white;
 	height: 3em;
     padding: 10px;
 }
 
 .powered {
 	display: inline;
-	float: left;
+	float: right;
 }
 
 .debugWindow {
+	display:none;
 	color:yellow;
 	background-color: #000;
     text-align: left;
