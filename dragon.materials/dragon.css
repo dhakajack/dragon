@@ -27,21 +27,6 @@ body {
 	border-color: #ededed;
 }
 
-.header a {
-	position: absolute;
-	top:  1.5em;
-	right: 2em;
-	display: block;
-    color: #f2f2f2;
-    text-decoration: none;
-}
-
-/* Change color on hover */
-.header a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
 .logo {
 	text-align: left;
 	font-size: 3em;
@@ -117,7 +102,7 @@ th, td {
     margin-bottom: 0.5em;
     border-style: inset;
     border-width: 1px;
-	border-color: black;
+	border-color: #ddd;
 }
 
 .hrminisub {
@@ -160,7 +145,7 @@ th, td {
 
 .footer {
     background-color: black;
-	color: white;
+	color: #999;
 	height: 3em;
     padding: 10px;
 }
@@ -168,6 +153,10 @@ th, td {
 .powered {
 	display: inline;
 	float: right;
+}
+
+.powered a {
+	color: #8f97d8;
 }
 
 .debugWindow {
