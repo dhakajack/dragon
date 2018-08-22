@@ -49,6 +49,7 @@ body {
 .column-left a {
 	display: block;
 	padding: .2em 2em .2em 2em;
+	color:#ff5;
 }
 
 .navSelect {
