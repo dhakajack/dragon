@@ -272,10 +272,11 @@ After Linkaging when topicDuJour is "inbox":
 		
 To display party screen:
 	set output focus to the element called "column-right";
+	say "[paragraph break]";
 	place an image "balloons.png" with the description "A cluster of colorful party balloons", centered;
 	place a block level element called "bigred";
 	set output focus to the element called "bigred";
-	say "Congratulations![paragraph break]You have hit inbox zero!".
+	say "Congratulations![paragraph break]You have hit inbox zero! [paragraph break][paragraph break]".
 	
 After Linkaging when topicDuJour is "sent":
 	show index of sentFolder.

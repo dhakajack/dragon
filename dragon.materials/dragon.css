@@ -64,7 +64,6 @@ body {
     float: left;
     padding: 10px;
     width: 75%;
-	min-height: 25em;
 	border-left-style: solid;
 	border-width: thin;
 	border-color: #ededed;
@@ -140,6 +139,7 @@ th, td {
 	background-color: #fff;
 	display:block;
 	margin:auto;
+	min-height:25em;
 }
 
 /* Clear floats after the columns */
