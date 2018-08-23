@@ -13,9 +13,6 @@ Release along with the file "balloons.png", the file "plucky.mp3", and the file 
 
 Chapter 1 - Globals
 
-The debug flag is a truth state that varies. The debug flag is true.
-[also remember to toggle the window's visibility property to/from hidden in dragon.css]
-
 The topicDuJour is a text that varies. The topicDuJour is "inbox".
 
 The lastWormTopic is a text that varies. The lastWormTopic is "worm-start".
@@ -130,10 +127,9 @@ To layout the screen:
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
 	place a link to the command "link sent" called "folder-sent" reading "Sent";
 	place a link to the command "link junk" called "folder-junk" reading "Junk";
-		move the element called "folder-inbox" under "folders";
+	move the element called "folder-inbox" under "folders";
 	move the element called "folder-sent" under "folders";
 	move the element called "folder-junk" under "folders";
-	move the element called "folder-tdwtyfn" under "folders";
 	set output focus to the element called "powered";
 	say "Powered by ";
 	place a link to the command "link inform" reading "Inform";
@@ -141,7 +137,7 @@ To layout the screen:
 	place a link to the command "link vorple" reading "Vorple";
 	say ".";
 	set output focus to the element called "debugWindow".
-	[later, the debug window will be made invisible]
+	[debug window is invisible; to make it visible, alter the css to remove hidden attribute]
 	
 To backdate email:
 	repeat with folder running through mailfolders:
@@ -153,6 +149,10 @@ To backdate email:
 			say "folder [folder] / mail [mail] - maxage [maxage of the folder], minutedec [minuteDecrement], timeOffset [timeOffset].";
 			execute JavaScript command "timestamp([timeOffset]);";
 			now the date of the mail is the text returned by the JavaScript command.
+			
+To say this page:
+	execute Javascript command "window.location.href;";
+	say the text returned by the JavaScript command.
 	
 Chapter 4 - Linkaging
 	
@@ -161,9 +161,8 @@ Linkaging is an action applying to one topic.  Understand "link [text]" as linka
 Check Linkaging:
 	[don't do something unless it's a change from current display]
 	if the topicDuJour is the topic understood:
-		if debug flag is true:
-			say "Duplicate action rejected: [topicDuJour].";
-			now the turn hold flag is true;
+		say "Duplicate action rejected: [topicDuJour].";
+		now the turn hold flag is true;
 		stop the action.
 	
 Carry out Linkaging:
@@ -180,10 +179,11 @@ Carry out Linkaging:
 		remove name "back-blue" from the element called "column-right"; 
 		if ScryView enabled flag is true:
 			show the element called "ScryDragon";
-	clear the element called "column-right". [get ready to write to the right column div]
-		
+	clear the element called "column-right";
+	set output focus to the element called "column-right".
+
 Report Linkaging:[fires if no after rule supercedes it]
-	say "The [topic understood] link was selected and the current topic is [topicDuJour]. Tracking the last worm topic as [lastWormTopic]."
+	say "Error. If you are seeing this, no After Rule has captured a link click event. The [topic understood] link was selected and the current topic is [topicDuJour]. Tracking the last worm topic as [lastWormTopic]."
 
 Section 1 - Mail Links
 
@@ -194,6 +194,7 @@ Section 1 - Mail Links
 After Linkaging when topicDuJour matches the text "mail-":
 	let V be topicDuJour;
 	replace the text "mail-" in V with "";
+	set output focus to the element called "debugWindow";
 	say "V is [V].";
 	repeat with item running through epistles:
 		say "Checking out [item].";
@@ -219,13 +220,11 @@ After Linkaging when topicDuJour is "TDWTYYFN":
 	hide the element called "ReviewLastYear".
 		
 After Linkaging when topicDuJour is "inform":
-	set output focus to the element called "column-right";
 	say banner text;
 	say line break;
 	say "Thanks to all those who have worked on Inform and in the Inform ecosystem. This story was written in [bold type]Inform 7[roman type] and compiled for the [bold type]Glulx[roman type] virtual machine."
 	
 After Linkaging when topicDuJour is "about":
-	set output focus to the element called "column-right";
 	say "There really was a game entered into the 2018 IF Comp (the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. There is some debate as to whether it was a joke entry, as it was unwinnable and the author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]Last year when I reviewed the original game on my [blog], I thought it was well-written, but thought it was a shame it didn't go anywhere. I found myself wondering why the client had gone to see the dragon, and most of all, why it was so hard to get into the next room to meet the dragon. Well, now the story can be told at last."
 	
 To say blog:
@@ -238,11 +237,9 @@ After Linkaging when topicDuJour is "blog":
 	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://blog.templaro.com/review-dragon-will-tell-future-now')".
 	
 After Linkaging when topicDuJour is "credits":
-	set output focus to the element called "column-right";
 	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge XXX concept reviewer, XXX beta tester, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
 	
 After Linkaging when topicDuJour is "vorple":
-	set output focus to the element called "column-right";
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
 	open HTML tag "u";
 	say "Modules";
@@ -311,11 +308,9 @@ To show index of (dossier - a mailfolder):
 Section 3 - Story Links
 
 After Linkaging when topicDuJour is "satanNipples":
-	set output focus to the element called "column-right";
 	say "The Book of Revelations had to stop at some point and it was an editorial decision to omit mention of the seven nipples of the Beast and all of his piercings, multitudinous though they be. Also, I should mention that this is an area of some sensitivity, so if you could refrain from mousing over the seven nipple rings of Our Dark Lord repeatedly, that would be appreciated.[paragraph break]Now that you have had your jollies, return to my [backToVictor2] of extreme importance."
 	
 After Linkaging when topicDuJour is "tmworm":
-	set output focus to the element called "column-right";
 	say "Oh, don’t bother going looking for the theosophic mentality worm, it has already devoured its way through some superfluous memories (were they? I suppose they are now [unicode 8212] How would know?) and has sunk its hooked limbs deep into the fleshy pit of your soul. Already, it is leaching away your awareness of your surroundings and infiltrating your thoughts with its hallucinatory mind poisons. Oh, you are going to have some magnificent dreams tonight, if you survive.[paragraph break]Enough. Return to my masterfully written [backToVictor3]."
 	
 To say backToVictor2:
@@ -325,7 +320,6 @@ To say backToVictor3:
 	place a link to the command "link mail-finalVictor" reading "email".
 	
 After Linkaging when topicDuJour is "worm-start":
-	set output focus to the element called "column-right";
 	say "[start]".
 		
 To say start:
@@ -338,7 +332,6 @@ OptionText	Link
 "[quotation mark]Where is my coffee?[quotation mark]"	"worm-whereCoffee"
 
 After Linkaging when topicDuJour is "worm-yourDay":
-	set output focus to the element called "column-right";
 	say "[yourDay]".	
 	
 To say yourDay:
@@ -356,17 +349,14 @@ To say dragonName:
 		say "Lord Venkath".
 	
 After Linkaging when topicDuJour is "worm-lessFormal":
-	set output focus to the element called "column-right";
 	say "[quotation mark]How do you desire that I address you, my Draconic Lordship?[quotation mark][paragraph break][quotation mark]How about [apostrophe]Lord Venkath[apostrophe]? That seems much less stuffy that all this [apostrophe]your Draconic Lordship[apostrophe] business.[quotation mark][paragraph break][quotation mark]Your Lordship[apostrophe]s kindness touches me deeply. Do you prefer, [apostrophe]Lord Venkath of the Seven Plates[apostrophe] or just [apostrophe]Lord Venkath[apostrophe]?[paragraph break][quotation mark]Just [apostrophe]Lord Venkath[apostrophe] seems adequate.[quotation mark][paragraph break][quotation mark]Yes, Lord Venkath, so it shall be. But I could not possibly address you so in the presence of our clients, of course.[quotation mark][paragraph break][quotation mark]Of course. Etiquette must prevail.[quotation mark][paragraph break][quotation mark]Your Lordship[apostrophe]s wisdom is incontrovertible.[quotation mark] [enterDoors]";
 	now the informal flag is true.
 	
 After Linkaging when topicDuJour is "worm-whereCoffee":
-	set output focus to the element called "column-right";
 	say "[quotation mark]I have it right here in my flight sack, Your Draconic Lordship. A twenty-ounce Costa Rican Tarazu with frosty spider eggs and a touch of salt.[quotation mark][paragraph break][quotation mark]Excellent,[quotation mark] you say, taking the proffered Styrofoam cup. While taking human form is in many ways a crippling inconvenience, being able to experience caffeine makes it all worthwhile. [enterDoors]";
 	now the coffee flag is true.
 
 After Linkaging when topicDuJour is "worm-doors":
-	set output focus to the element called "column-right";
 	say "The heavy mahogany doors swing inward, over the dimensional discontinuity that leads into your office. You notice that one of the hinges has gotten a bit creaky again.[pick Table of Sticky Doors options]".
 	
 Table of Sticky Doors
@@ -376,11 +366,9 @@ OptionText	Link
 "A squeaky hinge is nothing in the grand scheme. You ignore it."	"worm-office1"
 
 After Linkaging when topicDuJour is "worm-office1":
-	set output focus to the element called "column-right";	
 	say weirdFeeling.
 	
 After Linkaging when the topicDuJour is "worm-unsqueaky":
-	set output focus to the element called "column-right";
 	now the squeaky_hinge flag is false;
 	say weirdFeeling.
 	
@@ -391,14 +379,12 @@ To say notRightAtAll:
 	place a link to the command "link worm-notRightAtAll" reading "not right at all".
 	
 After Linkaging when topicDuJour is "worm-notRightAtAll":
-	set output focus to the element called "column-right";	
 	say "[quotation mark]Dmitri, we have a problem.[quotation mark][paragraph break]Since he can[apostrophe]t widen his eyes any further, Dmitri[apostrophe]s ears perk up in surprise. [quotation mark]A problem, [dragonName]?[quotation mark][paragraph break][quotation mark]Yes, we are being scryed upon. I only got a brief glimpse, but if I am not mistaken, someone employing a theosophic mentality worm is watching our every action.[quotation mark][paragraph break][quotation mark]Most disconcerting, [dragonName]. Why ever would anyone wish to do that? Is this an audit?[quotation mark][paragraph break][quotation mark]No, I don[apostrophe]t think so, Dmitri, as audits are contemporaneous and to be effective have to be more discreet. No, this person, who I believe is in our future, lacks the least semblance of finesse.[quotation mark][paragraph break][quotation mark]What shall we do about it, [dragonName]? Shall I dial up the Association?[quotation mark][paragraph break][quotation mark]No, let[apostrophe]s see how this plays out. There is usually a reason for this sort of thing, although it is annoying. Also, I[apostrophe]m afraid we have little choice in the matter if someone wants to play willy-nilly with multiversal manifolds, we just have to go along with it, repeating our actions and choices ad infinitum for their amusement.[quotation mark][paragraph break][quotation mark]Sounds dreadful.[quotation mark][paragraph break][quotation mark]Yes, but unless I pull myself out of the stream, we won[apostrophe]t even notice it, so best to just ignore it. But I do say this [unicode 8212] and now I am addressing myself our ill-mannered interloper: realize that your observation has already distorted future history, has greatly complicated my calculations for this evening, and may have destroyed any number of hypothetical realities.[quotation mark][paragraph break][quotation mark]Now then,[quotation mark] you continue, [quotation mark]I[apostrophe]m off to my [office2link].[quotation mark]".
 	
 To say office2link:
 	place a link to the command "link worm-office2" reading "office".
 	
 After Linkaging when topicDuJour is "worm-office2":
-	set output focus to the element called "column-right";
 	say "[one of]The heavy mahogany doors swing shut behind you[if squeaky_hinge flag is true] with an annoying squeak[end if].[paragraph break]As you set your [if coffee flag is true][drinkCoffee] and [end if][deskPapers] down, the causality stream drifts back on course and the universe assumes the more comfortable shape to which you have become accustomed.[paragraph break]Before you start the evening's work, which has already gotten off to a bumpy start, you decide to take a moment and center yourself. You recline in your black ergonomic chair and prop your feet up on the broad antique desk that fills half your office. It has been a while since you’ve seen your actual feet, which spend most of their time tucked between your ponderous body and the hoard that you have amassed over the millennia, but you find your human feet pleasing enough and enjoy wearing stylish leather shoes[or]A stack of [deskPapers] stands on your desk[if coffee flag is true and coffee_gone flag is false] next to a full cup of steaming hot [drinkCoffee][end if].[paragraph break]Daylight pours in through the [window] to the side of your desk, and outside fairies and sprites dart back and forth between the trees of the dense forest surrounding your office[if the number of filled rows in Table of Reads is 0]. You debate with yourself whether to press the [intercom] button, knowing full well that the moment the client comes in, Dmitri will let you know[end if][stopping].";
 	set output focus to the element called "debugWindow";
 	receive VenkathAware into inboxFolder.[redundant calls are ignored]
@@ -416,9 +402,7 @@ To say deskPapers:
 	place a link to the command "link worm-deskPapers" reading "papers".
 	
 After Linkaging when topicDuJour is "worm-drinkCoffee":
-	set output focus to the element called "column-right";
 	say "The warmth of the coffee instantly puts you at ease and you fork your tongue slightly to fully appreciate its most subtle flavors. Coffee is an expensive luxury, but indispensable to achieve optimal focus for your readings. Coffee beans are not native to your Plane of Existence and are only delivered sporadically by a woman and her dog when they show up in Holsberg with a spaceship crammed full of mundane delicacies.[paragraph break]You finish sipping your coffee and toss the cup into the timeless void between space, ready to get back to [backToWork].";
-	set output focus to the element called "debugWindow";
 	now the coffee_gone flag is true;
 	receive rover into inboxFolder.
 	
@@ -426,7 +410,6 @@ To say backToWork:
 	place a link to the command "link worm-office2" reading "work".
 	
 After Linkaging when topicDuJour is "worm-deskPapers":
-	set output focus to the element called "column-right";
 	say "[if the number of filled rows in Table of Reads is greater than 0]You are a little obsessive about going through all the paperwork before the first client arrives. Apparently, there is no rush tonight, since the client is so late, so you take your time to peruse the pile:[pick Table of Reads options][otherwise]You realize you have spent an unconscionable amount of your valuable time fiddling with this petty paperwork and are eager to get back to [backToWork].[end if]"
 	
 Table of Reads
@@ -439,17 +422,14 @@ OptionText	Link
 
 	
 After Linkaging when the topicDuJour is "worm-galaInvite":
-	set output focus to the element called "column-right";
 	say "Well, not as interesting as you would have thought from the fancy envelope: it's an invitation to speak at this year's Guild Dinner. Sigh.[pick table of Guild Dinner options]";
 	wipe row "worm-galaInvite" in Table of Reads.
 	
 After Linkaging when the topicDuJour is "worm-ddBill":
-	set output focus to the element called "column-right"; 
 	say "Hmm. Looks like an invoice from the Dimension Dwarves: the paper is covered with arcane symbols and calculations.[pick table of DDbill options]";
 	wipe row "worm-ddBill" in Table of Reads.
 	
 After Linkaging when topicDuJour is "worm-newspaper":
-	set output focus to the element called "column-right";
 	say "You leaf through tomorrow’s newspaper looking for any short term perturbations or causal inconsistencies, but ignore the news itself, which is too fluid to be reliable. You take particular joy in reading through the sham horoscopes and weather forecasts, which keep professional seers like you in business.[paragraph break][morePapers]";
 	wipe row "worm-newspaper" in Table of Reads.
 	
@@ -457,12 +437,10 @@ To say morePapers:
 	say "There are plenty more [deskPapers] on the desk that demand your attention."
 
 After Linkaging when topicDuJour is "worm-update":
-	set output focus to the element called "column-right";
 	say "You start with the headlines: The long-anticipated Age of Boort-the-Deceiver is only a few days away, so there will be a mad rush to align those temples in the next couple days (despite Dentar Ten Plate having forecasted the event almost two hundred years ago).[paragraph break]Above the ecliptic, Togam-the-Fishwife is transiting the Hoary Field of Incertitude, the meaning of which, of course, is anyone’s guess.[paragraph break]On the broad sheet, the Houses of Yaptog-the-Willful and Erelam-the-Incontinent are nearing opposition along a line roughly orthogonal to Peetsokh-the-Unready. That may open up some interesting opportunities for some of your elven conjurer corporate clients.[paragraph break]Nothing interesting going on in the Minor Houses, and there are no Shadow Aspects that bear mentioning.[paragraph break]In more mundane matters, you make note that effluent from a geoeffective coronal mass ejection should reach the magnetosphere tonight, which sometimes prompts clients to drop by when they mistake an aurora for a supernatural portent. That's always good for business.[paragraph break][morePapers]";
 	wipe row "worm-update" in Table of Reads.
 	
 After Linkaging when topicDuJour is "worm-chart":
-	set output focus to the element called "column-right";
 	say "You flip past the HIPAA-compliant coversheet and glance at the demographic info, which Dmitri has hastily scrawled at the top of the intake form:[paragraph break]Name: Paisley Nobspike[line break]Race: [unicode 9745] Orc [unicode 9745] Gnome.[line break]Birth: The 17th of Ubij in the Systematized Year 128A[paragraph break]Dmitri has helpfully penciled in some of the relevant influences at birth, noting that the client was born in seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration. There is no mention of crossed Shadow Aspects, but that will come out in the interview, so no worries there.[paragraph break]You dutifully scan past his address and insurance information but are surprised that the rest of the pages are blank. Unfortunately, the client did not provide the necessary information to Dmitri. You’ll have to waste time during the intake session completing this drudgery. If you weren’t in human form, tendrils of black smoke would now be rising from your nostrils.[pick table of charting options]";
 	wipe row "worm-chart" in Table of Reads.
 
@@ -473,15 +451,12 @@ OptionText	Link
 "[quotation mark]Dmitri, make up some excuse to get me out of the Awards Dinner talk.[quotation mark]"	"worm-wontTalk"
 
 After Linkaging when topicDuJour is "worm-garbageInvitation":
-	set output focus to the element called "column-right";
 	say "You toss the balled-up invitation backwards over your shoulder towards a rift in space-time that you manifest near the bookshelves. The wad of paper goes wide and lands on the floor. You pick it up again with annoyance and chuck it into the depthless absence of being and award yourself two points rather than three. You can’t be too critical of yourself, after all: the eyes on your current face are just too close together to afford reasonable depth perception.[paragraph break][morePapers]".
 	
 After Linkaging when topicDuJour is "worm-willTalk":
-	set output focus to the element called "column-right";
 	say "[quotation mark]Is that the Draconian Prophecy Alliance Gala, [dragonName]?[quotation mark] Dmitri asks you over the office intercom.[paragraph break][quotation mark]No, it[apostrophe]s the Soothsaying Guild Annual Awards Dinner [unicode 8212] at the Hill Giant Lodge, if I recall.[quotation mark][paragraph break][quotation mark]Ah, fine. Okay, I will send a reply on the first rabbit that hops by. What shall I say will be your topic?[quotation mark][paragraph break][quotation mark]Let[apostrophe]s brush off the [apostrophe]Teach An Old Dragon New Tricks[apostrophe] talk from last year[apostrophe]s DraconiCon. No one on this Plane of Existence has heard it.[quotation mark][paragraph break][quotation mark]Very good, [dragonName].[quotation mark][paragraph break][DmitriInvite]".
 
 After Linkaging when topicDuJour is "worm-wontTalk":
-	set output focus to the element called "column-right";
 	say "You inform Dmitri over the office intercom of your decision not to speak at this year[apostrophe]s Awards Dinner.[paragraph break][quotation mark]I am sure your absence will be greatly felt by them, [dragonName].[quotation mark][paragraph break][quotation mark]That would be fine by me. If they miss me enough, maybe next year they[apostrophe]ll comp their speakers. These awards dinners are a self-congratulatory scam.[quotation mark][paragraph break][DmitriInvite]"
 	
 To say DmitriInvite:
@@ -493,11 +468,9 @@ OptionText	Link
 "[quotation mark]Dmitri? I found an old double-D invoice [unicode 8212] should I throw it out?[quotation mark]"	"worm-checkBill"
 
 After Linkaging when topicDuJour is "worm-garbageBill":
-	set output focus to the element called "column-right";
 	say "You open the tiniest portal deep within a gravity well and watch the invoice tear itself atom-from-atom as its spaghettifies and spirals out of existence awash in a burst of hard X-rays. In an instant, it is gone and the rupture seals behind it. Done and done.[paragraph break][morePapers]".
 	
 After Linkaging when topicDuJour is "worm-checkBill":
-	set output focus to the element called "column-right";
 	say "Your inquiry about the Dimension Dwarf invoice elicits a worried clucking from the other end of the intercom.[paragraph break][quotation mark][dragonName], may I respectfully beseech that we retain that invoice?[quotation mark][paragraph break][quotation mark]You don[apostrophe]t think we[apostrophe]re paid up?[quotation mark][paragraph break][quotation mark]We make automatic payments from the Unicorn account, but there was a billing issue last month [unicode 8212] the office portals got bent around into sort of a Klein bottle topology and they tried to charge us an infinite sum. I don[apostrophe]t know if they[apostrophe]ve credited that back to the account yet.[quotation mark][paragraph break][quotation mark]Fine,[quotation mark] you reply and hand the receipt over to Dmitri. He hops in and out, and closes the squeaky door behind him.[paragraph break][morePapers]".
 
 Table of Charting
@@ -508,22 +481,18 @@ OptionText	Link
 
 
 After Linkaging when topicDuJour is "worm-whereIntake":
-	set output focus to the element called "column-right";
 	say "[quotation mark]I do most humbly apologize, [dragonName]. Mr. Nobspike called several times today [unicode 8212] he is a most anxious individual. He spoke so fast that I could barely understand him.[quotation mark][paragraph break][quotation mark]And you didn[apostrophe]t get his history on any of those calls?[quotation mark][paragraph break][quotation mark]Again, [dragonName], I beg your indulgence. Every time he called, I had to reassure him about coming here, specifically, that you would not eat him.[quotation mark][paragraph break][quotation mark]Eat him![quotation mark] Your teeth begin to elongate and wing stubs stir in your back, but you quell the transformation. [quotation mark]Of all the prejudiced… You know, maybe I should.[quotation mark][paragraph break]Polite, nervous laughter echoes over the intercom.[paragraph break][morePapers]".
 
 After Linkaging when topicDuJour is "worm-bump":
-	set output focus to the element called "column-right";
 	say "[quotation mark]Why don[apostrophe]t we call it a night. You can bump his appointment to the next alignment, I think the 25th should do.[quotation mark][commonDisposition]".
 	
 After Linkaging when topicDuJour is "worm-turf":
-	set output focus to the element called "column-right";
 	say "[quotation mark]I can[apostrophe]t be wasting my time on trivial cases like this [unicode 8212] see if you can reach him and send him over to Cormouth. He[apostrophe]s always looking for clients.[quotation mark][commonDisposition]".
 
 To say commonDisposition:
 	say "[paragraph break][quotation mark]I weep sorrowfully that I cannot do as you command, [dragonName].[quotation mark][paragraph break][quotation mark]But it[apostrophe]s almost midnight and he[apostrophe]s not even here. Also, knock it off with the weeping. That[apostrophe]s not what I want clients to see when the step into the waiting room. Now what[apostrophe]s the issue?[quotation mark][paragraph break][quotation mark]Mr. Nobspike claims to be a Class-A with direct referral from the Spire.[quotation mark][paragraph break][quotation mark]Fine. Send him in whenever he deigns grace our doorstep and we[apostrophe]ll muddle through.[quotation mark][paragraph break][quotation mark]It will be my greatest joy to so serve you, [dragonName].[quotation mark][paragraph break][morePapers]".
 	
 After Linkaging when topicDuJour is "worm-window":
-	set output focus to the element called "column-right";
 	say "A large window is centered on the wall to your left and looks out on nothing but the lush forest surrounding your office.[no line break][one of][paragraph break]The remoteness of the office suits your desire to run something of a boutique practice, offering services only to those willing to make the trek through the woods, at midnight no less. Not only has this cut down on the number of flaky referrals, but the perception of exclusivity has allowed you to jack your fees up beyond even what they are raking in back in Holsberg.[paragraph break]On a practical note, the office is located next to a river that flows past your mountain lair, so the commute is a no-brainer: you just fly along the course of the river.[no line break][or][stopping][paragraph break][one of]For an instant, you think you see someone crouched down at the edge of the forest watching you... but it must have been a trick of the light. When you try to get a better look, nothing seems amiss[or]Birds sing loudly from the branches above your office[or]A rabbit scampers past, just below the window[or]A breeze stirs the high tree branches, admitting shafts of sunlight[stopping].[paragraph break]Enough daydreaming. The [backToWork] won't do itself!"
 	
 To say dayDreaming:
@@ -531,21 +500,18 @@ To say dayDreaming:
 
 	
 After Linkaging when topicDuJour is "worm-intercom":
-	set output focus to the element called "column-right";
 	say "As your finger hovers indecisively over the intercom button, Dmitri comes flapping into your office so quickly that the office doors continue to swing [if the squeaky_hinge flag is true]squeakily[end if] back and forth behind him several times before coming to rest. [paragraph break]Dmitri opens his beak to plunk down a wad of irregularly shaped papers before announcing, [quotation mark]He[apostrophe]s here. Your client is here and he[apostrophe]s cowering in the waiting room. He brought some items that he thought you would like to read before seeing him. Apparently, he is convinced that he is cursed.[quotation mark][paragraph break][quotation mark]Cursed,[quotation mark] you say unenthusiastically. [quotation mark]That is a very imprecise term; effectively meaningless. Does he mean that someone has worked a hex against him, that his luck has been stained, that he attracted an inimical wrongfulness, that he has come into possession of contrabeneficent articles –- what?[quotation mark][paragraph break]Dmitri ruffles his shoulder feathers and spins his head, as if looking for an answer to your unanswerable question. [quotation mark]Regrettably, he was incapable of expressing himself in more proper terms, [dragonName]. All I managed to coax from him was that he had been researching his predicament on the [internet]…[quotation mark]".
 	
 To say internet:
 	place a link to the command "link worm-internet" reading "internet".
 	
 After Linkaging when topicDuJour is "worm-internet":
-	set output focus to the element called "column-right";
 	say "[quotation mark]The internet![quotation mark] you boom. Scales erupt on your skin, and horns poke through the fabric of your suit all along your spine. You occupy fully half the volume of the office before you are able to get a handle on things and squeeze back into your human form. Your exquisite three-piece suit keeps pace, contracting back down with you and sealing over the ruptures, proving once again that your tailor is worth every dime.[paragraph break][quotation mark]I absolutely detest it when clients get it into their heads that they can tell their own futures. I suppose there are tarot cards in that pile?[quotation mark] you ask, keeping your voice guardedly neutral.[paragraph break][quotation mark]Yes, [dragonName]. A few. Also, he said he made some marginal notes and highlighted some passages that may deserve your particular attention.[quotation mark][paragraph break]This provokes another brief burst of outrage. It is a few minutes before you are able to fully rewind your tail into your body.[paragraph break][quotation mark]Well, tell him that I will give it a ‘thorough[apostrophe] look.[quotation mark] you say dryly. [quotation mark]I will send for him when I am ready.[quotation mark][paragraph break][quotation mark]Very good, [dragonName].[quotation mark][paragraph break][quotation mark]Also,[quotation mark] you add, [quotation mark]he[apostrophe]s a half-gnome right? They are jittery little folk. Why don[apostrophe]t you let him simmer down for a moment with a cup of tea. The sort with an extra, let[apostrophe]s say, fifty milligrams of Alport[apostrophe]s Concoction of Placid Compliance.[quotation mark][paragraph break][quotation mark]An excellent idea, [dragonName]. I shall do so immediately.[quotation mark] Bowing out backwards, Dmitri takes his leave of you.[paragraph break]You eye your client[apostrophe]s [quotation mark][research][quotation mark] with disdain."
 
 To say research: 
 	place a link to the command "link worm-research" reading "research".
 	
 After Linkaging when topicDuJour is "worm-research" or topicDuJour is "worm-research2":
-	set output focus to the element called "column-right";
 	say "[one of]You lay out on your desk the various items that the owl dragged in, your client’s so-called proof that he is cursed, or more properly, that he is [quotation mark]fate constrained[quotation mark][or]Your desk is covered by items related to your client’s paranoid and pitifully amateur attempt to read his own future[stopping]. These items include: some [tarotCards], a few small [scraps], an [article] torn from a magazine, a stack of green-and-white [fanfold], and a crudely drawn [NebuPlot]."
 	
 To say tarotCards:
@@ -566,7 +532,6 @@ To say NebuPlot:
 	place a link to the command "link worm-nebuplot" reading "Nebuchadnezzar Plot".
 	
 After Linkaging when topicDuJour is "worm-tarot":
-	set output focus to the element called "column-right";
 	say "There are three tarot cards, and your client has inked up their reverse sides with annotations. Before you give them another glance, though, you pull a jeweler[apostrophe]s loupe out of the top drawer of your desk and cast Ingemar[apostrophe]s Incandescent  Slug. As the slug crawls along your desktop, you examine the tarots by the bright yellow light of its slimy trail. [paragraph break]Just as you expected, the cards are nothing more than cardboard with pictures on them. Not true tarot cards at all. You dismiss the slug and wipe the slime up with your handkerchief.[paragraph break]As for what your client may have concluded from these cards, let[apostrophe]s see. Here they are along with Mr. Nobspike[apostrophe]s scribblings:[paragraph break][bold type]The Page of Pentacles[roman type][paragraph break][italic type]The page turns for the fifth time, just as I am entering my fifth decade of life. But towards what?[roman type][paragraph break][bold type]The Moon[roman type][paragraph break][italic type]A tide is turning against me. Soon I will be awash in whatever horrible fate this curse conveys upon me. I cannot hide from it in the brightness of the moon[apostrophe]s unmerciful light.[roman type][paragraph break][bold type]The Hierophant[roman type][paragraph break][italic type]For reasons unknown to me, my inevitable downfall has drawn the attention of those on high, of the very Spire itself. How is my destiny wrapped up with that of the Empire? How do the great and mighty hang from the threads of my fate?[roman type][paragraph break]What hogwash.[pick Table of InternetResearch options]".
 	
 Table of InternetResearch
@@ -576,23 +541,18 @@ OptionText	Link
 "Toss the lot of it in the trash and call Mr. Nobspike in"	"worm-callInClient"
 
 After Linkaging when topicDuJour is "worm-scraps":
-	set output focus to the element called "column-right";
 	say "There are five scraps, little bits of paper about a quarter inch wide and two inches long. Thankfully, they are too small for Mr. Nobspike to have added any of his useless annotations.[paragraph break]The scraps read:[paragraph break][quotation mark][italic type]You[apostrophe]re [bracket]sic[close bracket] troubles will be short-lived.[roman type][quotation mark][paragraph break][quotation mark][italic type]A thrilling time is in your immediate future.[roman type][quotation mark][paragraph break][quotation mark][italic type]Don[apostrophe]t ask, don[apostrophe]t say. Everything lies in silence.[roman type][quotation mark][line break](The word [quotation mark]lies[quotation mark] is underlined twice)[paragraph break][quotation mark][italic type]You will take a chance in something in the near future.[roman type][quotation mark][line break](this one is highlighted in pink fluorescent marker)[paragraph break][quotation mark][italic type]Anger begins with folly, and ends with regret.[roman type][quotation mark][quotation mark][paragraph break]Great Azazoth[apostrophe]s Shiny Buttocks! Who knows what sort of twisted conclusions Mr. Nobspike might have drawn from these no doubt entirely authentic oracular predictions plucked from restaurant cookies.[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-article":
-	set output focus to the element called "column-right";
 	say "It[apostrophe]s torn out of the sort of fashion magazine one might pick up on the grocery checkout line. You wonder if he bought the rest of the magazine or just yanked the article, which is entitled, [quotation mark]Tell Your Own Future: Five Easy Steps[quotation mark]. [paragraph break]Fire builds within your chest, but you swallow it down.[paragraph break]It[apostrophe]s not even a how-to article. It[apostrophe]s a series of infographics that say essentially nothing, even about how to map fate against strong cosmic influencers. On the other hand, it has some salacious gossip pieces about Draconic Celebrities. You feel a little ashamed about how much time you spend pouring over those bits.[paragraph break]Mr. Nobspike has highlighted every instance of the words [quotation mark]fate[quotation mark] and [quotation mark]destiny[quotation mark] within the article. [paragraph break]You go back and re-read the side article about [one of]the green satin dress that Her Draconic Lordship Homlek wore to last year[apostrophe]s Guild Dinner[or]Grand Wizard Tarassen[apostrophe]s dating an Elven Dancer twelve hundred years younger[or]the bitter break up between Prince Finestar and Princess Mouvecrat – which, come to think of it, you saw coming a long time ago[in random order].[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-fanfold":
-	set output focus to the element called "column-right";
 	say "This is old school: green-and-white tractor fed fanfold paper printed by a dot-matrix printer with a dying ribbon. The text is barely legible, even less so thanks to all of the highlighting that Mr. Norspike has added in yellow, orange, and pink, seemingly at random.[paragraph break]It is the worst of internet self-prognostication coupled with a healthy dose of conspiracy theory. It[apostrophe]s too painful to read in detail so you just scan through the amateur alchemy, quotations from Draconic Soothsayers taken entirely out of context, and some old archived posts from rec.arts.draconic.soothsaying.[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-nebuplot":
-	set output focus to the element called "column-right";
 	say "You find Nebu Plots to be of great use for day-to-day fortune telling, and generally you like to have one in front of you when talking to a client. However, they are not for the faint of heart. The basics of Nebu Plots are introduced at the Novitiate level, but it isn[apostrophe]t until the Third or Fourth Plate that most Draconic Oracles can produce robust Plots. [paragraph break]Not surprisingly, this one is a mess. Somehow Mr. Nobspike must have gotten his hands on the raw materials to conjure one, but everything is wrong about it: for starters, his birth peak isn[apostrophe]t even at the center, so of course, everything is going to be skewed. [paragraph break]From some of his calculations, you can see that he doesn[apostrophe]t have the slightest idea of what he[apostrophe]s doing: the lines between the Great Houses seem to be measured in degrees rather than radians, he hasn[apostrophe]t normalized for the passage of time, and there is no correction at all for self-reference in the prognostication. [paragraph break]You can[apostrophe]t bear to look at it any more.[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-checkWaitingRoom":
-	set output focus to the element called "column-right";
 	say "[one of][waiting1][or][waiting2][or][waiting3][or][waiting4][or][waiting5][stopping]";
 	now the lastWormTopic is "worm-research2";
 	now the topicDuJour is "worm-research2".
@@ -614,14 +574,12 @@ To say waiting5:
 	say "You check in again with Dmitri, and the client continues to pace back and forth in front of the door. At least he[apostrophe]s not harming anything, you figure, and go back to your research.[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-callInClient":
-	set output focus to the element called "column-right";
 	say "[quotation mark]Very well, Dmitri,[quotation mark] you say over the intercom, [quotation mark]I have sorted through Mr. Nobspike[apostrophe]s documents and I am not one iota more enlightened. Do send him into my office now.[quotation mark][paragraph break][quotation mark]My heart bleeds with profuse apologies, Your Draconic Lordship, but I am unable. Having for some time stared catatonically at my lampshade, the velvet drapes, and the skylight, our client has now fallen stiff like a board, his head resting on my desk. Talking to him is of no avail.[quotation mark][paragraph break]Suddenly it comes together for you: his phototropism, drapophilia, astromania, and now planking behavior. [paragraph break][quotation mark]Dmitri, could he be an imp? They are rather rare these days, but I understand that they have something of the appearance of a half-orc, half-gnome.[quotation mark][paragraph break][quotation mark]I… I suppose so, Your Draconic Lordship. I have never seen one [unicode 8212] only read about them in my history texts.[quotation mark][paragraph break][quotation mark]Yes, I think that is what we have on our hands: an imp. Imps are known to have an idiosyncratic reaction to Alport[apostrophe]s Concoction of Placid Compliance; it is in the fine print on the bottle. He was no doubt ashamed of his Impish heritage and tried to pass himself off as something else on our intake form.[quotation mark][paragraph break][quotation mark]Your Draconic Lordship[apostrophe]s knowledge is boundless![quotation mark][paragraph break][quotation mark]Yes, it is. Open up the contingency cabinet and crush a capsule of Jensen[apostrophe]s Shocking Revitalizer near his left ear and then [sendHimIn].[quotation mark]".
 	
 To say sendHimIn:
 	place a link to the command "link worm-sendHimIn" reading "send in Mr. Nobspike".
 	
 After Linkaging when topicDuJour is "worm-sendHimIn":
-	set output focus to the element called "column-right";
 	say "More time passes than it should have, and the client has not entered your office. You become aware of thudding at the doors to your office: at first quiet, but growing more and more violent. With some annoyance, you again press the intercom.[paragraph break][quotation mark]Dmitri, what is going on with the door? Where is Mr. Nobspike?[quotation mark][paragraph break]The doors reverberate with the loudest thud yet.[paragraph break][quotation mark]Your Draconic Lordship, I must report that the client seems unable to open the doors to your office. He tried the door in the usual way first, and then started hitting it, and just now threw himself bodily against it. He[apostrophe]s now lying on the carpet again, stunned.[quotation mark][paragraph break][quotation mark]Is he still under the influence of Alport[apostrophe]s Concoction?[quotation mark][paragraph break][quotation mark]No, the Revitalizer seemed to have worked entirely. It[apostrophe]s like the door is locked.[quotation mark][paragraph break][quotation mark]As you well know, Dmitri, that door has no lock. Why don[apostrophe]t you try it yourself, since Mr. Nobspike seems incapable of something so trivial as turning a door knob.[quotation mark][paragraph break]Again, some noises at the door, and you see the knob twisting back and forth. Still, it does not open.[paragraph break][quotation mark]So?[quotation mark] you ask impatiently.[paragraph break][quotation mark]It[apostrophe]s true. I can see the latch draw back when I turn the knob, but the doors feel like a steel barrier. They have absolutely no give.[quotation mark][paragraph break][quotation mark]I see.[quotation mark] You don[apostrophe]t but you no doubt will. [quotation mark]This is obviously no mere physical obstruction.[quotation mark][pick Table of FirstDoor options]".
 	
 Table of FirstDoor
@@ -633,18 +591,15 @@ OptionText	Link
 
 After Linkaging when topicDuJour is "worm-doorMyself":
 	wipe row "worm-doorMyself" in Table of FirstDoor;
-	set output focus to the element called "column-right";
 	say "You give the door a quick pull, not really expecting it to open and it doesn[apostrophe]t.[paragraph break]Yelling through the thick doors, you call for Dmitri. [quotation mark]What time is it?[quotation mark][paragraph break][quotation mark]Five past midnight, Your Draconic Lordship,[quotation mark] comes the muffled reply.[paragraph break][quotation mark]I see,[quotation mark] you say, mostly to yourself. [quotation mark]Then the appointment has started.[quotation mark][paragraph break]Dmitri[apostrophe]s voice comes over the intercom, [quotation mark]Was Your Draconic Lordship successful?[quotation mark][paragraph break][quotation mark]Given that the doors are still shut, what do you think?[quotation mark][paragraph break][quotation mark]No?[quotation mark][paragraph break][quotation mark]Precisely. The doors are not stuck, but are fixed in place by some epiphenomenon related to the appointment itself.[quotation mark][pick Table of FirstDoor options]".
 	
 After Linkaging when topicDuJour is "worm-moreCoffee":
-		wipe row "worm-moreCoffee" in Table of FirstDoor;
-	set output focus to the element called "column-right";
+	wipe row "worm-moreCoffee" in Table of FirstDoor;
 	say "[if coffee flag is true][quotation mark]Another cup?[quotation mark] asks Dmitri. [quotation mark]But Your Draconic Lordship never has two cups of coffee in the same night. I thought you said that one puts you on edge. The effect of two… [quotation mark][paragraph break][quotation mark]Now![quotation mark] you bellow.[paragraph break][end if]Long accustomed to obeying your every command without further reflection, Dmitri sails into your office through the [if squeaky_hinge flag is true]infuriatingly squeaky [end if]doors, which yield to him without the slightest hesitation.[paragraph break]He sets the coffee on your desk mechanically and is gone before you can get a word in. As soon as he is back at his desk, though, your intercom lights up.[paragraph break][quotation mark]Your Draconic Lordship! I just realized: our problems are solved. The doors are working again.[quotation mark][paragraph break][quotation mark]No, I[apostrophe]m afraid not. We[apostrophe]re definitely dealing with an issue around the door[apostrophe]s warding: you were able to walk through just now because your intentions had nothing to do with fortune telling.[quotation mark][paragraph break][quotation mark]Can you lift the ward?[quotation mark][paragraph break][quotation mark]No, it is a federal seal, installed by the Environmental Protection Agency. We[apostrophe]ll have to figure out where the problem is, and it could be anything: administrative, regulatory, ethical, technical, or who knows what else. Seals can be finicky. The best course of action is for us to follow our S.O.Ps.[quotation mark][pick Table of FirstDoor options]";
 	
 After Linkaging when topicDuJour is "worm-sendAway":
 	wipe row "worm-sendAway" in Table of FirstDoor;
 	receive victorRetCon into inboxFolder;
-	set output focus to the element called "column-right";
 	say "[quotation mark]Send Mr. Nobspike away: we had no problems until he set foot in the office. I can[apostrophe]t do him any good if I can[apostrophe]t see him, so send him packing.[quotation mark][paragraph break][quotation mark]I hesitate to bring this up, Your Draconic Lordship, but the appointment has already begun. He will have to be charged for the appointment and without a telling, this would be considered a Forfiture of Prophecy.[quotation mark][paragraph break][quotation mark]So be it. If fate won[apostrophe]t let me see him, I guess he has his answer.[quotation mark][paragraph break][quotation mark]Yes, Your Draconic Lordship, I shall inform him.[quotation mark][paragraph break]Well, at least now you should able to get on with the [restOfEvening] in peace.";
 	receive victorRetCon into inboxFolder;
 	now the lastWormTopic is "worm-writOfRetCon".
@@ -653,11 +608,9 @@ To say restOfEvening:
 	place a link to the command "link worm-writOfRetCon" reading "rest of your evening".
 	
 After Linkaging when topicDuJour is "worm-writOfRetCon":
-	set output focus to the element called "column-right";
 	say "Contrary to the decision that you thought you had just made, and indeed that you clearly remember making, you accept the fact that you must not have made it and swallow down any protest that you were about to voice as the memory snuffs itself out of existence.[paragraph break]You once again find yourself in your office trying to figure out how to get your client through your office doorway so you can tell his future.[pick Table of FirstDoor options]"
 
 After Linkaging when topicDuJour is "worm-intakeForm":
-	set output focus to the element called "column-right";
 	say "[quotation mark]First things first: there is a reason why we do things the way we do. Let[apostrophe]s start with the intake form that Mr. Nobspike was supposed to have furnished us before this appointment was ever accepted. Dmitri, would you put Mr. Nobspike on the intercom?[quotation mark][paragraph break][quotation mark]Right away, Your Draconic Lordship. Mr. Nobspike, please step over here. You are now speaking to His Draconic Lordship, Venkath of the Nine Plates, Supreme Seer and Prophet of the Order of Snodbroom, High Oracle of Silvery Sliver, and Eminent Soothsayer of the Guild of Imperial Fortune Tellers.[quotation mark][paragraph break][quotation mark]Hi.[quotation mark][paragraph break][quotation mark]Yes, hello, Mr. Nobspike. I understand your apprehension in approaching this appointment, and despite the irregularities which with you have conducted yourself, I now insist that we proceed strictly according to proper protocol.[quotation mark][paragraph break][quotation mark]Okay.[quotation mark][paragraph break][quotation mark]Right, so then, let us begin at the top of the intake form. Dmitri, would you hand him a blank copy?[quotation mark][paragraph break][quotation mark]So, why don't we call someone in to repair the door and we can meet somewhere else while they work on it?[quotation mark][paragraph break][quotation mark]What? Somewhere other than my office?[quotation mark][paragraph break][quotation mark]Sure, why not?[quotation mark] whines your client.[pick Table of Privilege options]".
 
 Table of Privilege
@@ -666,12 +619,10 @@ OptionText	Link
 "Just get on with filling out the intake form"	"worm-getOnWith-1"
 	
 After Linkaging when topicDuJour is "worm-privilege":
-	set output focus to the element called "column-right";
 	now the dimensionality_explained flag is true;
 	say "By Hastur[apostrophe]s hairy armpits, it[apostrophe]s not that simple. Do you think my office is right next door to the waiting room?[quotation mark][paragraph break][quotation mark]It[apostrophe]s not?[quotation mark][paragraph break][quotation mark]No. It[apostrophe]s halfway across the universe, down about three Planes of Being, and extruded through about eight dimensions.[quotation mark][paragraph break][quotation mark]Jeez. Sounds complicated.[quotation mark][paragraph break][quotation mark]Yes. It is. It has to be. All Dragons tell fortunes from this area, which we call temporo-spatially privileged because it is in a sort of eddy area in the multiverse, where all the various influences, motives, and shadow aspects null out. From here, we can get the closest thing possible to an absolute reading, without having to run through an endless list of corrections for each and every fortune that we tell.[quotation mark][paragraph break][quotation mark]Okay. I get it. But you[apostrophe]re a dragon, right? Couldn[apostrophe]t you just teleport me there?[quotation mark][pick Table of Teleport options]".
 	
 After Linkaging when topicDuJour is "worm-getOnWith-1":
-	set output focus to the element called "column-right";
 	say "You dig through the top drawer of your desk trying to find your favorite quill.[paragraph break]While you rummage through an endless hoard of paperclips, staples, name tags, post-it notes, and divining rods, your client prattles on endlessly.[paragraph break][quotation mark]You[apostrophe]re a dragon aren[apostrophe]t you?[quotation mark] he asks again.[paragraph break][quotation mark]What? Sorry, I missed what you said.[quotation mark][paragraph break][quotation mark]I said, why don[apostrophe]t you teleport me into the office, you[apostrophe]re a dragon aren[apostrophe]t you? Don[apostrophe]t dragons have dominion over time and space? Why are we fussing about the door?[quotation mark][pick Table of Teleport options]".
 	
 Table of Teleport
@@ -681,11 +632,9 @@ OptionText	Link
 "Just get on with filling out the intake form"	"worm-getOnWith-2"
 
 After Linkaging when topicDuJour is "worm-noTeleport":
-	set output focus to the element called "column-right";
 	say "[quotation mark]As a dragon, I do, of course, have dominion over time and space. That is part and parcel of what we do. I can open a portal to the surface of your sun with a snap of my fingers.[quotation mark][paragraph break][quotation mark]A nice trick![quotation mark][paragraph break][quotation mark]It[apostrophe]s not a trick. It is an innate ability.[quotation mark][paragraph break][quotation mark]Sorry. So why not just snap me through this door?[quotation mark][paragraph break][quotation mark]What we dragons do not have dominion over is dimensionality. As I mentioned, we[apostrophe]re not only displaced in space-time, but there are some finicky dimensional transforms involved [unicode 8212] the type that can turn a client inside out very easily.[quotation mark][paragraph break][quotation mark]And you can[apostrophe]t do the dimensional stuff?[quotation mark][paragraph break][quotation mark]That[apostrophe]s not the issue, although I will admit that I[apostrophe]m fuzzy on the math. Rather, it is a contractual matter: the Dimension Dwarves have dominion in this matter. I pay a hefty fee for them to bridge the waiting room to my office through the door that you have repeatedly battered.[quotation mark][paragraph break][quotation mark]Huh.[quotation mark] It takes a moment for Mr. Norspike to digest all of this, but you have to admit, he isn[apostrophe]t doing half bad for someone entirely new to these concepts. [quotation mark]So… you are in your office, where you do your fortune telling. Why don't you just tell me my fortune over the intercom?[quotation mark][pick Table of Intercom options]".
 	
 After Linkaging when topicDuJour is "worm-getOnWith-2":
-	set output focus to the element called "column-right";
 	say "You find your favorite quill in the very back of your top desk drawer, having pulled every other item out of the drawer. You methodically stuff your hoard of stationary items back into the that drawer.[paragraph break]You reassure your client on the other end of the intercom, [quotation mark]Just one more moment, Mr. Nobspike, and we can start the intake form.[quotation mark] [paragraph break]It is only now that you realize that you did not see any ink in top drawer, where it is usually kept, so you start going through the drawers on the right side of your desk.[paragraph break]Mr. Nobspike pipes up with another suggestion: [quotation mark]Why don[apostrophe]t we just do the whole fortune telling thing over the intercom? I can hear you just fine.[quotation mark][pick Table of Intercom options]".
 	
 Table of Intercom
@@ -694,14 +643,12 @@ OptionText	Link
 "Just fill out the intake form"	"worm-getOnWith-3"
 
 After Linkaging when topicDuJour is "worm-notIntercom":
-	set output focus to the element called "column-right";
 	say "Maybe you gave your client too much credit. You try to dim down your explanation to Mr. Nobspike[apostrophe]s level of understanding.[paragraph break][quotation mark]Mr. Nobspike, have you been following me so far?[quotation mark][paragraph break][quotation mark]Yes. I think so.[quotation mark][paragraph break][quotation mark]Aside from some regulatory and ethical reasons that require you to be in front of me when I pronounce your future, the overwhelming practical consideration is that you need to be in this space with me. You[apostrophe]re the one that all the astrological forces are acting upon, after all.[quotation mark][paragraph break][quotation mark]Oh, I see. Yes, I suppose that does make some sense.[quotation mark][paragraph break][quotation mark]I am so honored that you agree with my professional opinion. Now, this conversation has consumed enough of my valuable time, let us focus on completing this [thriceDamnedIntakeSheet].[quotation mark]"
 	
 To say thriceDamnedIntakeSheet:
 	place a link to the command "link worm-getOnWith-3" reading "thrice damned intake sheet".
 	
 After Linkaging when topicDuJour is "worm-getOnWith-3":
-	set output focus to the element called "column-right";
 	say "Setting aside Mr. Nobspike[apostrophe]s seemingly endless list of questions, objections, and amateur speculation, you get down to brass tacks: filling out the intake form.[paragraph break][quotation mark]Dmitri filled all the demographics earlier with you on the phone [unicode 8212] all except this one item: profession.[quotation mark][paragraph break][quotation mark]Ah, yes. I tried to explain this to him. I am a writer of interactive fiction.[quotation mark][paragraph break][quotation mark]Sounds dismal.[quotation mark][paragraph break][quotation mark]No actually, it[apostrophe]s a fascinating…[quotation mark][paragraph break][quotation mark]Okay, I wrote it on the form [unicode 8212] I don[apostrophe]t need to know anything more about it. Let[apostrophe]s get right to the existential questions.[paragraph break][itemOne]."
 	
 To say itemOne:
@@ -720,23 +667,18 @@ To say lastItem:
 	place a link to the command "link worm-lastItem" reading "One last item".
 	
 After Linkaging when topicDuJour is "worm-item1":
-	set output focus to the element called "column-right";
 	say "Item one: have you ever had your future told before?[quotation mark][paragraph break][quotation mark]Last summer at the amusement park, I put a quarter into…[quotation mark][paragraph break][quotation mark]Enough. I meant, professionally.[quotation mark][paragraph break][quotation mark]I suppose not. But why does that matter?[quotation mark][paragraph break][quotation mark]It[apostrophe]s a long list, Mr. Norspike. If you interrupt me at every item, we will be here all night. I inquire because if you came here based on another fortune telling, the two readings could intermodulate, potentially setting up a strangle vortex and ending all life as we know it in the vicinity of anywhere you have ever been.[quotation mark][paragraph break][quotation mark]I see. Then, no. What is [itemTwo]?[quotation mark]".
 	
 After Linkaging when topicDuJour is "worm-item2":
-	set output focus to the element called "column-right";
 	say "[quotation mark]Item two: Have you recently come into possession of any books of Acursed Knowledge such as Hambi[apostrophe]s Book of Tortured Souls, any edition of the Necronomicon, Forzed[apostrophe]s Anthology of Modern Verse, or any books bearing the Equation of Zoran?[quotation mark][paragraph break][quotation mark]I bought a cookbook two weeks ago.[quotation mark][paragraph break][quotation mark]Was it in fact a cookbook, or an alien manual about subjugation of the human race?[quotation mark][paragraph break][quotation mark]It was a low-carb cookbook.[quotation mark][paragraph break][quotation mark]So, another ‘no[apostrophe]. Moving on: [itemThree]."
 	
 After Linkaging when topicDuJour is "worm-item3":
-	set output focus to the element called "column-right";
 	say "Item three: Aside from enduring the petty tyranny of time[apostrophe]s arrow, have you ever actively traveled in time? I assume that you see why that question is relevant for telling your future?[quotation mark][paragraph break][quotation mark]Yes.[quotation mark][paragraph break][quotation mark]Yes, you have traveled in time or yes, it is obvious?[quotation mark][paragraph break][quotation mark]Yes, it is obvious, no, I have never time traveled. Are there many more of these?[quotation mark][paragraph break][quotation mark][justAfew].[quotation mark]".
 	
 After Linkaging when topicDuJour is "worm-justAfew":
-	set output focus to the element called "column-right";
 	say "[quotation mark]Almost done with this part. Item four: To your knowledge, were you the subject of any prophecy delivered to your parents or more remote ancestors?[quotation mark][paragraph break][quotation mark]No.[quotation mark][paragraph break][quotation mark]Fine, fine,[quotation mark] you hum, relieved to be past the universe-threatening questions. [quotation mark]Any travel to other planes, dimensions, or States of Being in the last month?[quotation mark][paragraph break][quotation mark]No.[quotation mark][paragraph break][quotation mark]Are you currently possessed by any being other than yourself by astral projection, demonic means, or any other mechanism?[quotation mark][paragraph break][quotation mark]No.[quotation mark][paragraph break][quotation mark]Are you pursuing this fortune telling in an attempt to commit a crime or to escape justice for a crime already committed?[quotation mark][paragraph break][quotation mark]No. Does that happen?[quotation mark][paragraph break][quotation mark]Every so often we get investors who want to play the futures market. Also, some people try to stay a step ahead of the law, although that is obvious doomed to fail given the way fate works.[quotation mark][paragraph break][quotation mark]I should write a story about this.[quotation mark][paragraph break][quotation mark]No, Mr. Nobspike you should not. Once the fortune reading starts, the session is considered to be bound by a non-disclosure agreement except to authorized scrying.[quotation mark][paragraph break][lastItem]."
 	
 After Linkaging when topicDuJour is "worm-lastItem":
-	set output focus to the element called "column-right";
 	say "One last item: Are you aware of any circumstance by which this fortune telling would constitute a conflict of interest on my part?[quotation mark][paragraph break][quotation mark]No, I don[apostrophe]t even know you.[quotation mark] Your client[apostrophe]s voice brightens, [quotation mark]Hey! I just had a great idea. Your office has a window [unicode 8212] I saw it when I came in. Why don[apostrophe]t I come in that way?[quotation mark][pick Table of Window options]".
 	
 Table of Window
@@ -749,7 +691,6 @@ To say windowCommon:
 	say "You [if dimensionality_explained flag is true]reiterate that your office is not physically located anywhere near the waiting room[otherwise]explain to the client that the doors between your office and waiting room are actually a warded interdimensional bridge and that your office is not physically next to the reception area[end if].[paragraph break][quotation mark]But I saw you through the window. You could just open it and I could come in, couldn[apostrophe]t I?[quotation mark][paragraph break][quotation mark]How could you… wait, when did you see me through the window?[quotation mark][paragraph break][quotation mark]Earlier today. I was worried about coming tonight so I spent some time watching the office from the woods. I know it sounds foolish, but you scared me because you were yelling at your receptionist, and I saw you grow much larger and get covered with scales. Horns popped out of your head and spikes along your back, and I thought you were going to eat him.[quotation mark][paragraph break][quotation mark]For what it's worth, I have never eaten a receptionist. More to the point, what you saw were the events of this evening, shortly after you arrived in the reception room. Like the door, the window is a dimensional portal, except it connects the office to a time frame shifted twelve hours earlier.[quotation mark]".
 	
 After Linkaging when topicDuJour is "worm-windowImpossible":
-	set output focus to the element called "column-right";
 	say "[windowCommon][paragraph break][quotation mark]Why have a time-shifted window in your office?[quotation mark][paragraph break][quotation mark]First of all, because the building code requires two exits. Second, because if it weren[apostrophe]t time-shifted to daylight hours, I wouldn[apostrophe]t have anything to look at out the window when I[apostrophe]m here all night telling fortunes.[quotation mark][paragraph break][quotation mark]Oh well, I thought it was worth a try.[quotation mark][pick Table of Window2 options]".
 	
 Table of Window2
@@ -758,7 +699,6 @@ OptionText	Link
 "[quotation mark]Let’s just finish the intake form.[quotation mark]"	"worm-finishForm"
 
 After Linkaging when topicDuJour is "worm-worthAshot":
-	set output focus to the element called "column-right";
 	say "[windowCommon][paragraph break]Your client takes a moment to process that.[paragraph break][quotation mark]So, how about you open your window and tell me to come in [unicode 8212] it would be this afternoon for me, but that[apostrophe]s okay since I would just get my fortune read earlier in the day. Then I guess we wouldn[apostrophe]t need this session tonight.[quotation mark][paragraph break]You are sorely tempted to give it a try but feel ethically compelled to point out the fallacy in Mr. Norspike[apostrophe]s argument.[paragraph break][quotation mark]Mr. Norspike, at face value it is not a bad plan, but you are somewhat naïve when it comes to the nature of time. While there would be no problem if I had to bail out of the window if the building were on fire (aside from a temporary inconvenience of there then being two of me earlier in the day), if you attempted to enter the building through the window, you would cease to exist.[quotation mark][paragraph break][quotation mark]Why is it different for me?[quotation mark][paragraph break][quotation mark]I am already in the future, relative to the area outside the window. I did exist in that time, so there is no contradiction. However, if you attempt to transit from existence in that time to existing in this relative future time without having existed in between [unicode 8212] well, you can see the problem.[quotation mark][paragraph break][quotation mark]Sort of,[quotation mark] your client admits with a tone of defeat.[pick Table of Window2 options]".
 	
 To say crouchingShrubs:
@@ -768,11 +708,9 @@ To say nearerWindow:
 	place a link to the command "link worm-nearerWindow" reading "window".
 	
 After Linkaging when topicDuJour is "worm-maybeAway":
-	set output focus to the element called "column-right";
 	say "You warn your client in the waiting room that you are going to attempt to converse with his earlier self out the window and that as a result, he might experience some strange sensations and/or cease to exist. This elicits frantic banging at the doors and owl scuffling sounds from the waiting room.[paragraph break][crouchingShrubs]".
 	
 After Linkaging when topicDuJour is "worm-nearerWindow":
-	set output focus to the element called "column-right";
 	say "[quotation mark]How did you know it was me?[quotation mark] asks the imp.[paragraph break][quotation mark]Well, that raises an interesting ethical dilemma for me because I am twelve hours in your future. Unfortunately, anything I say could be considered, from your point of view as fortune telling.[quotation mark][paragraph break][quotation mark]How is that a problem? I have an appointment with you tonight for just that. That[apostrophe]s what I[apostrophe]m paying your for.[quotation mark][paragraph break][quotation mark]First of all, by the guidelines of my Order, I am supposed to have you in front of me when I tell your fortune.[quotation mark][paragraph break][quotation mark]I am in front of you,[quotation mark] he complains.[paragraph break][quotation mark]By [apostrophe]in front of me[apostrophe], I think they mean in both time and space, neither of which is true.  More to the point, anything that I tell you right now is almost guaranteed not to be true later. Not only does this put my reputation as a fortune teller at risk, but we are skating dangerously close to a strangle vortex.[quotation mark][paragraph break][quotation mark]Excuse me for saying so,[quotation mark] says the imp with some annoyance, [quotation mark]but this all seems a little far-fetched. Do you have any proof about any of this? Are you sure you[apostrophe]re a real fortune teller?[quotation mark][pick Table of Nearer options]".
 	
 Table of Nearer
@@ -782,39 +720,33 @@ OptionText	Link
 "Tell him what which tarot cards he is carrying"	"worm-whichTarots"
 
 After Linkaging when topicDuJour is "worm-devourImp":
-	set output focus to the element called "column-right";
 	say "The imp looked like easy prey: bookish and a bit chubby. When you pounce through the window, however, he turns out to be surprisingly spry, disappearing immediately into the underbrush.[paragraph break]In your anger, you go full dragon [unicode 8212] scales, wings, everything, and napalm the forest in every direction around your office, all to no avail. [paragraph break]When you calm down, you fly to your lair and calmly relate the events of the day to yourself, who is just waking up in the late afternoon and still a bit groggy. [paragraph break]Between the two of yourself, you decide to let the other you have the night off, which you convince yourself you will richly deserve, given the night that you are about to have. [paragraph break]While the other you curls back up on your hoard, you set off again for the office as the sun sets, intent on getting there early enough to watch carefully for the moment that the imp appears outside your office window. You realize that you are flirting with any number of potential temporal paradox issues, so you play it conservatively, handling things just as you did earlier (later) today, and not tipping off Dmitri.[paragraph break]Eventually, the imp appears and this time you notice him earlier than the subjectively previous iteration, so he is again surprised to see you at your office window. [paragraph break]You have essentially the same conversation that you did, except this time, you make a concerted effort to keep your cool and to try to [convinceHim] that you are telling the truth."
 	
 To say convinceHim:
 	place a link to the command "link worm-whichTarots" reading "convince him".
 	
 After Linkaging when topicDuJour is "worm-roarAngrily":
-	set output focus to the element called "column-right";
 	say "Your heart beat sounds loud in your ears and you exalt in the moment as the imp disappears like a frightened rabbit into the forest. As the mood wains, though, you realize that it would be prudent to check in with Dmitri.[paragraph break]Pressing the intercom, you call for your assistant.[paragraph break][quotation mark]Yes, [dragonName]?[quotation mark][paragraph break][quotation mark]Is Mr. Nobspike still there?[quotation mark][paragraph break][quotation mark]No, he continues to be a no-show. It is half-past twelve, and Mr. Porkhammer, your midnight-thirty just arrived. Shall I bring you his file?[quotation mark][paragraph break][quotation mark]No, hold on,[quotation mark] you say, realizing what a mistake you[apostrophe]ve made. When word gets around that you scared off a client, your reputation will be irreparably stained.[paragraph break]Reluctantly, you head back to the still-open window and implore Mr. Nobspike to return. After ten minutes of bellowing, he emerges from the bushes. [paragraph break]You swallow down a brief and bitter apology and try to [convinceHim] of both your sincerity and emotional stability."
 	
 After Linkaging when topicDuJour is "worm-whichTarots":
-	set output focus to the element called "column-right";
 	say "[quotation mark]Here, let me prove by bona fides,[quotation mark] you say, trying to appear friendly. [quotation mark]Right now you are walking around with three tarot cards, five fortune cookie fortunes, a wad of computer printouts and a magazine article from some tabloid.[quotation mark][paragraph break][quotation mark]Yes, that[apostrophe]s precisely right![quotation mark] The imp emerges from the bushes and is about to rest his arms on the window sill when you explain that if he does so, his arms will be sheered off at the elbows by a dimensional discontinuity. He takes a step back.[paragraph break]You try to put Mr. Nobspike more at ease with some additional explanation. [quotation mark]I realize that all of this may be a bit much, particularly for someone who does not deal day in and day out with complex branching choices and rule-driven realities.[quotation mark][paragraph break][quotation mark]Oh, but that is exactly what we Imps excel at. Just as Dragons have domain over space and time, Dimension Dwarves over dimensionality, and Continuity Elves over the between-time realm, we Imps are responsible for setting up choices and consequences in the universe. In fact, I must admit to a certain complicity in arranging tonight[apostrophe]s events for my own benefit.[quotation mark][paragraph break]Now it is your turn to look [perplexed]."
 	
 To say perplexed:
 	place a link to the command "link worm-perplexed" reading "perplexed".
 	
 After Linkaging when topicDuJour is "worm-perplexed":
-	set output focus to the element called "column-right";
 	say "The imp continues, [quotation mark]This evening, you will make the sorts of choices that you do every moment of the day: for example, whether to have a cup of coffee or whether to fix a squeaky door [unicode 8212] those choices are what will lead us to this moment.[quotation mark][paragraph break][quotation mark]Then I should make a different choice?[quotation mark][paragraph break][quotation mark]Oh, heavens no![quotation mark] The imp looks alarmed. [quotation mark]You can[apostrophe]t. That would ruin everything. The whole thing would be entirely linear [unicode 8212] it would strip away all semblance of player agency. I can[apostrophe]t begin to tell you the sort of complaints that would roll in.[quotation mark][paragraph break][quotation mark]You[apostrophe]re a strange cookie, Mr. Nobspike,[quotation mark] you conclude as you hand him his completed intake form. [quotation mark]Here[apostrophe]s your paperwork for tonight[apostrophe]s visit.[quotation mark] You float the completed form through the window and the imp grabs it. [quotation mark][paragraph break]You add, [quotation mark]Please try to show up promptly at midnight, and I would appreciate it if you wouldn[apostrophe]t pester my receptionist Dmitri with phone calls.[quotation mark][paragraph break][quotation mark]Agreed![quotation mark] The imp reaches out to shake on it, but yanks his hand back at the last moment, before crossing the threshold of the window.[paragraph break]Causality recoils with a snap, since your most recent actions have precluded the events leading to them. None of this is apparent to you, or if it is, you do not remember it. Same difference.[paragraph break]Later that evening, you (again) find yourself sitting [backAtDesk]."
 	
 To say backAtDesk:
 	place a link to the command "link worm-backAtDesk" reading "at your desk".
 	
 After Linkaging when topicDuJour is "worm-backAtDesk":
-	set output focus to the element called "column-right";
 	say "Before you start the evening, you decide to take a moment and center yourself. Finishing your coffee, you recline in the black ergonomic chair and prop your feet up on the broad antique desk that fills half your office. It has been a while since you[apostrophe]ve seen your actual feet, which spend most of their time tucked between your ponderous body and the hoard that you have amassed over the millennia, but you find your human feet pleasing enough and enjoy wearing stylish leather shoes.[paragraph break]Daylight pours in through the window to the side of your desk, and outside fairies and sprites dart back and forth between the trees of the dense forest surrounding your office.[paragraph break]For just a moment, you think you catch sight of someone with binoculars at the edge of the forest, but when you look again, no one is there.[paragraph break]Dmitri just announced that your new client is here for his midnight read, so you might as well read through his [intakeFormDeux], filled out in handwriting surprisingly like your own, except for where a misspelled name has been corrected."
 	
 To say intakeFormDeux:
 	place a link to the command "link worm-intakeFormDeux" reading "intake form".
 	
 After Linkaging when topicDuJour is "worm-intakeFormDeux":
-	set output focus to the element called "column-right";
 	say "Name: Paisley ";
 	open HTML tag "span" called "stricken";
 	say "Nobspike";
@@ -825,13 +757,16 @@ To say enterKnobspike:
 	place a link to the command "link worm-enterKnobspike" reading "call Mr. Knobspike".
 	
 After Linkaging when topicDuJour is "worm-enterKnobspike":
-	set output focus to the element called "column-right";
 	say "Mr. Knobspike walks in through heavy mahogany doors that lead to your office, and he pauses to give the door knob an extra few twists. [quotation mark]Well, that[apostrophe]s novel,[quotation mark] he remarks cryptically and walks fully into the office, the doors swinging shut [if squeaky_hinge flag is true]squeakily[otherwise]silently[end if] behind him.[paragraph break][quotation mark]If you[apostrophe]ll take a seat there,[quotation mark] you point towards the leather recliner at the center of the office pentacle, [quotation mark]I will get the candles placed and start the telling.[quotation mark][paragraph break]But the imp just stands there smiling, his arms crossed on the back of the chair and his gaze directed out your window towards the woods. [quotation mark]No,[quotation mark] he says, [quotation mark]I don[apostrophe]t think I need my fortune told after all. I have what I came for.[quotation mark][paragraph break][quotation mark]And what is that?[quotation mark] you ask.[paragraph break][quotation mark]A satisfying end to this story.[quotation mark][paragraph break]THE END.";
 	if the credits_displayed flag is false:
 		place a link to the command "link about" called "folder-about" reading "About";
 		place a link to the command "link credits" called "folder-credits" reading "Credits";
+		place a link to web site "[this page]"  called "folder-replay" reading "Replay", opening in the same window;
+		place a link to web site "mailto:redragon@templaro.com" called "folder-bugs" reading "Bugs";
 		move the element called "folder-about" under "folders";
 		move the element called "folder-credits" under "folders";
+		move the element called "folder-replay" under "folders";
+		move the element called "folder-bugs" under "folders";
 	now the credits_displayed flag is true;
 	if the last_mail_received flag is false:
 		now the last_mail_received flag is true;
@@ -841,7 +776,6 @@ After Linkaging when topicDuJour is "worm-enterKnobspike":
 		receive finalLetter into inboxFolder.	
 	
 After Linkaging when topicDuJour is "worm-finishForm":
-	set output focus to the element called "column-right";
 	say "Working over the intercom, you and Mr. Nobspike breeze through the rest of the intake form. His background sounds entirely bland and raises no red flags.[paragraph break]Having entered all of the data on the form in fine draconic script, you stick the paper into your office fax machine and prepare to send it to Dmitri.[paragraph break]It has been many years since you last used the machine, so it takes you a few tries to get it right. The whole process seems unnecessarily complex and prone to failure, so you check with Dmitri over the intercom to [fax2]."
 	
 To say fax2:
@@ -849,14 +783,12 @@ To say fax2:
 	
 After Linkaging when topicDuJour is "worm-fax2":
 	play the sound effect file "Fax-machine-sound.mp3";
-	set output focus to the element called "column-right";
 	say "[quotation mark]Dmitri, did you get it?[quotation mark][paragraph break][quotation mark]The client is pulling it off the fax now. It[apostrophe]s coming in real slowly.[quotation mark][paragraph break][quotation mark]It[apostrophe]s a miracle it works at all across half the universe and then some. When you get it all, have Mr. Nobspike give it a once over and if it[apostrophe]s all good to go, have him sign off on it.[quotation mark][paragraph break]In the background, you hear the imp exclaim, [quotation mark]Hah! So [italic type]that[roman type] was the problem with the door [unicode 8212] amazing.[quotation mark][paragraph break]Then, Dmitri[apostrophe]s panicked voice, [quotation mark][dragonName], he[apostrophe]s gone! The client just took the fax and left.[quotation mark][paragraph break]Unnerved by the sudden turn of events you rush into the waiting room, [quotation mark]Dmitri, bring him back! No one walks out on one of my fortune tellings![quotation mark] The owl swoops out of the reception area, his nocturnally adjusted eyes allowing him to scour the forest with predatory proficiency.[paragraph break]However, after another fifteen minutes with no word from Dmitri, you write it off as an embarrassing loss and sulk back to your office. [paragraph break]You stare out the window, a time-shifted dimensional portal to the forest around your office. You ordered this dimensional portal with the temporal offset so you enjoy a daytime view of the forest even during midnight fortune telling sessions.[paragraph break]Just then, you notice some furtive movement in the bushes just outside the window. Maybe, you think to yourself, there is [stillAway] to bring this fortune telling to a successful conclusion."
 	
 To say stillAway:
 	place a link to the command "link worm-stillAway" reading "still away".
 	
 After Linkaging when topicDuJour is "worm-stillAway":
-	set output focus to the element called "column-right";
 	say "Yes, it is definitely your client out there doing Ialdagorth-knows-what at the edge of the forest. You will need to do your best to avoid scaring him off, knowing how jittery he was earlier in the day.[paragraph break][crouchingShrubs]".
 	
 Section 4 - Pick An Option
@@ -874,15 +806,13 @@ To wipe row (linkname - text) in (tableName - a table name):
 		choose the row with the Link of linkname in tableName;
 		blank out the whole row.
 	
-		
-
 Chapter 6 - Mail Objects
 
 Section 1 - Epistles
 
 [Epistle Template
 
-XXX is an epistle. XXX is read.
+XXX is an epistle. XXX is unread.
 The date of XXX is "YYY".
 The correspondent of XXX is "YYY".
 The carboncopy of XXX is "YYY".
@@ -1077,13 +1007,13 @@ To receive (email - an epistle) into (folder - a mailfolder):
 		add email to the manifest of folder;
 		play the sound effect file "plucky.mp3";
 		display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
-		if debug flag is true:
-			set output focus to the element called "debugWindow";
-			say "added [email] to [folder].";
+		set output focus to the element called "debugWindow";
+		say "added [email] to [folder].";
+		set output focus to the element called "column-right";
 		if the topicDuJour is "inbox":
 			clear the element called "column-right";
-			show index of inboxFolder;
-			set output focus to the element called "debugWindow".
+			show index of inboxFolder.
+		
 
 	
 Section 5 - Previous Mail
