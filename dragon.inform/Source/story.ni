@@ -2,7 +2,6 @@
 
 Include Vorple Element Manipulation by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
-Include Vorple Command Prompt Control by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
 Include Vorple Multimedia by Juhana Leinonen.
 
@@ -36,6 +35,7 @@ The coffee_gone flag is a truth state that varies. The coffee_gone flag is false
 The squeaky_hinge flag is a truth state that varies. The squeaky_hinge flag is true.
 The dimensionality_explained flag is a truth state that varies. The dimensionality_explained flag is false.
 The last_mail_received flag is a truth state that varies. The last_mail_received flag is false.
+The credits_displayed flag is a truth state that varies. The credits_displayed flag is false.
 
 Chapter 2 - Kinds
 
@@ -77,7 +77,6 @@ Include (-
 -) instead of "Virtual Machine Startup Rule" in "OrderOfPlay.i6t".
 
 When play begins:
-	[hide the prompt;   <-- is this really necessary given the output redirection each turn?]
 	now the default notification duration is 3;
 	layout the screen;
 	backdate email.
@@ -131,13 +130,9 @@ To layout the screen:
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
 	place a link to the command "link sent" called "folder-sent" reading "Sent";
 	place a link to the command "link junk" called "folder-junk" reading "Junk";
-	place a link to the command "link about" called "folder-about" reading "About";
-	place a link to the command "link credits" called "folder-credits" reading "Credits";
-	move the element called "folder-inbox" under "folders";
+		move the element called "folder-inbox" under "folders";
 	move the element called "folder-sent" under "folders";
 	move the element called "folder-junk" under "folders";
-	move the element called "folder-about" under "folders";
-	move the element called "folder-credits" under "folders";
 	move the element called "folder-tdwtyfn" under "folders";
 	set output focus to the element called "powered";
 	say "Powered by ";
@@ -254,7 +249,6 @@ After Linkaging when topicDuJour is "vorple":
 	close HTML tag;
 	say ":[line break]";
 	open HTML tag "ul";
-	place "li" element reading "Command Prompt Control";
 	place "li" element reading "Element Manipulation";
 	place "li" element reading "Notifications";
 	place "li" element reading "Hyperlinks";
@@ -616,6 +610,7 @@ To say waiting4:
 	say "[quotation mark]I[apostrophe]m just about done with the items Mr. Nobspike brought in. How is he holding up?[quotation mark][paragraph break][quotation mark]He[apostrophe]s back on his feet. Now he[apostrophe]s pacing around the office: he keeps walking right up to the doors to your office and then backs away again. Over and over. I wish he would go back to lying on the carpet.[quotation mark][paragraph break][quotation mark]Ask him what he[apostrophe]s doing.[quotation mark][paragraph break][quotation mark]One moment, Your Dragonic Lordship,[quotation mark]. Dmitri[apostrophe]s voice sounds more distant as he says, [quotation mark]Mr. Nobspike? Mr. Nobspike? Hello? What are you doing?[quotation mark] [paragraph break]Again next to the intercom, Dmitri continues, [quotation mark]It[apostrophe]s no use, Your Draconic Lordship, it[apostrophe]s like he[apostrophe]s in his own world.[quotation mark][paragraph break]You draw the appropriate sigils and confirm to Dmitri that Mr. Nobspike is not in his own world and then instruct him to keep an eye on him while you wrap up your research.[pick table of InternetResearch options]".
 
 To say waiting5:
+	wipe row "worm-checkWaitingRoom" in Table of InternetResearch;
 	say "You check in again with Dmitri, and the client continues to pace back and forth in front of the door. At least he[apostrophe]s not harming anything, you figure, and go back to your research.[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-callInClient":
@@ -832,6 +827,12 @@ To say enterKnobspike:
 After Linkaging when topicDuJour is "worm-enterKnobspike":
 	set output focus to the element called "column-right";
 	say "Mr. Knobspike walks in through heavy mahogany doors that lead to your office, and he pauses to give the door knob an extra few twists. [quotation mark]Well, that[apostrophe]s novel,[quotation mark] he remarks cryptically and walks fully into the office, the doors swinging shut [if squeaky_hinge flag is true]squeakily[otherwise]silently[end if] behind him.[paragraph break][quotation mark]If you[apostrophe]ll take a seat there,[quotation mark] you point towards the leather recliner at the center of the office pentacle, [quotation mark]I will get the candles placed and start the telling.[quotation mark][paragraph break]But the imp just stands there smiling, his arms crossed on the back of the chair and his gaze directed out your window towards the woods. [quotation mark]No,[quotation mark] he says, [quotation mark]I don[apostrophe]t think I need my fortune told after all. I have what I came for.[quotation mark][paragraph break][quotation mark]And what is that?[quotation mark] you ask.[paragraph break][quotation mark]A satisfying end to this story.[quotation mark][paragraph break]THE END.";
+	if the credits_displayed flag is false:
+		place a link to the command "link about" called "folder-about" reading "About";
+		place a link to the command "link credits" called "folder-credits" reading "Credits";
+		move the element called "folder-about" under "folders";
+		move the element called "folder-credits" under "folders";
+	now the credits_displayed flag is true;
 	if the last_mail_received flag is false:
 		now the last_mail_received flag is true;
 		now the manifest of InboxFolder is {};
@@ -862,12 +863,11 @@ Section 4 - Pick An Option
 
 To say pick (optionTable - a table name) options:
 	if the number of filled rows in optionTable is greater than 0:
-		open HTML tag "ul" called "pickOption";
+		open HTML tag "div" called "pickOption";
 		repeat through optionTable:
-			open HTML tag "li";
 			place a link to the command "link [Link entry]" reading "[OptionText entry]";
-			close HTML tag;[/li]
-		close HTML tag.[/ul]
+		close HTML tag.
+			
 		
 To wipe row (linkname - text) in (tableName - a table name):
 	if linkname is a Link listed in tableName:

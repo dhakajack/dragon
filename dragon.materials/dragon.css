@@ -129,17 +129,43 @@ th, td {
 }
 
 .pickOption {
-	color: red;
+	display: block;
+	text-align: center;
+	width: 75%;
+	margin: 1em auto 1em auto;
 }
+
+.pickOption a {
+	margin-top: 0.2em;
+	display:block;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	border-radius: 12px;
+	text-decoration: none;
+	padding: 0.5em;
+}
+
+.pickOption a:link,a:visited {
+	color: black;
+	background: #eee;
+}
+
+.pickOption a:hover,a:active {
+	color: #eee;
+	background: #555;
+}
+
+
 
 /* iframe for playing original game */
 .dragonWindow {
 	width: 95%;
 	height: 95%;
 	background-color: #fff;
-	display:block;
-	margin:auto;
-	min-height:25em;
+	display: block;
+	margin: auto;
+	min-height: 25em;
 }
 
 /* Clear floats after the columns */
