@@ -74,14 +74,12 @@ body {
 	background-color:#090969;
 }
 
-.column-right a:link, a:visited {
+.column-right a:link, .column-right a:visited {
 	color: #ff5;
-	//font-weight: bold;
 }
 
-.column-right a:hover, a:active {
+.column-right a:hover, .column-right a:active {
 	color: tomato;
-	//font-weight: bold;
 }
 
 .stricken {
@@ -120,11 +118,11 @@ th, td {
 	margin-right: auto;
 }
 
-.read a:link,a:visited {
+.read a:link, .read a:visited {
 	font-weight: normal;
 }
 
-.unread a:link,a:visited {
+.unread a:link, .unread a:visited {
 	font-weight: bold;
 }
 
@@ -146,17 +144,15 @@ th, td {
 	padding: 0.5em;
 }
 
-.pickOption a:link,a:visited {
+.pickOption a:link, .pickOption a:visited {
 	color: black;
 	background: #eee;
 }
 
-.pickOption a:hover,a:active {
+.pickOption a:hover, .pickOption a:active {
 	color: #eee;
 	background: #555;
 }
-
-
 
 /* iframe for playing original game */
 .dragonWindow {
