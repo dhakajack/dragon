@@ -40,6 +40,7 @@ Section 1 - Epistles
 
 An epistle is a kind of thing.
 An epistle has some text called date, correspondent, carboncopy, subject, and payload.
+An epistle has a number called receiveTime. The receiveTime of an epistle is usually -1.
 An epistle can be read. An epistle is usually not read.
 The date of an epistle is usually "".
 The correspondent of an epistle is usually "IFTFF Admin".
@@ -826,7 +827,6 @@ To say pick (optionTable - a table name) options:
 			place a link to the command "link [Link entry]" reading "[OptionText entry]";
 		close HTML tag.
 			
-		
 To wipe row (linkname - text) in (tableName - a table name):
 	if linkname is a Link listed in tableName:
 		choose the row with the Link of linkname in tableName;
@@ -893,12 +893,14 @@ The payload of firstToMildred is "Dear Mildred,[paragraph break]Please create a 
 Section 2 - Timed Epistles
 
 Bingo is an epistle. Bingo is not read.
+The receiveTime of Bingo is 1.
 The subject of Bingo is  "Re: Re: Re: Re: Re: Bingo Bonanza".
 The correspondent of Bingo is "Mildred Sneedpox".
-The payload of Bingo is "Dear George,[paragraph break]I have put it in the mail and it should arrive shortly. I ran out of packing peanuts, so I used some actual ones, so if it smells a bit like peanut butter, now you know why. I am so excited to be part of your competition![paragraph break]Mildred[paragraph break][previous mail][paragraph break]Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction – most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
+The payload of Bingo is "Dear George,[paragraph break]I have put it in the mail and it should arrive shortly. I ran out of packing peanuts, so I used some actual ones, so if it smells a bit like peanut butter, now you know why. I am so excited to be part of your competition![paragraph break]Mildred[paragraph break][previous mail][paragraph break]Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction [unicode 8212] most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
 
 FirstVictor is an epistle. FirstVictor is not read.
+The receiveTime of FirstVictor is 3.
 The correspondent of FirstVictor is "Victor Cragne, Attorney".
 The carboncopy of FirstVictor is "AAPDO litigation".
 The subject of FirstVictor is "Dragon".
@@ -927,7 +929,7 @@ To say nextVictorPayload:
 finalVictor is an epistle. finalVictor is not read.
 The correspondent of finalVictor is "Victor Cragne, Attorney".
 The carboncopy of finalVictor is "AAPDO litigation".
-The subject of finalVictor is "RE: RE: Dragon".
+The subject of finalVictor is "!!! Re: Dragon".
 The payload of finalVictor is "[finalVictorPayload]".
 
 To say finalVictorPayload:
@@ -956,8 +958,9 @@ The payload of VenkathAware is "[VenkathAwarePayload]".
 
 To say VenkathAwarePayload:
 	say "Dear Mr. MacBraeburn,[paragraph break]With the infalliable hindsight afforded me through the efforts of my legal counsel provided by the AAPDO, I am now aware of your unscrupulous activities and complicity in this tawdry affair, both in publicizing an inaccurate account of the evening in question and now in rudely scrying upon and, even more reprehensibly, tampering with, those events of a year ago.[paragraph break]This is the worst sort of unprofessional behavior, and I would be well within my rights to fly right over there now and breathe you to ash![paragraph break]Lord Venkath of the Ninth Plate,[line break]Guildmaster of Holsberg,[line break]Luminary.";
-	now VenkathReprimandTime is turnTimer plus 2;
-	now AAPDOReprimandTime is turnTimer plus 4.
+	now the receiveTime of VenkathReprimand is turnTimer plus 4;
+	now the receiveTime of AAPDOReprimand is turnTimer plus 8;
+	now the receiveTime of DmitriEtiquette is turnTimer plus 12.
 	
 VenkathReprimand is an epistle. VenkathReprimand is not read.
 The correspondent of VenkathReprimand is "Victor Cragne, Attorney".
@@ -1005,7 +1008,7 @@ DmitriEtiquette is an epistle. DmitriEtiquette is not read.
 The correspondent of DmitriEtiquette is "Rasputinov Dmitri N.".
 The carboncopy of DmitriEtiquette is "Venkath 9th PL; IFTFF Admin; Cragne LLC; HDL Venkath, 9th P; AAPDO litigation".
 The subject of DmitriEtiquette is "Some email suggestions".
-The payload of DmitriEtiquette is "Dear All,[paragraph break]I do not wish to give offense, but I have recently been put in copy of several electronic mails and I wish to call attention to the fact that it may be desirable in some instances to limit the scope of recipients for purposes of discretion. [paragraph break]I realize that many of higher station will not have frequent recourse to electronic mail, preferring to dictate letters or to pen them in their own hand. However, those of us who make frequent use of the digital medium often find it advantageous to select the option [quotation mark]reply[quotation mark] rather than [quotation mark]reply all[quotation mark]; or, if having hit [quotation mark]reply all[quotation mark] to then judiciously delete those who should not be privy to individual letters.[paragraph break]Also, and I do not want to appear to exceed my station in making these humble suggestions for your consideration, one may in some instances delete prior communications, which are automatically included lower in the body of each reply. In that way, it is possible to avoid excessively long letters containing no new information and focus the reader[apostrophe]s attention on only the most recent item.[paragraph break]Please let me know if I can be of service in assisting your esteemed persons in these trivial matters and I apologize in advance for the time it has cost you to peruse these few unworthy thoughts.[paragraph break]Deferentially Yours,[paragraph break]Dmitri Rasputinov[line break]Executive Assistant to[line break]HDL Venkath, 9th PL".
+The payload of DmitriEtiquette is "Dear All,[paragraph break]I do not wish to give offense, but I have recently been put in copy of several electronic mails and I wish to call attention to the fact that it may be desirable in some instances to limit the scope of recipients for purposes of discretion. [paragraph break]I realize that many of higher station will not have frequent recourse to electronic mail, preferring to dictate letters or to pen them in their own hand. However, those of us who make frequent use of the digital medium often find it advantageous to select the option [quotation mark]reply[quotation mark] rather than [quotation mark]reply all[quotation mark]; or, if having hit [quotation mark]reply all[quotation mark] to then judiciously delete those recipients who should not be privy to individual letters.[paragraph break]Also, and I do not want to appear to exceed my station in making these humble suggestions for your consideration, one may in some instances delete prior communications, which are automatically included lower in the body of each reply. In that way, it is possible to avoid excessively long letters containing no new information and focus the reader[apostrophe]s attention on only the most recent item.[paragraph break]Please let me know if I can be of service in assisting your esteemed persons in these trivial matters and I apologize in advance for the time it has cost you to peruse these few unworthy thoughts.[paragraph break]Deferentially Yours,[paragraph break]Dmitri Rasputinov[line break]Executive Assistant to[line break]HDL Venkath, 9th PL".
 
 finalLetter is an epistle. finalLetter is not read.
 The correspondent of finalLetter is "Victor Cragne, Attorney".
@@ -1030,7 +1033,6 @@ SentFolder is a mailfolder. The manifest of SentFolder is { secondToMildred , se
 The maxAge of sentFolder is 180.
 The printed name of sentFolder is "Sent".
 
-
 To receive (email - an epistle) into (folder - a mailfolder):
 	if email is not listed in the manifest of folder:
 		execute Javascript command "timestamp(0);";
@@ -1052,37 +1054,25 @@ To say previous mail:
 	
 Chapter 7 - Every Turn
 
-BingoTime is always 1.
-FirstVictorTime is always 2.
-NextVictorTime is a number that varies. NextVictorTime is -1.
-FinalVictorTime is a number that varies. FinalVictorTime is -1.
-VenkathReprimandTime is a number that varies. VenkathReprimandTime is -1.
-AAPDOReprimandTime is a number that varies. AAPDOReprimandTime is -1.
+To look for (email - an epistle):
+	if the receiveTime of the email is TurnTimer:
+		receive email into inboxFolder.
 
 Every turn:
 	if the turn hold flag is false:
 		increase the turnTimer by one;
 	otherwise:
 		now the turn hold flag is false;
-	if the TurnTimer is bingoTime:
-		receive Bingo into inboxFolder;
-	if the TurnTimer is firstVictorTime:
-		receive firstVictor into inboxFolder;
 	if reviewed Flag is true:
-		if finalVictorTime is -1:
-			now finalVictorTime is turnTimer plus 2;
+		if the receiveTime of finalVictor is -1:
+			now the receiveTime of finalVictor is turnTimer plus 1;
 	otherwise:
-		if firstVictor is read and NextVictorTime is -1:
-			now nextVictorTime is turnTimer plus 3;
-	if the TurnTimer is nextVictorTime and reviewed flag is false:
-		receive nextVictor into inboxFolder;
-		now finalVictorTime is turnTimer plus 3;
-	if the TurnTimer is finalVictorTime:
-		receive finalVictor into inboxFolder;
-	if the TurnTimer is VenkathReprimandTime:
-		receive VenkathReprimand into InboxFolder;
-	if the TurnTimer is AAPDOReprimandTime:
-		receive AAPDOReprimand into InboxFolder;
+		if the turnTimer is  (receiveTime of firstVictor plus 4):
+			now the receiveTime of nextVictor is turnTimer;	
+			now the receiveTime of finalVictor is turnTimer plus 6;
+	repeat with email running through epistles:
+		if the receiveTime of the email is the TurnTimer:
+			receive email into inboxFolder;
 	scroll to the element called "header";
 	set output focus to the element called "debugWindow".
 
