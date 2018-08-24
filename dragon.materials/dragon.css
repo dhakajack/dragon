@@ -201,12 +201,20 @@ th, td {
 	display:none;
 }
 
+.balloons {
+	padding-top:1em ;
+}
+
 .bigred {
 	position:relative;
 	top: 1em;
-	font-size:2em;
+	font-size:1.5em;
 	color:red;
 	text-align: center;
+}
+
+.finePrint {
+	font-size: 0.5em;
 }
 
 
@@ -221,6 +229,9 @@ th, td {
 	
 	.column-left {
 		text-align: center;
+		border-bottom-style: double;
+		border-width: medium;
+		border-color: #ededed;
 	}
 }
 

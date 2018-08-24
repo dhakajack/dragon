@@ -100,7 +100,6 @@ To layout the screen:
 	}";
 	place a block level element called "header";
 	place a block level element called "logo";
-	[place a block level element called "controls";]
 	move the element called "logo" under "header";
 	display text "JMAIL" in element called "logo";
 	place a block level element called "row";
@@ -225,16 +224,7 @@ After Linkaging when topicDuJour is "inform":
 	say "Thanks to all those who have worked on Inform and in the Inform ecosystem. This story was written in [bold type]Inform 7[roman type] and compiled for the [bold type]Glulx[roman type] virtual machine."
 	
 After Linkaging when topicDuJour is "about":
-	say "There really was a game entered into the 2018 IF Comp (the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. There is some debate as to whether it was a joke entry, as it was unwinnable and the author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]Last year when I reviewed the original game on my [blog], I thought it was well-written, but thought it was a shame it didn't go anywhere. I found myself wondering why the client had gone to see the dragon, and most of all, why it was so hard to get into the next room to meet the dragon. Well, now the story can be told at last."
-	
-To say blog:
-	place a link to the command "link blog" reading "blog".
-	
-After Linkaging when topicDuJour is "blog":
-	open HTML tag "iframe" called "dragonWindow";
-	close HTML tag;
-	move the element called "dragonWindow" under "column-right";
-	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://blog.templaro.com/review-dragon-will-tell-future-now')".
+	say "There really was a game entered into the 2018 IF Comp (the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. The author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]I thought the game was well-written, but it was written off by most as a joke entry as it was unwinnable, which I thought was a shame. I found myself wondering why the client had gone to see the dragon, and most of all, why it was so hard to get into the next room to meet the dragon. Well, now the story can be told at last."
 	
 After Linkaging when topicDuJour is "credits":
 	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge XXX concept reviewer, XXX beta tester, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
@@ -263,8 +253,7 @@ After Linkaging when topicDuJour is "inbox":
 		
 To display party screen:
 	set output focus to the element called "column-right";
-	say "[paragraph break]";
-	place an image "balloons.png" with the description "A cluster of colorful party balloons", centered;
+	place an image "balloons.png" called "balloons" with the description "A cluster of colorful party balloons", centered;
 	place a block level element called "bigred";
 	set output focus to the element called "bigred";
 	say "Congratulations![paragraph break]You have hit inbox zero! [paragraph break][paragraph break]".
@@ -379,7 +368,7 @@ To say notRightAtAll:
 	place a link to the command "link worm-notRightAtAll" reading "not right at all".
 	
 After Linkaging when topicDuJour is "worm-notRightAtAll":
-	say "[quotation mark]Dmitri, we have a problem.[quotation mark][paragraph break]Since he can[apostrophe]t widen his eyes any further, Dmitri[apostrophe]s ears perk up in surprise. [quotation mark]A problem, [dragonName]?[quotation mark][paragraph break][quotation mark]Yes, we are being scryed upon. I only got a brief glimpse, but if I am not mistaken, someone employing a theosophic mentality worm is watching our every action.[quotation mark][paragraph break][quotation mark]Most disconcerting, [dragonName]. Why ever would anyone wish to do that? Is this an audit?[quotation mark][paragraph break][quotation mark]No, I don[apostrophe]t think so, Dmitri, as audits are contemporaneous and to be effective have to be more discreet. No, this person, who I believe is in our future, lacks the least semblance of finesse.[quotation mark][paragraph break][quotation mark]What shall we do about it, [dragonName]? Shall I dial up the Association?[quotation mark][paragraph break][quotation mark]No, let[apostrophe]s see how this plays out. There is usually a reason for this sort of thing, although it is annoying. Also, I[apostrophe]m afraid we have little choice in the matter if someone wants to play willy-nilly with multiversal manifolds, we just have to go along with it, repeating our actions and choices ad infinitum for their amusement.[quotation mark][paragraph break][quotation mark]Sounds dreadful.[quotation mark][paragraph break][quotation mark]Yes, but unless I pull myself out of the stream, we won[apostrophe]t even notice it, so best to just ignore it. But I do say this [unicode 8212] and now I am addressing myself our ill-mannered interloper: realize that your observation has already distorted future history, has greatly complicated my calculations for this evening, and may have destroyed any number of hypothetical realities.[quotation mark][paragraph break][quotation mark]Now then,[quotation mark] you continue, [quotation mark]I[apostrophe]m off to my [office2link].[quotation mark]".
+	say "[quotation mark]Dmitri, we have a problem.[quotation mark][paragraph break]Since he can[apostrophe]t widen his eyes any further, Dmitri[apostrophe]s ears perk up in surprise. [quotation mark]A problem, [dragonName]?[quotation mark][paragraph break][quotation mark]Yes, we are being scryed upon. I only got a brief glimpse, but if I am not mistaken, someone employing a theosophic mentality worm is watching our every action.[quotation mark][paragraph break][quotation mark]Most disconcerting, [dragonName]. Why ever would anyone wish to do that? Is this an audit?[quotation mark][paragraph break][quotation mark]No, I don[apostrophe]t think so, Dmitri, as audits are contemporaneous and to be effective have to be more discreet. No, this person, who I believe is in our future, lacks the least semblance of finesse.[quotation mark][paragraph break][quotation mark]What shall we do about it, [dragonName]? Shall I dial up the Association?[quotation mark][paragraph break][quotation mark]No, let[apostrophe]s see how this plays out. There is usually a reason for this sort of thing, although it is annoying. Also, I[apostrophe]m afraid we have little choice in the matter if someone wants to play willy-nilly with multiversal manifolds, we just have to go along with it, repeating our actions and choices [italic type]ad infinitum[roman type] for their amusement.[quotation mark][paragraph break][quotation mark]Sounds dreadful.[quotation mark][paragraph break][quotation mark]Yes, but unless I pull myself out of the stream, we won[apostrophe]t even notice it, so best to just ignore it. But I do say this [unicode 8212] and now I am addressing myself our ill-mannered interloper: realize that your observation has already distorted future history, has greatly complicated my calculations for this evening, and may have destroyed any number of hypothetical realities.[quotation mark][paragraph break][quotation mark]Now then,[quotation mark] you continue, [quotation mark]I[apostrophe]m off to my [office2link].[quotation mark]".
 	
 To say office2link:
 	place a link to the command "link worm-office2" reading "office".
@@ -451,7 +440,7 @@ OptionText	Link
 "[quotation mark]Dmitri, make up some excuse to get me out of the Awards Dinner talk.[quotation mark]"	"worm-wontTalk"
 
 After Linkaging when topicDuJour is "worm-garbageInvitation":
-	say "You toss the balled-up invitation backwards over your shoulder towards a rift in space-time that you manifest near the bookshelves. The wad of paper goes wide and lands on the floor. You pick it up again with annoyance and chuck it into the depthless absence of being and award yourself two points rather than three. You can’t be too critical of yourself, after all: the eyes on your current face are just too close together to afford reasonable depth perception.[paragraph break][morePapers]".
+	say "You toss the balled-up invitation backwards over your shoulder towards a rift in space-time that you manifest near the bookshelves. The wad of paper goes wide and lands on the floor. You pick it up again with annoyance and chuck it into the depthless Absence of Being and award yourself two points rather than three. You can’t be too critical of yourself, after all: the eyes on your current face are just too close together to afford reasonable depth perception.[paragraph break][morePapers]".
 	
 After Linkaging when topicDuJour is "worm-willTalk":
 	say "[quotation mark]Is that the Draconian Prophecy Alliance Gala, [dragonName]?[quotation mark] Dmitri asks you over the office intercom.[paragraph break][quotation mark]No, it[apostrophe]s the Soothsaying Guild Annual Awards Dinner [unicode 8212] at the Hill Giant Lodge, if I recall.[quotation mark][paragraph break][quotation mark]Ah, fine. Okay, I will send a reply on the first rabbit that hops by. What shall I say will be your topic?[quotation mark][paragraph break][quotation mark]Let[apostrophe]s brush off the [apostrophe]Teach An Old Dragon New Tricks[apostrophe] talk from last year[apostrophe]s DraconiCon. No one on this Plane of Existence has heard it.[quotation mark][paragraph break][quotation mark]Very good, [dragonName].[quotation mark][paragraph break][DmitriInvite]".
@@ -506,10 +495,38 @@ To say internet:
 	place a link to the command "link worm-internet" reading "internet".
 	
 After Linkaging when topicDuJour is "worm-internet":
-	say "[quotation mark]The internet![quotation mark] you boom. Scales erupt on your skin, and horns poke through the fabric of your suit all along your spine. You occupy fully half the volume of the office before you are able to get a handle on things and squeeze back into your human form. Your exquisite three-piece suit keeps pace, contracting back down with you and sealing over the ruptures, proving once again that your tailor is worth every dime.[paragraph break][quotation mark]I absolutely detest it when clients get it into their heads that they can tell their own futures. I suppose there are tarot cards in that pile?[quotation mark] you ask, keeping your voice guardedly neutral.[paragraph break][quotation mark]Yes, [dragonName]. A few. Also, he said he made some marginal notes and highlighted some passages that may deserve your particular attention.[quotation mark][paragraph break]This provokes another brief burst of outrage. It is a few minutes before you are able to fully rewind your tail into your body.[paragraph break][quotation mark]Well, tell him that I will give it a ‘thorough[apostrophe] look.[quotation mark] you say dryly. [quotation mark]I will send for him when I am ready.[quotation mark][paragraph break][quotation mark]Very good, [dragonName].[quotation mark][paragraph break][quotation mark]Also,[quotation mark] you add, [quotation mark]he[apostrophe]s a half-gnome right? They are jittery little folk. Why don[apostrophe]t you let him simmer down for a moment with a cup of tea. The sort with an extra, let[apostrophe]s say, fifty milligrams of Alport[apostrophe]s Concoction of Placid Compliance.[quotation mark][paragraph break][quotation mark]An excellent idea, [dragonName]. I shall do so immediately.[quotation mark] Bowing out backwards, Dmitri takes his leave of you.[paragraph break]You eye your client[apostrophe]s [quotation mark][research][quotation mark] with disdain."
+	say "[quotation mark]The internet![quotation mark] you boom. Scales erupt on your skin, and horns poke through the fabric of your suit all along your spine. You occupy fully half the volume of the office before you are able to get a handle on things and squeeze back into your human form. Your exquisite three-piece suit keeps pace, contracting back down with you and sealing over the ruptures, proving once again that your tailor is worth every dime.[paragraph break][quotation mark]I absolutely detest it when clients get it into their heads that they can tell their own futures. I suppose there are tarot cards in that pile?[quotation mark] you ask, keeping your voice guardedly neutral.[paragraph break][quotation mark]Yes, [dragonName]. A few. Also, he said he made some marginal notes and highlighted some passages that may deserve your particular attention.[quotation mark][paragraph break]This provokes another brief burst of outrage. It is a few minutes before you are able to fully rewind your tail into your body.[paragraph break][quotation mark]Well, tell him that I will give it a ‘thorough[apostrophe] look.[quotation mark] you say dryly. [quotation mark]I will send for him when I am ready.[quotation mark][paragraph break][quotation mark]Very good, [dragonName].[quotation mark][paragraph break][quotation mark]Also,[quotation mark] you add, [quotation mark]he[apostrophe]s a half-gnome right? They are jittery little folk. Why don[apostrophe]t you let him simmer down for a moment with a cup of tea. The sort with an extra, let[apostrophe]s say, fifty milligrams of [Kusmiz].[quotation mark][paragraph break][quotation mark]An excellent idea, [dragonName]. I shall do so immediately.[quotation mark] Bowing out backwards, Dmitri takes his leave of you.[paragraph break]You eye your client[apostrophe]s [quotation mark][research][quotation mark] with disdain."
+	
+To say Kusmiz:
+	place a link to the command "link worm-kusmiz" reading "Kusmiz[apostrophe]s Concoction of Placid Compliance".
+	
+After Linkaging when topicDuJour is "worm-kusmiz":
+	say "[bold type]Kusmiz[apostrophe]s Concotion of Placid Compliance[roman type][paragraph break]Ingredients:[paragraph break]3 parts Bombay Sapphire Gin[line break]1 part St. Germain Elderberry Liquer[line break]1 part rosemary simple syrup[line break]1/2 fresh squeezed lemon[line break]1 fairy thimble of unicorn sparkles (coarse)[paragraph break]While standing naked on a boulder, combine Sapphire, St. Germain, [rosemarySyrup], lemon juice over ice in a wide-mouthed crystal beaker. Spin once widdershins and then add unicorn sparkles, pronouncing Wozniak[apostrophe]s Apoplectic Incantation. Shake, strain into a wine glass (strictly speaking, this part doesn[apostrophe]t have to be done on the boulder). Carefully overlay with an equal volume champagne. Garnish with rosemary sprig. Administer one teaspoon to small creatures, two to medium, three to large and titrate to effect. Certain species-specific [interactions] have been reported.[paragraph break][b2internet]".
+	
+To say b2internet:
+	place a link to the command "link worm-internet" reading "Back"
 
 To say research: 
 	place a link to the command "link worm-research" reading "research".
+	
+To say interactions:
+	place a link to the command "link worm-interactions" reading "interactions".
+	
+To say rosemarySyrup:
+	place a link to the command "link worm-rosemarySyrup" reading "rosemary syrup".
+	
+After Linkaging when topicDuJour is "worm-interactions":
+	say "Adverse Reactions:[paragraph break]";
+	open HTML tag "div" called "finePrint";
+	say "Like most potions, Kusmiz’s Concoction of Placid Compliance has absolutely no effect on dwarves. Most other species find it deeply reassuring, with minimal sedation. Except imps. The have been reported to experience adverse reactions including astromania and lunacy, drapophila, and disaffective phototropism after ingesting even trace amounts of the concoction. More severe overdoses have results in persistent tetanic planking, which can become life-threatening.[paragraph break]";
+	close HTML tag;
+	say b2kusmiz.
+	
+To say b2kusmiz:
+	place a link to the command "link worm-kusmiz" reading "Back".
+	
+After Linkaging when topicDuJour is "worm-rosemarySyrup":
+	say "Combine 1 cup water, sugar, and rosemary leaves in a small saucepan and heat to boil, stirring in sugar until fully dissolved.  Allow to cool to ambient temperature. Strain out rosemary and store refrigerated.[paragraph break][b2kusmiz]"
 	
 After Linkaging when topicDuJour is "worm-research" or topicDuJour is "worm-research2":
 	say "[one of]You lay out on your desk the various items that the owl dragged in, your client’s so-called proof that he is cursed, or more properly, that he is [quotation mark]fate constrained[quotation mark][or]Your desk is covered by items related to your client’s paranoid and pitifully amateur attempt to read his own future[stopping]. These items include: some [tarotCards], a few small [scraps], an [article] torn from a magazine, a stack of green-and-white [fanfold], and a crudely drawn [NebuPlot]."
@@ -574,13 +591,22 @@ To say waiting5:
 	say "You check in again with Dmitri, and the client continues to pace back and forth in front of the door. At least he[apostrophe]s not harming anything, you figure, and go back to your research.[pick table of InternetResearch options]".
 	
 After Linkaging when topicDuJour is "worm-callInClient":
-	say "[quotation mark]Very well, Dmitri,[quotation mark] you say over the intercom, [quotation mark]I have sorted through Mr. Nobspike[apostrophe]s documents and I am not one iota more enlightened. Do send him into my office now.[quotation mark][paragraph break][quotation mark]My heart bleeds with profuse apologies, Your Draconic Lordship, but I am unable. Having for some time stared catatonically at my lampshade, the velvet drapes, and the skylight, our client has now fallen stiff like a board, his head resting on my desk. Talking to him is of no avail.[quotation mark][paragraph break]Suddenly it comes together for you: his phototropism, drapophilia, astromania, and now planking behavior. [paragraph break][quotation mark]Dmitri, could he be an imp? They are rather rare these days, but I understand that they have something of the appearance of a half-orc, half-gnome.[quotation mark][paragraph break][quotation mark]I… I suppose so, Your Draconic Lordship. I have never seen one [unicode 8212] only read about them in my history texts.[quotation mark][paragraph break][quotation mark]Yes, I think that is what we have on our hands: an imp. Imps are known to have an idiosyncratic reaction to Alport[apostrophe]s Concoction of Placid Compliance; it is in the fine print on the bottle. He was no doubt ashamed of his Impish heritage and tried to pass himself off as something else on our intake form.[quotation mark][paragraph break][quotation mark]Your Draconic Lordship[apostrophe]s knowledge is boundless![quotation mark][paragraph break][quotation mark]Yes, it is. Open up the contingency cabinet and crush a capsule of Jensen[apostrophe]s Shocking Revitalizer near his left ear and then [sendHimIn].[quotation mark]".
+	say "[quotation mark]Very well, Dmitri,[quotation mark] you say over the intercom, [quotation mark]I have sorted through Mr. Nobspike[apostrophe]s documents and I am not one iota more enlightened. Do send him into my office now.[quotation mark][paragraph break][quotation mark]My heart bleeds with profuse apologies, Your Draconic Lordship, but I am unable. Having for some time stared catatonically at my lampshade, the velvet drapes, and the skylight, our client has now fallen stiff like a board, his head resting on my desk. Talking to him is of no avail.[quotation mark][paragraph break]Suddenly it comes together for you: his phototropism, drapophilia, astromania, and now planking behavior. [paragraph break][quotation mark]Dmitri, could he be an imp? They are rather rare these days, but I understand that they have something of the appearance of a half-orc, half-gnome.[quotation mark][paragraph break][quotation mark]I… I suppose so, Your Draconic Lordship. I have never seen one [unicode 8212] only read about them in my history texts.[quotation mark][paragraph break][quotation mark]Yes, I think that is what we have on our hands: an imp. Imps are known to have an idiosyncratic reaction to Kusmiz[apostrophe]s Concoction of Placid Compliance; it is in the fine print on the bottle. He was no doubt ashamed of his Impish heritage and tried to pass himself off as something else on our intake form.[quotation mark][paragraph break][quotation mark]Your Draconic Lordship[apostrophe]s knowledge is boundless![quotation mark][paragraph break][quotation mark]Yes, it is. Open up the contingency cabinet and crush a capsule of [Langley] near his left ear and then [sendHimIn].[quotation mark]".
 	
+To say Langley:
+	place a link to the command "link worm-Langley" reading "Langley[apostrophe]s Shocking Revitalizer".
+	
+To say b2callInClient:
+	place a link to the command "link worm-callInClient" reading "Back"
+	
+After Linkaging when topicDuJour is "worm-Langley":
+	say "1 part Bombay Sapphire Gin[line break]1 heavy splash homemade angelica root/lemon zest bitters[line break]1 part Tonka bean infused vodka [line break]1 part simple syrup/lime juice mix [line break](in a pinch, a tablespoon of frozen limeade concentrate)[line break]2 Ole Smoky Moonshine maraschino cherries[paragraph break]Combine liquids, mix in bitters, stir in lime syrup. Pour over ice and top with cherries. [paragraph break]Crawl into a pit deep enough that your head does not extend above ground level. Crouching is permitted. Consume the above. Tie the stems of the two cherries into a double fisherman[apostrophe]s knot with your tongue. While retaining the two cherry pits in your cheeks, perform the Dance of Pygmalion. Place the two seeds at the vertex of a peaked roof on a moonless night. Experience suggests that the climbing of steep roofs in the dark occur on a night other than the one on which the potion was consumed. In the morning, the pits can be used as per Borbeck[apostrophe]s Compendium.[paragraph break][b2callInClient]".
+			
 To say sendHimIn:
 	place a link to the command "link worm-sendHimIn" reading "send in Mr. Nobspike".
 	
 After Linkaging when topicDuJour is "worm-sendHimIn":
-	say "More time passes than it should have, and the client has not entered your office. You become aware of thudding at the doors to your office: at first quiet, but growing more and more violent. With some annoyance, you again press the intercom.[paragraph break][quotation mark]Dmitri, what is going on with the door? Where is Mr. Nobspike?[quotation mark][paragraph break]The doors reverberate with the loudest thud yet.[paragraph break][quotation mark]Your Draconic Lordship, I must report that the client seems unable to open the doors to your office. He tried the door in the usual way first, and then started hitting it, and just now threw himself bodily against it. He[apostrophe]s now lying on the carpet again, stunned.[quotation mark][paragraph break][quotation mark]Is he still under the influence of Alport[apostrophe]s Concoction?[quotation mark][paragraph break][quotation mark]No, the Revitalizer seemed to have worked entirely. It[apostrophe]s like the door is locked.[quotation mark][paragraph break][quotation mark]As you well know, Dmitri, that door has no lock. Why don[apostrophe]t you try it yourself, since Mr. Nobspike seems incapable of something so trivial as turning a door knob.[quotation mark][paragraph break]Again, some noises at the door, and you see the knob twisting back and forth. Still, it does not open.[paragraph break][quotation mark]So?[quotation mark] you ask impatiently.[paragraph break][quotation mark]It[apostrophe]s true. I can see the latch draw back when I turn the knob, but the doors feel like a steel barrier. They have absolutely no give.[quotation mark][paragraph break][quotation mark]I see.[quotation mark] You don[apostrophe]t but you no doubt will. [quotation mark]This is obviously no mere physical obstruction.[quotation mark][pick Table of FirstDoor options]".
+	say "More time passes than it should have, and the client has not entered your office. You become aware of thudding at the doors to your office: at first quiet, but growing more and more violent. With some annoyance, you again press the intercom.[paragraph break][quotation mark]Dmitri, what is going on with the door? Where is Mr. Nobspike?[quotation mark][paragraph break]The doors reverberate with the loudest thud yet.[paragraph break][quotation mark]Your Draconic Lordship, I must report that the client seems unable to open the doors to your office. He tried the door in the usual way first, and then started hitting it, and just now threw himself bodily against it. He[apostrophe]s now lying on the carpet again, stunned.[quotation mark][paragraph break][quotation mark]Is he still under the influence of Kusmiz[apostrophe]s Concoction?[quotation mark][paragraph break][quotation mark]No, the Revitalizer seemed to have worked entirely. It[apostrophe]s like the door is locked.[quotation mark][paragraph break][quotation mark]As you well know, Dmitri, that door has no lock. Why don[apostrophe]t you try it yourself, since Mr. Nobspike seems incapable of something so trivial as turning a door knob.[quotation mark][paragraph break]Again, some noises at the door, and you see the knob twisting back and forth. Still, it does not open.[paragraph break][quotation mark]So?[quotation mark] you ask impatiently.[paragraph break][quotation mark]It[apostrophe]s true. I can see the latch draw back when I turn the knob, but the doors feel like a steel barrier. They have absolutely no give.[quotation mark][paragraph break][quotation mark]I see.[quotation mark] You don[apostrophe]t but you no doubt will. [quotation mark]This is obviously no mere physical obstruction.[quotation mark][pick Table of FirstDoor options]".
 	
 Table of FirstDoor
 OptionText	Link
@@ -813,7 +839,6 @@ Section 1 - Epistles
 [Epistle Template
 
 XXX is an epistle. XXX is unread.
-The date of XXX is "YYY".
 The correspondent of XXX is "YYY".
 The carboncopy of XXX is "YYY".
 The subject of XXX is "YYY".
@@ -851,7 +876,7 @@ secondToMildred is an epistle. secondToMildred is read.
 The correspondent of secondToMildred is "Mildred Sneedpox".
 The carboncopy of secondToMildred is "mail room".
 The subject of secondToMildred is "Re: Re: Re: Bingo Bonanza".
-The payload of secondToMildred is "Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction – most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
+The payload of secondToMildred is "Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction [unicode 8212] most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
 senttemp2 is an epistle. senttemp2 is read.
 The correspondent of senttemp2 is "YYY".
@@ -976,6 +1001,12 @@ To say victorRetCon2:
 To say writOfRetcon:
 	place a link to the command "link worm-writOfRetcon" reading "Writ of RetCon".
 	
+DmitriEtiquette is an epistle. DmitriEtiquette is not read.
+The correspondent of DmitriEtiquette is "Rasputinov Dmitri N.".
+The carboncopy of DmitriEtiquette is "Venkath 9th PL; IFTFF Admin; Cragne LLC; HDL Venkath, 9th P; AAPDO litigation".
+The subject of DmitriEtiquette is "Some email suggestions".
+The payload of DmitriEtiquette is "Dear All,[paragraph break]I do not wish to give offense, but I have recently been put in copy of several electronic mails and I wish to call attention to the fact that it may be desirable in some instances to limit the scope of recipients for purposes of discretion. [paragraph break]I realize that many of higher station will not have frequent recourse to electronic mail, preferring to dictate letters or to pen them in their own hand. However, those of us who make frequent use of the digital medium often find it advantageous to select the option [quotation mark]reply[quotation mark] rather than [quotation mark]reply all[quotation mark]; or, if having hit [quotation mark]reply all[quotation mark] to then judiciously delete those who should not be privy to individual letters.[paragraph break]Also, and I do not want to appear to exceed my station in making these humble suggestions for your consideration, one may in some instances delete prior communications, which are automatically included lower in the body of each reply. In that way, it is possible to avoid excessively long letters containing no new information and focus the reader[apostrophe]s attention on only the most recent item.[paragraph break]Please let me know if I can be of service in assisting your esteemed persons in these trivial matters and I apologize in advance for the time it has cost you to peruse these few unworthy thoughts.[paragraph break]Deferentially Yours,[paragraph break]Dmitri Rasputinov[line break]Executive Assistant to[line break]HDL Venkath, 9th PL".
+
 finalLetter is an epistle. finalLetter is not read.
 The correspondent of finalLetter is "Victor Cragne, Attorney".
 The carboncopy of finalLetter is "Dmitri Rasputinov; HDL Venkath, 9th P; AAPDO litigation; Marzitrex of the Withered Claw".
@@ -1014,8 +1045,6 @@ To receive (email - an epistle) into (folder - a mailfolder):
 			clear the element called "column-right";
 			show index of inboxFolder.
 		
-
-	
 Section 5 - Previous Mail
 
 To say previous mail:
@@ -1023,15 +1052,14 @@ To say previous mail:
 	
 Chapter 7 - Every Turn
 
-BingoTime is always 2.
-FirstVictorTime is always 4.
+BingoTime is always 1.
+FirstVictorTime is always 2.
 NextVictorTime is a number that varies. NextVictorTime is -1.
 FinalVictorTime is a number that varies. FinalVictorTime is -1.
 VenkathReprimandTime is a number that varies. VenkathReprimandTime is -1.
 AAPDOReprimandTime is a number that varies. AAPDOReprimandTime is -1.
 
 Every turn:
-	set output focus to the element called "debugWindow";
 	if the turn hold flag is false:
 		increase the turnTimer by one;
 	otherwise:
@@ -1055,6 +1083,7 @@ Every turn:
 		receive VenkathReprimand into InboxFolder;
 	if the TurnTimer is AAPDOReprimandTime:
 		receive AAPDOReprimand into InboxFolder;
-	scroll to the element called "header".
+	scroll to the element called "header";
+	set output focus to the element called "debugWindow".
 
 
