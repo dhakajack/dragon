@@ -5,7 +5,7 @@ Include Vorple Hyperlinks by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
 Include Vorple Multimedia by Juhana Leinonen.
 
-The release number is 2. [preBeta]
+The release number is 3. [Beta]
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
