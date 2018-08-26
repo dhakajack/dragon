@@ -797,7 +797,8 @@ After Linkaging when topicDuJour is "worm-enterKnobspike":
 	now the credits_displayed flag is true;
 	if the last_mail_received flag is false:
 		now the last_mail_received flag is true;
-		now the manifest of InboxFolder is {};
+		remove FirstVictor from the manifest of InboxFolder, if present;
+		remove nextVictor from the manifest of InboxFolder, if present;
 		now the manifest of JunkFolder is {};
 		now the manifest of SentFolder is {};
 		receive finalLetter into inboxFolder.	
@@ -813,7 +814,7 @@ After Linkaging when topicDuJour is "worm-fax2":
 	say "[quotation mark]Dmitri, did you get it?[quotation mark][paragraph break][quotation mark]The client is pulling it off the fax now. It[apostrophe]s coming in real slowly.[quotation mark][paragraph break][quotation mark]It[apostrophe]s a miracle it works at all across half the universe and then some. When you get it all, have Mr. Nobspike give it a once over and if it[apostrophe]s all good to go, have him sign off on it.[quotation mark][paragraph break]In the background, you hear the imp exclaim, [quotation mark]Hah! So [italic type]that[roman type] was the problem with the door [unicode 8212] amazing.[quotation mark][paragraph break]Then, Dmitri[apostrophe]s panicked voice, [quotation mark][dragonName], he[apostrophe]s gone! The client just took the fax and left.[quotation mark][paragraph break]Unnerved by the sudden turn of events you rush into the waiting room, [quotation mark]Dmitri, bring him back! No one walks out on one of my fortune tellings![quotation mark] The owl swoops out of the reception area, his nocturnally adjusted eyes allowing him to scour the forest with predatory proficiency.[paragraph break]However, after another fifteen minutes with no word from Dmitri, you write it off as an embarrassing loss and sulk back to your office. [paragraph break]You stare out the window, a time-shifted dimensional portal to the forest around your office. You ordered this dimensional portal with the temporal offset so you enjoy a daytime view of the forest even during midnight fortune telling sessions.[paragraph break]Just then, you notice some furtive movement in the bushes just outside the window. Maybe, you think to yourself, there is [stillAway] to bring this fortune telling to a successful conclusion."
 	
 To say stillAway:
-	place a link to the command "link worm-stillAway" reading "still away".
+	place a link to the command "link worm-stillAway" reading "still a way".
 	
 After Linkaging when topicDuJour is "worm-stillAway":
 	say "Yes, it is definitely your client out there doing Ialdagorth-knows-what at the edge of the forest. You will need to do your best to avoid scaring him off, knowing how jittery he was earlier in the day.[paragraph break][crouchingShrubs]".
@@ -938,7 +939,7 @@ To say finalVictorPayload:
 	place a link to the command "link tmworm" reading "theosophic mentality worm";
 	say ".[paragraph break]I savor the sweet irony of perverting the very tools of your crimes [unicode 8212] the internet, your computer, this very email! [unicode 8212] to serve our ";
 	place a link to the command "link worm-start" reading "true narrative";
-	say " and force you to experience the events of that evening last year as they actually took place.[paragraph break]Ignore this gift at your peril! I have started polishing up Indominatable Torture Number Seven as a contingency, and I assure, it would be my most sincere pleasure to inflict it upon you.[paragraph break]Sincerely,[paragraph break]Victor Cragne";
+	say " and force you to experience the events of that evening last year as they actually took place.[paragraph break]Don't fret. You can still go back and forth to your precious email without losing your place, but know this: Ignore this gift at your peril! I have started polishing up Indominatable Torture Number Seven as a contingency, and I assure, it would be my most sincere pleasure to inflict it upon you.[paragraph break]Sincerely,[paragraph break]Victor Cragne";
 	hide the element called "ReviewLastYear";
 	show the element called "ScryDragon";
 	now ScryView enabled flag is true.
