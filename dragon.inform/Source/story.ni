@@ -9,7 +9,7 @@ The release number is 3. [Beta]
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
-Release along with the file "balloons.png", the file "plucky.mp3", and the file "Fax-machine-sound.mp3".
+Release along with the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "TDWTYYFN.html".
 
 Chapter 1 - Globals
 
@@ -216,7 +216,7 @@ After Linkaging when topicDuJour is "TDWTYYFN":
 	open HTML tag "iframe" called "dragonWindow";
 	close HTML tag;
 	move the element called "dragonWindow" under "column-right";
-	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'http://templaro.com/games/test-dr/TDWTYYFN.html')";
+	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'TDWTYYFN.html')";
 	hide the element called "ReviewLastYear".
 		
 After Linkaging when topicDuJour is "inform":
@@ -228,7 +228,7 @@ After Linkaging when topicDuJour is "about":
 	say "There really was a game entered into the 2018 IF Comp (the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. The author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]I thought the game was well-written, but it was written off by most as a joke entry as it was unwinnable, which I thought was a shame. I found myself wondering why the client had gone to see the dragon, and most of all, why it was so hard to get into the next room to meet the dragon. Well, now the story can be told at last."
 	
 After Linkaging when topicDuJour is "credits":
-	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge XXX concept reviewer, XXX beta tester, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
+	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz and Ben Collins-Sussman, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
 	
 After Linkaging when topicDuJour is "vorple":
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
