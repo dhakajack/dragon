@@ -182,12 +182,12 @@ Carry out Linkaging:
 	clear the element called "column-right";
 	set output focus to the element called "column-right".
 
-Report Linkaging:[fires if no after rule supercedes it]
+Report Linkaging:[fires if no after rule supersedes it]
 	say "Error. If you are seeing this, no After Rule has captured a link click event. The [topic understood] link was selected and the current topic is [topicDuJour]. Tracking the last worm topic as [lastWormTopic]."
 
 Section 1 - Mail Links
 
-[Evrything is a link. Pages are links, options are links, emails are links, yada, yada.]
+[Everything is a link. Pages are links, options are links, emails are links, yada, yada.]
 
 [This wonky bit handles all display of all the epistles]
 
@@ -431,7 +431,7 @@ After Linkaging when topicDuJour is "worm-update":
 	wipe row "worm-update" in Table of Reads.
 	
 After Linkaging when topicDuJour is "worm-chart":
-	say "You flip past the HIPAA-compliant coversheet and glance at the demographic info, which Dmitri has hastily scrawled at the top of the intake form:[paragraph break]Name: Paisley Nobspike[line break]Race: [unicode 9745] Orc [unicode 9745] Gnome.[line break]Birth: The 17th of Ubij in the Systematized Year 128A[paragraph break]Dmitri has helpfully penciled in some of the relevant influences at birth, noting that the client was born in seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration. There is no mention of crossed Shadow Aspects, but that will come out in the interview, so no worries there.[paragraph break]You dutifully scan past his address and insurance information but are surprised that the rest of the pages are blank. Unfortunately, the client did not provide the necessary information to Dmitri. You’ll have to waste time during the intake session completing this drudgery. If you weren’t in human form, tendrils of black smoke would now be rising from your nostrils.[pick table of charting options]";
+	say "You flip past the HIPAA-compliant coversheet and glance at the demographic info, which Dmitri has hastily scrawled at the top of the intake form:[paragraph break]Name: Paisley Nobspike[line break]Race: [unicode 9745] Orc [unicode 9745] Gnome.[line break]Birth: The 17th of Ubij in the Systematized Year 128A[paragraph break]Dmitri has helpfully penciled in some of the relevant influences at birth, noting that the client was born in seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration. There is no mention of crossed Shadow Aspects, but that will come out in the interview, so no worries there.[paragraph break]You dutifully scan past his address and insurance information but are surprised that the rest of the pages are blank. Unfortunately, the client did not provide the necessary information to Dmitri. You’ll have to waste time during the intake session completing this drudgery. If you weren[apostrophe]t in human form, tendrils of black smoke would now be rising from your nostrils.[pick table of charting options]";
 	wipe row "worm-chart" in Table of Reads.
 
 Table of Guild Dinner
@@ -502,7 +502,7 @@ To say Kusmiz:
 	place a link to the command "link worm-kusmiz" reading "Kusmiz[apostrophe]s Concoction of Placid Compliance".
 	
 After Linkaging when topicDuJour is "worm-kusmiz":
-	say "[bold type]Kusmiz[apostrophe]s Concotion of Placid Compliance[roman type][paragraph break]Ingredients:[paragraph break]3 parts Bombay Sapphire Gin[line break]1 part St. Germain Elderberry Liquer[line break]1 part rosemary simple syrup[line break]1/2 fresh squeezed lemon[line break]1 fairy thimble of unicorn sparkles (coarse)[paragraph break]While standing naked on a boulder, combine Sapphire, St. Germain, [rosemarySyrup], lemon juice over ice in a wide-mouthed crystal beaker. Spin once widdershins and then add unicorn sparkles, pronouncing Wozniak[apostrophe]s Apoplectic Incantation. Shake, strain into a wine glass (strictly speaking, this part doesn[apostrophe]t have to be done on the boulder). Carefully overlay with an equal volume champagne. Garnish with rosemary sprig. Administer one teaspoon to small creatures, two to medium, three to large and titrate to effect. Certain species-specific [interactions] have been reported.[paragraph break][b2internet]".
+	say "[bold type]Kusmiz[apostrophe]s Concotion of Placid Compliance[roman type][paragraph break]Ingredients:[paragraph break]3 parts Bombay Sapphire Gin[line break]1 part St. Germain Elderberry Liquor[line break]1 part rosemary simple syrup[line break]1/2 fresh squeezed lemon[line break]1 fairy thimble of unicorn sparkles (coarse)[paragraph break]While standing naked on a boulder, combine Sapphire, St. Germain, [rosemarySyrup], lemon juice over ice in a wide-mouthed crystal beaker. Spin once widdershins and then add unicorn sparkles, pronouncing Wozniak[apostrophe]s Apoplectic Incantation. Shake, strain into a wine glass (strictly speaking, this part doesn[apostrophe]t have to be done on the boulder). Carefully overlay with an equal volume champagne. Garnish with rosemary sprig. Administer one teaspoon to small creatures, two to medium, three to large and titrate to effect. Certain species-specific [interactions] have been reported.[paragraph break][b2internet]".
 	
 To say b2internet:
 	place a link to the command "link worm-internet" reading "Back"
@@ -519,7 +519,7 @@ To say rosemarySyrup:
 After Linkaging when topicDuJour is "worm-interactions":
 	say "Adverse Reactions:[paragraph break]";
 	open HTML tag "div" called "finePrint";
-	say "Like most potions, Kusmiz’s Concoction of Placid Compliance has absolutely no effect on dwarves. Most other species find it deeply reassuring, with minimal sedation. Except imps. The have been reported to experience adverse reactions including astromania and lunacy, drapophila, and disaffective phototropism after ingesting even trace amounts of the concoction. More severe overdoses have results in persistent tetanic planking, which can become life-threatening.[paragraph break]";
+	say "Like most potions, Kusmiz’s Concoction of Placid Compliance has absolutely no effect on dwarves. Most other species find it deeply reassuring, with minimal sedation. Except imps. They have been reported to experience adverse reactions including astromania and lunacy, drapophila, and disaffective phototropism after ingesting even trace amounts of the concoction. More severe overdoses have results in persistent tetanic planking, which can become life-threatening.[paragraph break]";
 	close HTML tag;
 	say b2kusmiz.
 	
@@ -627,7 +627,7 @@ After Linkaging when topicDuJour is "worm-moreCoffee":
 After Linkaging when topicDuJour is "worm-sendAway":
 	wipe row "worm-sendAway" in Table of FirstDoor;
 	receive victorRetCon into inboxFolder;
-	say "[quotation mark]Send Mr. Nobspike away: we had no problems until he set foot in the office. I can[apostrophe]t do him any good if I can[apostrophe]t see him, so send him packing.[quotation mark][paragraph break][quotation mark]I hesitate to bring this up, Your Draconic Lordship, but the appointment has already begun. He will have to be charged for the appointment and without a telling, this would be considered a Forfiture of Prophecy.[quotation mark][paragraph break][quotation mark]So be it. If fate won[apostrophe]t let me see him, I guess he has his answer.[quotation mark][paragraph break][quotation mark]Yes, Your Draconic Lordship, I shall inform him.[quotation mark][paragraph break]Well, at least now you should able to get on with the [restOfEvening] in peace.";
+	say "[quotation mark]Send Mr. Nobspike away: we had no problems until he set foot in the office. I can[apostrophe]t do him any good if I can[apostrophe]t see him, so send him packing.[quotation mark][paragraph break][quotation mark]I hesitate to bring this up, Your Draconic Lordship, but the appointment has already begun. He will have to be charged for the appointment and without a telling, this would be considered a Forfeiture of Prophecy.[quotation mark][paragraph break][quotation mark]So be it. If fate won[apostrophe]t let me see him, I guess he has his answer.[quotation mark][paragraph break][quotation mark]Yes, Your Draconic Lordship, I shall inform him.[quotation mark][paragraph break]Well, at least now you should able to get on with the [restOfEvening] in peace.";
 	receive victorRetCon into inboxFolder;
 	now the lastWormTopic is "worm-writOfRetCon".
 	
@@ -697,7 +697,7 @@ After Linkaging when topicDuJour is "worm-item1":
 	say "Item one: have you ever had your future told before?[quotation mark][paragraph break][quotation mark]Last summer at the amusement park, I put a quarter into…[quotation mark][paragraph break][quotation mark]Enough. I meant, professionally.[quotation mark][paragraph break][quotation mark]I suppose not. But why does that matter?[quotation mark][paragraph break][quotation mark]It[apostrophe]s a long list, Mr. Norspike. If you interrupt me at every item, we will be here all night. I inquire because if you came here based on another fortune telling, the two readings could intermodulate, potentially setting up a strangle vortex and ending all life as we know it in the vicinity of anywhere you have ever been.[quotation mark][paragraph break][quotation mark]I see. Then, no. What is [itemTwo]?[quotation mark]".
 	
 After Linkaging when topicDuJour is "worm-item2":
-	say "[quotation mark]Item two: Have you recently come into possession of any books of Acursed Knowledge such as Hambi[apostrophe]s Book of Tortured Souls, any edition of the Necronomicon, Forzed[apostrophe]s Anthology of Modern Verse, or any books bearing the Equation of Zoran?[quotation mark][paragraph break][quotation mark]I bought a cookbook two weeks ago.[quotation mark][paragraph break][quotation mark]Was it in fact a cookbook, or an alien manual about subjugation of the human race?[quotation mark][paragraph break][quotation mark]It was a low-carb cookbook.[quotation mark][paragraph break][quotation mark]So, another ‘no[apostrophe]. Moving on: [itemThree]."
+	say "[quotation mark]Item two: Have you recently come into possession of any books of Accurséd Knowledge such as Hambi[apostrophe]s Book of Tortured Souls, any edition of the Necronomicon, Forzed[apostrophe]s Anthology of Modern Verse, or any books bearing the Equation of Zoran?[quotation mark][paragraph break][quotation mark]I bought a cookbook two weeks ago.[quotation mark][paragraph break][quotation mark]Was it in fact a cookbook, or an alien manual about subjugation of the human race?[quotation mark][paragraph break][quotation mark]It was a low-carb cookbook.[quotation mark][paragraph break][quotation mark]So, another ‘no[apostrophe]. Moving on: [itemThree]."
 	
 After Linkaging when topicDuJour is "worm-item3":
 	say "Item three: Aside from enduring the petty tyranny of time[apostrophe]s arrow, have you ever actively traveled in time? I assume that you see why that question is relevant for telling your future?[quotation mark][paragraph break][quotation mark]Yes.[quotation mark][paragraph break][quotation mark]Yes, you have traveled in time or yes, it is obvious?[quotation mark][paragraph break][quotation mark]Yes, it is obvious, no, I have never time traveled. Are there many more of these?[quotation mark][paragraph break][quotation mark][justAfew].[quotation mark]".
@@ -762,7 +762,7 @@ To say perplexed:
 	place a link to the command "link worm-perplexed" reading "perplexed".
 	
 After Linkaging when topicDuJour is "worm-perplexed":
-	say "The imp continues, [quotation mark]This evening, you will make the sorts of choices that you do every moment of the day: for example, whether to have a cup of coffee or whether to fix a squeaky door [unicode 8212] those choices are what will lead us to this moment.[quotation mark][paragraph break][quotation mark]Then I should make a different choice?[quotation mark][paragraph break][quotation mark]Oh, heavens no![quotation mark] The imp looks alarmed. [quotation mark]You can[apostrophe]t. That would ruin everything. The whole thing would be entirely linear [unicode 8212] it would strip away all semblance of player agency. I can[apostrophe]t begin to tell you the sort of complaints that would roll in.[quotation mark][paragraph break][quotation mark]You[apostrophe]re a strange cookie, Mr. Nobspike,[quotation mark] you conclude as you hand him his completed intake form. [quotation mark]Here[apostrophe]s your paperwork for tonight[apostrophe]s visit.[quotation mark] You float the completed form through the window and the imp grabs it. [quotation mark][paragraph break]You add, [quotation mark]Please try to show up promptly at midnight, and I would appreciate it if you wouldn[apostrophe]t pester my receptionist Dmitri with phone calls.[quotation mark][paragraph break][quotation mark]Agreed![quotation mark] The imp reaches out to shake on it, but yanks his hand back at the last moment, before crossing the threshold of the window.[paragraph break]Causality recoils with a snap, since your most recent actions have precluded the events leading to them. None of this is apparent to you, or if it is, you do not remember it. Same difference.[paragraph break]Later that evening, you (again) find yourself sitting [backAtDesk]."
+	say "The imp continues, [quotation mark]This evening, you will make the sorts of choices that you do every moment of the day: for example, whether to have a cup of coffee or whether to fix a squeaky door [unicode 8212] those choices are what will lead us to this moment.[quotation mark][paragraph break][quotation mark]Then I should make a different choice?[quotation mark][paragraph break][quotation mark]Oh, heavens no![quotation mark] The imp looks alarmed. [quotation mark]You can[apostrophe]t. That would ruin everything. The whole thing would be entirely linear [unicode 8212] it would strip away all semblance of player agency. I can[apostrophe]t begin to tell you the sort of complaints that would roll in.[quotation mark][paragraph break][quotation mark]You[apostrophe]re a strange cookie, Mr. Nobspike,[quotation mark] you conclude as you hand him his completed intake form. [quotation mark]Here[apostrophe]s your paperwork for tonight[apostrophe]s visit.[quotation mark] You float the completed form through the window and the imp grabs it.[paragraph break]You add, [quotation mark]Please try to show up promptly at midnight, and I would appreciate it if you wouldn[apostrophe]t pester my receptionist Dmitri with phone calls.[quotation mark][paragraph break][quotation mark]Agreed![quotation mark] The imp reaches out to shake on it, but yanks his hand back at the last moment, before crossing the threshold of the window.[paragraph break]Causality recoils with a snap, since your most recent actions have precluded the events leading to them. None of this is apparent to you, or if it is, you do not remember it. Same difference.[paragraph break]Later that evening, you (again) find yourself sitting [backAtDesk]."
 	
 To say backAtDesk:
 	place a link to the command "link worm-backAtDesk" reading "at your desk".
@@ -921,7 +921,7 @@ To say nextVictorPayload:
 	place a link to the command "link satanNipples" reading "Satan’s seven silver spiked nipple rings";
 	say " is taking you so long to review this matter of utmost importance?[paragraph break]Yes, of course I know that you didn’t bother to click on the link to ";
 	place a link to the command "link TDWTYYFN" reading "that abysmal story from last year";
-	say " [unicode 8212] I am literally surrounded by the thirteen Trustees of the American Association of Professional Draconian Oracles [unicode 8212]  all of whom are psychic dragons. Thirteen very irritable, flame-breathing dragons of venerable age, immeasurable wisdom, and as is the way with dragons, dangerously short tempers.[paragraph break]I again recommend you spend some time rolling in the frothy bilge of that contested account, until your very pores are saturated with the rancid stench of the unforgiveable folderol cranked out by that ill-bred hack.[paragraph break]We’re not through with you yet, MacBraeburn![paragraph break][unicode 8212] Victor Cragne".
+	say " [unicode 8212] I am literally surrounded by the thirteen Trustees of the American Association of Professional Draconian Oracles [unicode 8212]  all of whom are psychic dragons. Thirteen very irritable, flame-breathing dragons of venerable age, immeasurable wisdom, and as is the way with dragons, dangerously short tempers.[paragraph break]I again recommend you spend some time rolling in the frothy bilge of that contested account, until your very pores are saturated with the rancid stench of the unforgivable folderol cranked out by that ill-bred hack.[paragraph break]We’re not through with you yet, MacBraeburn![paragraph break][unicode 8212] Victor Cragne".
 	
 finalVictor is an epistle. finalVictor is not read.
 The correspondent of finalVictor is "Victor Cragne, Attorney".
@@ -954,7 +954,7 @@ The subject of VenkathAware is "Damnable Interloper".
 The payload of VenkathAware is "[VenkathAwarePayload]".
 
 To say VenkathAwarePayload:
-	say "Dear Mr. MacBraeburn,[paragraph break]With the infalliable hindsight afforded me through the efforts of my legal counsel provided by the AAPDO, I am now aware of your unscrupulous activities and complicity in this tawdry affair, both in publicizing an inaccurate account of the evening in question and now in rudely scrying upon and, even more reprehensibly, tampering with, those events of a year ago.[paragraph break]This is the worst sort of unprofessional behavior, and I would be well within my rights to fly right over there now and breathe you to ash![paragraph break]Lord Venkath of the Ninth Plate,[line break]Guildmaster of Holsberg,[line break]Luminary.";
+	say "Dear Mr. MacBraeburn,[paragraph break]With the infallible hindsight afforded me through the efforts of my legal counsel provided by the AAPDO, I am now aware of your unscrupulous activities and complicity in this tawdry affair, both in publicizing an inaccurate account of the evening in question and now in rudely scrying upon and, even more reprehensibly, tampering with, those events of a year ago.[paragraph break]This is the worst sort of unprofessional behavior, and I would be well within my rights to fly right over there now and breathe you to ash![paragraph break]Lord Venkath of the Ninth Plate,[line break]Guildmaster of Holsberg,[line break]Luminary.";
 	now the receiveTime of VenkathReprimand is turnTimer plus 4;
 	now the receiveTime of AAPDOReprimand is turnTimer plus 8;
 	now the receiveTime of DmitriEtiquette is turnTimer plus 12.
@@ -980,7 +980,7 @@ To say AAPDOReprimand:
 Rover is an epistle. Rover is not read.
 The correspondent of Rover is "Jack Welch".
 The carboncopy of Rover is "IFTFF Admin".
-The subject of Rover is "Shamless plug".
+The subject of Rover is "Shameless plug".
 The payload of Rover is "[Rover]".
 
 To say rover:
