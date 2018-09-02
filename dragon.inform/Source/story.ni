@@ -228,7 +228,7 @@ After Linkaging when topicDuJour is "about":
 	say "There really was a game entered into the 2018 IF Comp (the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. The author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]Because the original game was unwinnable, most folks considered a joke entry, so relatively few people played it. I thought that the writing in that game was excellent, however, and that it was a shame that it didn't reach a wider audience. After playing it, I lingered over the question of why the client wanted his fortune told and most of all, why it was so hard to get through the door to meet the dragon. Well, now the story can be told at last.[paragraph break][italic type]Source code for the game is available at: github.com/dhakajack/dragon[roman type]."
 	
 After Linkaging when topicDuJour is "credits":
-	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz and Ben Collins-Sussman, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
+	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz, Ben Collins-Sussman, Lara Welch, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
 	
 After Linkaging when topicDuJour is "vorple":
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
@@ -886,7 +886,7 @@ The payload of Lorentz is "Dear Lorentz,[paragraph break]With your latest instru
 Brigette is an epistle. Brigette is read.
 The correspondent of Brigette is "Brigette Flowers".
 The subject of Brigette is "Re: Prize Pool".
-The payload of Brigette is "Dear Brigette,[paragraph break]Thank you for pledging a prize for this year[apostrophe]s IFF Comp, it is indeed a generous and unique offer, however, I do not feel that the Foundation can accept this gift.[paragraph break]I have not looked into all the legal angles, but I suspect that shipping a live polar bear to a winner would raise any number issues, from trafficking in endangered animals to endangering the public. There are also a number of attendant logistical issues in shipping a ferocious wild animal weighing a half-ton in a refrigerated container.[paragraph break]If I could prevail upon you to contribute instead to the Humongous Fund, that would be much appreciated.[paragraph break]Sincerely,[paragraph break]George MacBraeburn".
+The payload of Brigette is "Dear Brigette,[paragraph break]Thank you for pledging a prize for this year[apostrophe]s IFF Comp, it is indeed a generous and unique offer, however, I do not feel that the Foundation can accept this gift.[paragraph break]I have not looked into all the legal details, but I suspect that shipping a live polar bear to a winner would raise any number issues, from trafficking in endangered animals to endangering the public. There are also a number of attendant logistical issues in shipping a ferocious wild animal weighing a half-ton in a refrigerated container.[paragraph break]If I could prevail upon you to contribute instead to the Humongous Fund, that would be much appreciated.[paragraph break]Sincerely,[paragraph break]George MacBraeburn".
 
 Section 2 - Timed Epistles
 
@@ -1034,7 +1034,7 @@ To receive (email - an epistle) into (folder - a mailfolder):
 	if email is not listed in the manifest of folder:
 		execute Javascript command "timestamp(0);";
 		now the date of email is the text returned by the JavaScript command;
-		add email to the manifest of folder;
+		add email at entry 1 in the manifest of folder;
 		play the sound effect file "plucky.mp3";
 		display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
 		set output focus to the element called "debugWindow";
