@@ -1,8 +1,163 @@
+General advice: Like most browser-based games, this one will be annihilated if you hit the “back” button of your browser, so don’t do that.
+
 Walkthrough
 
-If you keep clicking on hyperlinks, you should get to the end of the story, so there isn't much need for a walkthough in terms of completing the story. However, if you ask me what I think would be the most fun way through the story, here's what I would say:
+If you keep clicking on hyperlinks (listed below after an asterisk), you should get to the end of the story, so there isn't much need for a walkthrough in terms of completing the story. There is no way to put the game in an unwinnable state. However, if you ask me what I think would be the most fun way through the story, here's what I would say:
 
-XXX
-XXX
-XXX
-etc.
+1. Explore the interface
+
+* Inform
+* Vorple
+
+Clicking “Inform” or “Vorple” will bring up the sort of information that typically is found in the banner message of most parser games. Okay, that part isn’t much fun, but I do want to give credit to the tools that made this game possible. 
+
+2. Explore mailbox folders
+
+* Inbox — At the start of the game, your inbox is empty. Yay! So, you might as well check out your other folders until some mail comes in.
+
+* Sent - Here you can see four message that you, George MacBraeburn, sent earlier today. Feel free browse any of these mails by clicking on their titles. You can always get back to the folder listing by clicking on “Sent” again. 
+
+* Junk - Jmail does an excellent job of classifying spam and sending it to your junk folder. Feel free to click through (or ignore) these titles as well.
+
+3. Read your new mail
+
+* Inbox - Now that you’ve spent some time clicking around, some mail has surely come in. Every time a mail arrives, you should see a pop-up notification and hear a chime.  Click on the title of the mails to give them a read. Mails are time-stamped, so you’ll probably want to read them in the order in which they were written, but you can always come back to them later, if desired.
+
+Victor Cragne will send you a series of increasingly urgent emails, which provide the backstory. 
+
+* Dragon: The subject of his first email is just “dragon” and it refers to a previous game, which you can play to get a sense of what he’s talking ab out. Don’t worry about not being able to navigate back: everything stays within the current browser window and you can always move back and forth between your email and whatever the game is doing without losing you place.
+
+* Inbox
+* RE: Dragon: If you don’t follow the advice in his previous letter immediately, Victor will send a follow-up letter.
+
+* Satan’s seven silver spiked nipple rings
+* that abysmal story from last year
+
+* Inbox
+* !!! Re:Dragon: After playing the story from last year or not doing so within a certain number of moves, Victor will send a letter detailing his legal remedy.
+
+* theosophic mentality worm
+* email (to return to the letter)
+* true narrative
+
+4. Scry The Dragon: One you click “true narrative” you will find yourself scrying (remotely viewing) the dragon. Again, you can move back and forth between email and scrying the dragon. Whenever you click on anything related to email, a “Scry the dragon” link will appear under the folders and allow you to jump right back into your scrying session wherever you left off. Whenever you are scrying, the background on the right side of the window will be blue.
+
+* Where is my coffee?
+* doors
+* A squeaky hinge is nothing in the grand scheme. You ignore it.
+* not right at all
+* office
+
+* inbox
+* damnable interloper
+* scry the dragon
+
+* papers
+* tomorrow’s newspaper
+* inbox
+* disregard above
+* scry the dragon
+
+* papers
+* The client’s chart
+* Dmitri, how am I supposed to tell a fortune without an intake sheet?
+* inbox
+* silence dog!
+* inbox
+* some email suggestions
+* scry the dragon
+
+* papers
+* astrological update
+* papers
+* a gold-embossed invitation
+* Dmitri, let the awards folks know that I’ll do the talk
+* papers
+* A computer-generated bill
+* Dmitri, I found an old double-D invoice — should I throw it out?
+* papers
+* work
+
+* coffee
+* inbox
+* shamelesss plug
+* scry the dragon
+
+* work
+* window
+* work
+* window
+* work
+* intercom
+* internet
+* Kusmiz's Concotion of Placid Compliance
+* rosemary syrup
+* back
+* interactions
+* back
+* back
+* research
+* tarot cards
+* check in with Dmitri about how your client is doing
+* continue reviewing your client’s research
+* scraps of paper
+* check in with Dmitri about how your client is doing
+* continue reviewing your client’s research
+* article
+* check in with Dmitri about how your client is doing
+* continue reviewing your client’s research
+* fanfold paper
+* check in with Dmitri about how your client is doing
+* continue reviewing your client’s research
+* Nebuchadnezzar Plot
+* check in with Dmitri about how your client is doing
+* toss the lot of it in the trash and call Mr. Nobspike in
+* Langley’s Shocking Revitalizer
+* Back
+* Send in Mr. Nobspike
+* Let me try the door myself
+* Dmitri, how about a fresh cup of coffee?
+* I’ve had it with Mr. Nobspike, send him away
+* inbox
+
+* retcon advisory
+* scry the dragon
+
+* This is what happens when we don’t follow our process
+* Explain the privileged higher-order dimensionality of your office
+* Sign. No, Mr. Nobspike, it’s not that simple
+* Over the intercom! Are you kidding?
+* thrice-damned intake sheet
+* item one
+* item two
+* item three
+* just a few
+* one last item
+* explain why that couldn’t possibly work
+* maybe there is a way we could make that work
+* window
+* jump through the window and devour the imp for his insolence
+* convince him
+* perplexed
+* at your desk
+* intake form
+* call Mr. Knobspike
+* inbox
+* settlement
+
+* about
+* credits
+
+If you spot any bugs, you can file them by clicking “bugs”.
+
+To replay the game, click “reply” or reload the game in your browser.
+
+
+
+
+
+
+
+
+
+
