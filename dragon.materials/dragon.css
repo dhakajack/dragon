@@ -20,8 +20,13 @@ body {
 }
 
 .header {
+	position:fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
     background-color: #960f33;
-    padding: 20px;
+    padding: 1.3em;
 	border-bottom-style: double;
 	border-width: medium;
 	border-color: #ededed;
@@ -40,7 +45,9 @@ body {
 
 /* Left and right column */
 .column-left {
-    float: left;
+	position: fixed;
+	top: 5.7em;
+	left: 0;
     padding: 10px;
     width: 25%;
 	background-color: black;
@@ -61,7 +68,9 @@ body {
 }
 
 .column-right {
-    float: left;
+    position: relative;
+	top: 5em;
+	left: 25%;
     padding: 10px;
     width: 75%;
 	border-left-style: solid;
@@ -172,9 +181,12 @@ th, td {
 }
 
 .footer {
+	position: relative;
+	top: 4em;
+	width:100%;
     background-color: black;
 	color: #999;
-	height: 3em;
+	height: 4em;
     padding: 10px;
 }
 
