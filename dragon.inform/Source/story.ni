@@ -1,5 +1,10 @@
 "Re: Dragon" by Jack Welch
 
+The story genre is "fantasy".
+The release number is 3.
+The story creation year is 2018.
+
+
 Include Vorple Element Manipulation by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
@@ -9,7 +14,7 @@ The release number is 3. [Beta]
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
-Release along with the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "TDWTYYFN.html".
+Release along with [cover art, ]a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "TDWTYYFN.html".
 
 Chapter 1 - Globals
 
@@ -870,7 +875,7 @@ secondToMildred is an epistle. secondToMildred is read.
 The correspondent of secondToMildred is "Mildred Sneedpox".
 The carboncopy of secondToMildred is "mail room".
 The subject of secondToMildred is "Re: Re: Re: Bingo Bonanza".
-The payload of secondToMildred is "Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction [unicode 8212] most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weights about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
+The payload of secondToMildred is "Dear Mildred,[paragraph break]I’m not sure we’re on the same page. This is a competition for interactive fiction [unicode 8212] most of the stories are electronic. We’ve never had anyone actually mail in a physical game, and while we try to be inclusive, I’m not sure how your game would fit the genre. I would be pleased to discuss this with you in more detail by phone.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail]Dear George,[paragraph break]I printed out that page as you instructed and have filled in my information, but I still need your postal address to send you my package. The game fits in a shoebox and probably weighs about four pounds, give or take. Some of the items in the game [unicode 8212] the cheeses for instance [unicode 8212] are perishable, so the box should not be left out in the elements too long, so it would be best if someone were home to watch for it.[paragraph break]Thanks,[paragraph break]Mildred[paragraph break][previous mail]Dear Mildred,[paragraph break]Please create a login on the comp’s web page by clicking the [quotation mark]sign-in/register[quotation mark] button in the upper right-hand corner. Then, sign-in using those credentials. Then, under the [quotation mark]participate[quotation mark] tab, click on [quotation mark]register or manage your entries[quotation mark] and follow those instructions. Please do not attach your game as to an email, as we have a lot of entries and we want to be sure to get the right version of your game into the competition.[paragraph break]Regards,[paragraph break]George MacBraeburn,[line  break]IFTFF Administrator[paragraph break][previous mail][paragraph break]Dear George,[paragraph break]Thank you and the Interactive Fiction Technological Freedom Foundation for hosting this year’s interactive fiction competition. I would like to submit my game, [quotation mark]Bingo Bonanza[quotation mark], but I found your website confusing and am not sure where to mail the box. Could you please let me know?[paragraph break]Thank you,[paragraph break]Mildred Sneedpox".
 
 firstToMildred is an epistle. firstToMildred is read.
 The correspondent of firstToMildred is "Mildred Sneedpox".
