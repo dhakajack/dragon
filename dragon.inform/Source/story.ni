@@ -37,7 +37,6 @@ The coffee_gone flag is a truth state that varies. The coffee_gone flag is false
 The squeaky_hinge flag is a truth state that varies. The squeaky_hinge flag is true.
 The dimensionality_explained flag is a truth state that varies. The dimensionality_explained flag is false.
 The last_mail_received flag is a truth state that varies. The last_mail_received flag is false.
-The credits_displayed flag is a truth state that varies. The credits_displayed flag is false.
 
 Chapter 2 - Kinds
 
@@ -132,9 +131,15 @@ To layout the screen:
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
 	place a link to the command "link sent" called "folder-sent" reading "Sent";
 	place a link to the command "link junk" called "folder-junk" reading "Junk";
+	place a link to the command "link about" called "folder-about" reading "About";
+	place a link to the command "link credits" called "folder-credits" reading "Credits";
+		place a link to web site "mailto:redragon@templaro.com" called "folder-bugs" reading "Feedback";
 	move the element called "folder-inbox" under "folders";
 	move the element called "folder-sent" under "folders";
 	move the element called "folder-junk" under "folders";
+	move the element called "folder-about" under "folders";
+	move the element called "folder-credits" under "folders";
+	move the element called "folder-bugs" under "folders";
 	set output focus to the element called "powered";
 	say "Powered by ";
 	place a link to the command "link inform" reading "Inform";
@@ -790,17 +795,9 @@ To say enterKnobspike:
 	
 After Linkaging when topicDuJour is "worm-enterKnobspike":
 	say "Mr. Knobspike walks in through heavy mahogany doors that lead to your office, and he pauses to give the door knob an extra few twists. [quotation mark]Well, that[apostrophe]s novel,[quotation mark] he remarks cryptically and walks fully into the office, the doors swinging shut [if squeaky_hinge flag is true]squeakily[otherwise]silently[end if] behind him.[paragraph break][quotation mark]If you[apostrophe]ll take a seat there,[quotation mark] you point towards the leather recliner at the center of the office pentacle, [quotation mark]I will get the candles placed and start the telling.[quotation mark][paragraph break]But the imp just stands there smiling, his arms crossed on the back of the chair and his gaze directed out your window towards the woods. [quotation mark]No,[quotation mark] he says, [quotation mark]I don[apostrophe]t think I need my fortune told after all. I have what I came for.[quotation mark][paragraph break][quotation mark]And what is that?[quotation mark] you ask.[paragraph break][quotation mark]A satisfying end to this story.[quotation mark][paragraph break]THE END.";
-	if the credits_displayed flag is false:
-		place a link to the command "link about" called "folder-about" reading "About";
-		place a link to the command "link credits" called "folder-credits" reading "Credits";
-		place a link to web site "[this page]"  called "folder-replay" reading "Replay", opening in the same window;
-		place a link to web site "mailto:redragon@templaro.com" called "folder-bugs" reading "Bugs";
-		move the element called "folder-about" under "folders";
-		move the element called "folder-credits" under "folders";
-		move the element called "folder-replay" under "folders";
-		move the element called "folder-bugs" under "folders";
-	now the credits_displayed flag is true;
 	if the last_mail_received flag is false:
+		place a link to web site "[this page]"  called "folder-replay" reading "Replay", opening in the same window;
+		move the element called "folder-replay" under "folders";
 		now the last_mail_received flag is true;
 		remove FirstVictor from the manifest of InboxFolder, if present;
 		remove nextVictor from the manifest of InboxFolder, if present;
