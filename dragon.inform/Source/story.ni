@@ -124,7 +124,7 @@ To layout the screen:
 	move the element called "powered" under "footer";
 	place a block level element called "debugWindow";
 	display party screen;
-	move the element called "bigred" under "column-right";
+	move the element called "congrats" under "column-right";
 	place a block level element called "folders";
 	move the element called "folders" under "column-left";
 	place a block level element called "navSelect";
@@ -132,7 +132,7 @@ To layout the screen:
 	place a link to the command "link ScryDragon" called "ScryDragon" reading "Scry the Dragon";
 	move the element called "ScryDragon" under "navSelect";
 	hide the element called "ScryDragon";
-	attach a tooltip "Click to astrally spy upon the events of 2017; return any time to email by clicking one of the folder, above." on the element called "ScryDragon";
+	attach a tooltip "Click to astrally spy upon the events of 2017; return to email by clicking a folder, above." on the element called "ScryDragon";
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
 	place a link to the command "link sent" called "folder-sent" reading "Sent";
 	place a link to the command "link junk" called "folder-junk" reading "Junk";
@@ -150,7 +150,7 @@ To layout the screen:
 	place a link to the command "link inform" reading "Inform";
 	say " and ";
 	place a link to the command "link vorple" reading "Vorple";
-	say ".";
+	say ".[no line break]";
 	set output focus to the element called "debugWindow".
 	[debug window is invisible; to make it visible, alter the css to remove hidden attribute]
 	
@@ -189,9 +189,9 @@ Carry out Linkaging:
 	if the topicDuJour matches the text "worm-":
 		now the lastWormTopic is the topicDuJour;[book mark it as the most recent worm command];
 		hide the element called "ScryDragon";
-		add name "back-blue" to the element called "column-right";
+		add name "scryingBackground" to the element called "column-right";
 	otherwise:
-		remove name "back-blue" from the element called "column-right"; 
+		remove name "scryingBackground" from the element called "column-right"; 
 		if ScryView enabled flag is true:
 			show the element called "ScryDragon";
 	clear the element called "column-right";
@@ -235,7 +235,7 @@ After Linkaging when topicDuJour is "TDWTYYFN":
 	close HTML tag;
 	execute JavaScript command "$('a.link-outLink').attr('href','[escaped outLinkURL]')";
 	execute JavaScript command "$('a.link-outLink').attr('target','_blank')";
-	place a link to the web site  "[outlinkURL]" called "outLink" reading "[bracket]Open the 2017 game, [quotation mark][italic type]The Dragon Will Tell You Your Fortune Now[roman type][quotation mark] in a new window.[close bracket]";
+	place a link to the web site  "[outlinkURL]" called "outLink" reading "[bracket]Open the 2017 game, [quotation mark][italic type]The Dragon Will Tell You Your Fortune Now[roman type][quotation mark] by Newsreparter in a new window.[close bracket]";
 	show a modal window reading "After reviewing this outrage, don't forget to come back to your email -- Victor.".
 	
 After Linkaging when topicDuJour is "inform":
@@ -276,8 +276,8 @@ After Linkaging when topicDuJour is "inbox":
 To display party screen:
 	set output focus to the element called "column-right";
 	place an image "balloons.png" called "balloons" with the description "A cluster of colorful party balloons", centered;
-	place a block level element called "bigred";
-	set output focus to the element called "bigred";
+	place a block level element called "congrats";
+	set output focus to the element called "congrats";
 	say "Congratulations![paragraph break]You have hit inbox zero! [paragraph break][paragraph break]".
 	
 After Linkaging when topicDuJour is "sent":

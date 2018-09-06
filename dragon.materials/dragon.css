@@ -9,19 +9,20 @@ Style sheet Dragon
 }
 
 body {
-	background-color: black;
+	background-color: white;
 }
 
 #output {
 	max-width: none;
 	padding: 0px;
 	margin: 0px;
-	background-color: black;
+	background-color: white;
 }
 
 #powerTip {
-	background-color: fuchsia;
+	background-color: gold;
 	color: black;
+	
 }
 
 .header {
@@ -30,17 +31,17 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-    background-color: #960f33;
+    background-color: #eaeaea;
     padding: 1.3em;
 	border-bottom-style: double;
 	border-width: medium;
-	border-color: #ededed;
+	border-color: #aaa;
 }
 
 .logo {
 	text-align: left;
 	font-size: 3em;
-	color: white;
+	color: #ef0f0f;
 }
 
 .row {
@@ -51,17 +52,17 @@ body {
 /* Left and right column */
 .column-left {
 	position: fixed;
-	top: 5.7em;
+	top: 5em;
 	left: 0;
     padding: 10px;
     width: 25%;
-	background-color: black;
+	background-color: white;
 }
 
 .column-left a {
 	display: block;
 	padding: .2em 2em .2em 2em;
-	color:#ff5;
+	color:#333;
 }
 
 .navSelect {
@@ -74,35 +75,38 @@ body {
 
 .column-right {
     position: relative;
-	top: 5em;
+	top: 4em;
 	left: 25%;
     padding: 10px;
     width: 75%;
 	border-left-style: solid;
 	border-width: thin;
-	border-color: #ededed;
-	color:white;
+	border-color: #aaa;
+	color:black;
 }
 
-.back-blue {
-	background-color:#090969;
+.scryingBackground {
+	background-color:oldLace;
 }
 
 .column-right a:link, .column-right a:visited {
-	color: #ff5;
+	color: blue;
 }
 
 .column-right a:hover, .column-right a:active {
-	color: tomato;
+	color: indigo;
 }
 
 .outlinkImage {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	border-radius: 8px;
 	width: 75%;
 	height: auto;
+}
+
+.outlinkImage img {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .outLink {
@@ -110,6 +114,11 @@ body {
 	text-align: center;
 	margin-top: 1em;
 	margin-bottom: 1em;
+	font-size: 0.8em;
+	line-height: 1.5em;
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .stricken {
@@ -184,16 +193,6 @@ th, td {
 	background: #555;
 }
 
-/* iframe for playing original game */
-.dragonWindow {
-	width: 95%;
-	height: 95%;
-	background-color: #fff;
-	display: block;
-	margin: auto;
-	min-height: 25em;
-}
-
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -206,7 +205,7 @@ th, td {
 	position: relative;
 	top: 4em;
 	width:100%;
-    background-color: black;
+    background-color: white;
 	color: #999;
 	height: 4em;
     padding: 10px;
@@ -240,12 +239,13 @@ th, td {
 	padding-top:1em ;
 }
 
-.bigred {
+.congrats {
 	position:relative;
 	top: 1em;
 	font-size:1.5em;
-	color:red;
+	color: darkViolet;
 	text-align: center;
+	line-height: 0.8;
 }
 
 .finePrint {
@@ -259,14 +259,19 @@ th, td {
     }
 	
 	.column-right {
+		position:relative;
 		border-left-style: none;
+		left: 0;
+		top: 5em;
 	}
 	
 	.column-left {
+		top: 5em;
+		position:relative;
 		text-align: center;
 		border-bottom-style: double;
 		border-width: medium;
-		border-color: #ededed;
+		border-color: #aaa;
 	}
 }
 
