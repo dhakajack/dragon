@@ -4,7 +4,6 @@ The story genre is "fantasy".
 The release number is 3.
 The story creation year is 2018.
 
-
 Include Vorple Element Manipulation by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
@@ -123,9 +122,6 @@ To layout the screen:
 	move the element called "folders" under "column-left";
 	place a block level element called "navSelect";
 	move the element called "navSelect" under "column-left";
-	place a link to the command "link TDWTYYFN" called "ReviewLastYear" reading "TDWTYYFN";
-	move the element called "ReviewLastYear" under "navSelect";
-	hide the element called "ReviewLastYear";
 	place a link to the command "link ScryDragon" called "ScryDragon" reading "Scry The Dragon";
 	move the element called "ScryDragon" under "navSelect";
 	hide the element called "ScryDragon";
@@ -913,9 +909,7 @@ The payload of FirstVictor is "[FirstVictorPayload]".
 To say FirstVictorPayload:
 	say "[CragneLawFirmHeader]I am writing to you in your capacity as Chief Administrator of the Interactive Fiction Technological Freedom Foundation, or as it is more commonly known, the IFTFF on behalf of my client, AAPDO, the American Association of Professional Draconian Oracles.[paragraph break]My client seeks redress for the libel perpetuated in the outrageous and vile misrepresentation of their professional activities as depicted in an article hosted on your website as part of last year’s competition, entitled [italic type][quotation mark]The Dragon Will Tell You Your Fortune Now[quotation mark][roman type]. Go ahead and ";
 	place a link to the command "link TDWTYYFN" reading "revisit it";
-	say ", if the intervening year has somehow washed the putrid taste of its baseless calumny from your maw.[paragraph break]In that particular story, circumstances were taken out of context, exaggerated by a disgruntled and unreasonable client, and important aspects of the referenced dragon’s professional behavior were omitted. The dragon in question, no less than a Supreme Prophet of the Ninth Draconian Plate, made every reasonable attempt to address unusual and extenuating paranormal circumstances on the evening in question, but his efforts were entirely glossed over in the rubbish that you saw fit to publish and continue to maintain on your site.[paragraph break]I hereby serve you with the Mother of All DCMAs: I demand that you immediately remove from the internet and destroy all copies of the above-cited twaddle in your possession. Additionally, I demand compensation in the amount of $1,000,000 for your blatant and willful maligning of my client and consequent reputational damage, pain, and suffering.[paragraph break]Furthermore, this communication is intended for settlement purposes and is without prejudice to and shall not affect, in any manner, the rights, claims, remedies, actions or causes of action which I have, had or may have, at law or in equity, including my right to be reimbursed for all legal fees associated with this matter.  This letter is inadmissible in any future proceeding pursuant to Federal Rule of Evidence 408.[paragraph break]Please be further advised that I reserve my right to commence and prosecute to completion, without further notice, any and all actions or proceedings I feel is necessary and/or appropriate.[paragraph break]You have not heard the last from me, MacBraeburn!";
-	if ScryView enabled flag is not true:
-		show element called "ReviewLastYear".
+	say ", if the intervening year has somehow washed the putrid taste of its baseless calumny from your maw.[paragraph break]In that particular story, circumstances were taken out of context, exaggerated by a disgruntled and unreasonable client, and important aspects of the referenced dragon’s professional behavior were omitted. The dragon in question, no less than a Supreme Prophet of the Ninth Draconian Plate, made every reasonable attempt to address unusual and extenuating paranormal circumstances on the evening in question, but his efforts were entirely glossed over in the rubbish that you saw fit to publish and continue to maintain on your site.[paragraph break]I hereby serve you with the Mother of All DCMAs: I demand that you immediately remove from the internet and destroy all copies of the above-cited twaddle in your possession. Additionally, I demand compensation in the amount of $1,000,000 for your blatant and willful maligning of my client and consequent reputational damage, pain, and suffering.[paragraph break]Furthermore, this communication is intended for settlement purposes and is without prejudice to and shall not affect, in any manner, the rights, claims, remedies, actions or causes of action which I have, had or may have, at law or in equity, including my right to be reimbursed for all legal fees associated with this matter.  This letter is inadmissible in any future proceeding pursuant to Federal Rule of Evidence 408.[paragraph break]Please be further advised that I reserve my right to commence and prosecute to completion, without further notice, any and all actions or proceedings I feel is necessary and/or appropriate.[paragraph break]You have not heard the last from me, MacBraeburn!".
 	
 nextVictor is an epistle. nextVictor is not read.
 The correspondent of nextVictor is "Victor Cragne, Attorney".
@@ -951,7 +945,6 @@ To say finalVictorPayload:
 	say ".[paragraph break]I savor the sweet irony of perverting the very tools of your crimes [unicode 8212] the internet, your computer, this very email! [unicode 8212] to serve our ";
 	place a link to the command "link worm-start" reading "true narrative";
 	say " and force you to experience the events of that evening last year as they actually took place.[paragraph break]Don't fret. You can still go back and forth to your precious email without losing your place, but know this: Ignore this gift at your peril! I have started polishing up Indominatable Torture Number Seven as a contingency, and I assure, it would be my most sincere pleasure to inflict it upon you.[paragraph break]Sincerely,[paragraph break]Victor Cragne";
-	hide the element called "ReviewLastYear";
 	show the element called "ScryDragon";
 	now ScryView enabled flag is true.
 	
