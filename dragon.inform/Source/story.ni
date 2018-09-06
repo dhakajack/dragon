@@ -257,9 +257,11 @@ After Linkaging when topicDuJour is "vorple":
 	say ":[line break]";
 	open HTML tag "ul";
 	place "li" element reading "Element Manipulation";
+	place "li" element reading "Modal Windows";
 	place "li" element reading "Notifications";
-	place "li" element reading "Hyperlinks";
 	place "li" element reading "Multimedia";
+	place "li" element reading "Hyperlinks";
+	place "li" element reading "Tooltips";
 	close HTML tag.
 	
 After Linkaging when topicDuJour is "junk":
