@@ -15,7 +15,7 @@ The release number is 3. [Beta]
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
-Release along with [cover art, ]a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "place65.png".
+Release along with cover art, a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "place65.png".
 
 Chapter 1 - Vorple Overrides
 
