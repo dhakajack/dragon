@@ -1093,6 +1093,12 @@ Every turn:
 	repeat with email running through epistles:
 		if the receiveTime of the email is the TurnTimer:
 			receive email into inboxFolder;
+	let N be 0;
+	repeat with email running through manifest of InboxFolder:
+		if email is not read, increase N by one;
+	remove the element called "folder-inbox";
+	place a link to the command "link inbox" called "folder-inbox" reading "Inbox[if N is greater than 0] [bold type]([N])[roman type][end if]";
+	move the element "folder-inbox" at the start of "folders";
 	scroll to the element called "header";
 	set output focus to the element called "debugWindow".
 
