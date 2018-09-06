@@ -9,12 +9,19 @@ Include Vorple Hyperlinks by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
 Include Vorple Multimedia by Juhana Leinonen.
 Include Vorple Modal Windows by Juhana Leinonen.
+Include Vorple Tooltips by Juhana Leinonen.
 
 The release number is 3. [Beta]
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
 Release along with [cover art, ]a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "place65.png".
+
+Chapter 1 - Vorple Overrides
+
+[to add the "followMouse" attribute so tooltip location follows pointing device]
+To attach a/-- tooltip (tip - text) on/to all the/-- elements called (classes - text):
+	execute JavaScript command "$('.[classes]').last().attr('title','[escaped tip]').powerTip({followMouse:true})".
 
 Chapter 2 - Globals
 
@@ -125,6 +132,7 @@ To layout the screen:
 	place a link to the command "link ScryDragon" called "ScryDragon" reading "Scry the Dragon";
 	move the element called "ScryDragon" under "navSelect";
 	hide the element called "ScryDragon";
+	attach a tooltip "Click to astrally spy upon the events of 2017; return any time to email by clicking one of the folder, above." on the element called "ScryDragon";
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox";
 	place a link to the command "link sent" called "folder-sent" reading "Sent";
 	place a link to the command "link junk" called "folder-junk" reading "Junk";
@@ -228,7 +236,7 @@ After Linkaging when topicDuJour is "TDWTYYFN":
 	execute JavaScript command "$('a.link-outLink').attr('href','[escaped outLinkURL]')";
 	execute JavaScript command "$('a.link-outLink').attr('target','_blank')";
 	place a link to the web site  "[outlinkURL]" called "outLink" reading "[bracket]Open the 2017 game, [quotation mark][italic type]The Dragon Will Tell You Your Fortune Now[roman type][quotation mark] in a new window.[close bracket]";
-	show a modal window reading "After reviewing this outrage, don't forget to come back to this window -- Victor.".
+	show a modal window reading "After reviewing this outrage, don't forget to come back to your email -- Victor.".
 	
 After Linkaging when topicDuJour is "inform":
 	say banner text;
@@ -327,6 +335,7 @@ To say start:
 	say "Polymorphed into bipedal form so you can fit through the door of your secluded sylvan office, you breeze into the waiting room.[paragraph break][quotation mark]What have we got tonight?[quotation mark] you ask Dmitri, the cream-colored spectacled owl sitting behind the reception.[paragraph break][quotation mark]Greetings, your Draconic Lordship,[quotation mark] says Dmitri bowing at his spindly talons. [quotation mark]We have one client, a Mr. Nobspike, who made a last minute appointment by phone just this evening. He is a half-orc, half-gnome born in the seventh radiant of Umek, within the cusp of Norimar, with both Reevan-the-Warrior and Borram-the-Seeker rising in an opposing configuration.[quotation mark][paragraph break][quotation mark]How does that even happen?[quotation mark] you ask.[paragraph break][quotation mark]Reevan-the-Warrior was eclipsed by Borimar-the-Devastator until this afternoon, your Lordship.[quotation mark][paragraph break][quotation mark]No, I mean the half-orc, half-gnome part.[quotation mark][paragraph break][quotation mark]Yes, your Lordship. A curious pairing, indeed.[quotation mark] Dmitri hands you a stack of papers including the client’s chart, the latest astrological report, and the evening news. [pick table of start options]";
 	remove the element called "ScryDragon";
 	place a link to the command "link ScryDragon" called "ScryDragon" reading "Continue Scrying";
+	attach a tooltip "Return to viewing the events of 2017; return to email any time." on the element called "ScryDragon";
 	move the element called "ScryDragon" under "navSelect";
 	hide the element called "ScryDragon".
 
@@ -341,7 +350,9 @@ After Linkaging when topicDuJour is "worm-yourDay":
 	say "[yourDay]".	
 	
 To say yourDay:
-	say “[quotation mark]Your Draconic Lordship is most kind to inquire.[quotation mark] Dmitri’s feathers fluff proudly. [quotation mark]I was up with the setting of the sun and since no clients were booked until tonight’s midnight read, I thought I would spend the early evening tightening up the tolerances on the threshold.[quotation mark][paragraph break][quotation mark]Did you?[quotation mark][paragraph break][quotation mark]I was interrupted several times by phone calls from Mr. Nobspike, our client, but I did have time to check the threshold, and the tolerances are quite tight, essentially unchanged since the last calibration. Time is on spec to within 1ppm, and all the other axes are balanced.[quotation mark][paragraph break][quotation mark]Fine work, Dmitri. Precision astrology is only as good as our referents, after all.[quotation mark][paragraph break][quotation mark]Service to your Draconic Lordship is my most delightful reward.[quotation mark][enterDoors]".
+	say “[quotation mark]Your Draconic Lordship is most kind to inquire.[quotation mark] Dmitri’s feathers fluff proudly. [quotation mark]I was up with the setting of the sun and since no clients were booked until tonight’s midnight read, I thought I would spend the early evening tightening up the tolerances on the threshold.[quotation mark][paragraph break][quotation mark]Did you?[quotation mark][paragraph break][quotation mark]I was interrupted several times by phone calls from Mr. Nobspike, our client, but I did have time to check the threshold, and the tolerances are quite tight, essentially unchanged since the last calibration. Time is on spec to within 1";
+	place text "ppm" with a tooltip reading "FYI: ppm = parts per million.";
+	say ", and all the other axes are balanced.[quotation mark][paragraph break][quotation mark]Fine work, Dmitri. Precision astrology is only as good as our referents, after all.[quotation mark][paragraph break][quotation mark]Service to your Draconic Lordship is my most delightful reward.[quotation mark][enterDoors]".
 	
 To say enterDoors:
 	say "[paragraph break]You open the ";
@@ -924,7 +935,8 @@ The payload of nextVictor is "[nextVictorPayload]".
 
 To say nextVictorPayload:
 	say "[CragneLawFirmHeader]What in the name of ";
-	place a link to the command "link satanNipples" reading "Satan’s seven silver spiked nipple rings";
+	place a link to the command "link satanNipples" called "satanNipples" reading "Satan’s seven silver spiked nipple rings";
+	attach a tooltip "[quotation mark]Please stop,[quotation mark] implores The Evil One, [quotation mark]that tickles![quotation mark]" on the element called "satanNipples";
 	say " is taking you so long to review this matter of utmost importance?[paragraph break]Yes, of course I know that you didn’t bother to click on the link to ";
 	place a link to the command "link TDWTYYFN" reading "that abysmal story from last year";
 	say " [unicode 8212] I am literally surrounded by the thirteen Trustees of the American Association of Professional Draconian Oracles [unicode 8212]  all of whom are psychic dragons. Thirteen very irritable, flame-breathing dragons of venerable age, immeasurable wisdom, and as is the way with dragons, dangerously short tempers.[paragraph break]I again recommend you spend some time rolling in the frothy bilge of that contested account, until your very pores are saturated with the rancid stench of the unforgivable folderol cranked out by that ill-bred hack.[paragraph break]We’re not through with you yet, MacBraeburn![paragraph break][unicode 8212] Victor Cragne".

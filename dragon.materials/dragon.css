@@ -19,6 +19,11 @@ body {
 	background-color: black;
 }
 
+#powerTip {
+	background-color: fuchsia;
+	color: black;
+}
+
 .header {
 	position:fixed;
 	z-index: 2;
