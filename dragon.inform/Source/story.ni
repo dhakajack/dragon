@@ -9,14 +9,15 @@ Include Vorple Element Manipulation by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
 Include Vorple Notifications by Juhana Leinonen.  
 Include Vorple Multimedia by Juhana Leinonen.
+Include Vorple Modal Windows by Juhana Leinonen.
 
 The release number is 3. [Beta]
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
-Release along with [cover art, ]a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "TDWTYYFN.html".
+Release along with [cover art, ]a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "place65.png".
 
-Chapter 1 - Globals
+Chapter 2 - Globals
 
 The topicDuJour is a text that varies. The topicDuJour is "inbox".
 
@@ -38,7 +39,7 @@ The squeaky_hinge flag is a truth state that varies. The squeaky_hinge flag is t
 The dimensionality_explained flag is a truth state that varies. The dimensionality_explained flag is false.
 The last_mail_received flag is a truth state that varies. The last_mail_received flag is false.
 
-Chapter 2 - Kinds
+Chapter 3 - Kinds
 
 Section 1 - Epistles
 
@@ -62,7 +63,7 @@ The manifest of a mailfolder is usually {}.
 A mailfolder has a number called maxAge.
 The maxAge of a mailfolder is usually 2880.
 
-Chapter 3 - Start Up
+Chapter 4 - Start Up
 
 [To make inform happy, here's a room.]
 
@@ -164,7 +165,7 @@ To say this page:
 	execute Javascript command "window.location.href;";
 	say the text returned by the JavaScript command.
 	
-Chapter 4 - Linkaging
+Chapter 5 - Linkaging
 	
 Linkaging is an action applying to one topic.  Understand "link [text]" as linkaging.
 
@@ -222,13 +223,17 @@ After Linkaging when topicDuJour matches the text "mail-":
 Section 2 - Top Level Links
 	
 After Linkaging when topicDuJour is "TDWTYYFN":
-	now the reviewed flag is true;
-	open HTML tag "iframe" called "dragonWindow";
+	let outLinkURL be "http://ifarchive.org/if-archive/games/competition2017/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now.html";
+	set output focus to the element called "column-right";
+	now reviewed flag is true;
+	open HTML tag "a" called "link-outLink";
+	place an image "place65.png" called "outlinkImage" with the description "A screen capture from the 2017 IFcomp website entry for The Dragon Will Tell You Your Future Now, which ranked 65th in that competition.", centered;
 	close HTML tag;
-	move the element called "dragonWindow" under "column-right";
-	execute JavaScript command "$(document.getElementsByClassName('dragonWindow')).attr('src', 'TDWTYYFN.html')";
-	hide the element called "ReviewLastYear".
-		
+	execute JavaScript command "$('a.link-outLink').attr('href','[escaped outLinkURL]')";
+	execute JavaScript command "$('a.link-outLink').attr('target','_blank')";
+	place a link to the web site  "[outlinkURL]" called "outLink" reading "[bracket]Open the 2017 game, [quotation mark][italic type]The Dragon Will Tell You Your Fortune Now[roman type][quotation mark] in a new window.[close bracket]";
+	show a modal window reading "After reviewing this outrage, don't forget to come back to this window -- Victor.".
+	
 After Linkaging when topicDuJour is "inform":
 	say banner text;
 	say line break;
@@ -934,9 +939,13 @@ The payload of finalVictor is "[finalVictorPayload]".
 To say finalVictorPayload:
 	say "[CragneLawFirmHeader]";
 	if the reviewed flag is true:
-		say "My Draconian friends inform me that you have indeed followed my instructions to review the shameful document that you and your ilk let into your contest last year and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to alter, at least for now, in the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh. [run paragraph on] ";
+		say "I trust that you have indeed followed my instructions to review the ";
+		place a link to the command "link TDWTYYFN" reading "shameful document";
+		say " that you and your ilk let into your contest last year and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to alter, at least for now, in the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh. [run paragraph on] ";
 	otherwise:
-		say "I can’t really say that I blame you. Much. Except in a legally binding sense.[paragraph break]Your reluctance to again cast your eyes for even the most infinitesimal instant of time on that pile of suppurating invective is amongst the sensible things you have ever done.[paragraph break]My associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh.[run paragraph on]";
+		say "I can’t really say that I blame you. Much. Except in a legally binding sense.[paragraph break]Your reluctance to again cast your eyes for even the most infinitesimal instant of time on ";
+		place a link to the command "link TDWTYYFN" reading "that pile of suppurating invective";
+		say " is amongst the sensible things you have ever done.[paragraph break]My associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh.[run paragraph on]";
 	say "I reminded them that I personally wrote eight of the twelve Indominatable Torments in the Unmerciful Book of Zamru, but they suggested we try settling out of court first.[paragraph break]Therefore, I propose the following: Through the magic invested in my office in legal matters pertaining to the Good Repute of Draconian Oracles, I decree that you [unicode 8212] and this so-called Competition of yours [unicode 8212] shall become the very instrument of their Redemption. To wit, I have attached to this electronic letter a ";
 	place a link to the command "link tmworm" reading "theosophic mentality worm";
 	say ".[paragraph break]I savor the sweet irony of perverting the very tools of your crimes [unicode 8212] the internet, your computer, this very email! [unicode 8212] to serve our ";

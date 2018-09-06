@@ -91,6 +91,22 @@ body {
 	color: tomato;
 }
 
+.outlinkImage {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 8px;
+	width: 75%;
+	height: auto;
+}
+
+.outLink {
+	display: block;
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 .stricken {
 	text-decoration: line-through;
 }
@@ -181,6 +197,7 @@ th, td {
 }
 
 .footer {
+	z-index: -1;
 	position: relative;
 	top: 4em;
 	width:100%;
@@ -191,6 +208,7 @@ th, td {
 }
 
 .powered {
+	z-index: 1;
 	display: inline;
 	float: right;
 }
