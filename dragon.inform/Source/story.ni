@@ -136,7 +136,7 @@ To layout the screen:
 	place a link to the command "link junk" called "folder-junk" reading "Junk";
 	place a link to the command "link about" called "folder-about" reading "About";
 	place a link to the command "link credits" called "folder-credits" reading "Credits";
-		place a link to web site "mailto:redragon@templaro.com" called "folder-bugs" reading "Feedback";
+	place a link to the command "link bugs" called "folder-bugs" reading "Feedback";
 	move the element called "folder-inbox" under "folders";
 	move the element called "folder-sent" under "folders";
 	move the element called "folder-junk" under "folders";
@@ -246,6 +246,9 @@ After Linkaging when topicDuJour is "about":
 	
 After Linkaging when topicDuJour is "credits":
 	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Fortune Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz, Ben Collins-Sussman, Lara Welch, David White and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
+	
+After Linkaging when topicDuJour is "bugs":
+	say "I appreciate any sort of feedback about this game, positive, negative, or anywhere in between.[paragraph break]Please shoot an email to [italic type]redragon@templaro.com[roman type][paragraph break]Thanks!".
 	
 After Linkaging when topicDuJour is "vorple":
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
