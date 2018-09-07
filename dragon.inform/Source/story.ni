@@ -1097,7 +1097,7 @@ Every turn:
 	remove the element called "folder-inbox";
 	place a link to the command "link inbox" called "folder-inbox" reading "Inbox[if N is greater than 0] [bold type]([N])[roman type][end if]";
 	move the element "folder-inbox" at the start of "folders";
-	scroll to the element called "header";
+	execute JavaScript command "$('html,body').animate({scrollTop: 0}, 1);";
 	set output focus to the element called "debugWindow".
 
 
