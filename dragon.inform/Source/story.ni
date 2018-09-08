@@ -488,7 +488,7 @@ OptionText	Link
 "[quotation mark]Dmitri? I found an old double-D invoice [unicode 8212] should I throw it out?[quotation mark]"	"worm-checkBill"
 
 After Linkaging when topicDuJour is "worm-garbageBill":
-	say "You open the tiniest portal deep within a gravity well and watch the invoice tear itself atom-from-atom as its spaghettifies and spirals out of existence awash in a burst of hard X-rays. In an instant, it is gone and the rupture seals behind it. Done and done.[paragraph break][morePapers]".
+	say "You open the tiniest portal deep within a gravity well and watch the invoice tear itself atom-from-atom as it spaghettifies and spirals out of existence awash in a burst of hard X-rays. In an instant, it is gone and the rupture seals behind it. Done and done.[paragraph break][morePapers]".
 	
 After Linkaging when topicDuJour is "worm-checkBill":
 	say "Your inquiry about the Dimension Dwarf invoice elicits a worried clucking from the other end of the intercom.[paragraph break][quotation mark][dragonName], may I respectfully beseech that we retain that invoice?[quotation mark][paragraph break][quotation mark]You don[apostrophe]t think we[apostrophe]re paid up?[quotation mark][paragraph break][quotation mark]We make automatic payments from the Unicorn account, but there was a billing issue last month [unicode 8212] the office portals got bent around into sort of a Klein bottle topology and they tried to charge us an infinite sum. I don[apostrophe]t know if they[apostrophe]ve credited that back to the account yet.[quotation mark][paragraph break][quotation mark]Fine,[quotation mark] you reply and hand the receipt over to Dmitri. He hops in and out, and closes the squeaky door behind him.[paragraph break][morePapers]".
