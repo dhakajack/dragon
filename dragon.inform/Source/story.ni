@@ -642,7 +642,7 @@ After Linkaging when topicDuJour is "worm-sendHimIn":
 Table of FirstDoor
 OptionText	Link
 "[quotation mark]Let me try the door myself.[quotation mark][line break]"	"worm-doorMyself"
-"[quotation mark]I[apostrophe]ve had it with Mr. Nobspike. send him away.[quotation mark]"	"worm-sendAway"
+"[quotation mark]I[apostrophe]ve had it with Mr. Nobspike. Send him away.[quotation mark]"	"worm-sendAway"
 "[quotation mark]This is what happens when we don[apostrophe]t follow our process.[quotation mark]"	"worm-intakeForm"
 "[quotation mark]Dmitri, how about a fresh cup of coffee?[quotation mark]"	"worm-moreCoffee"
 
