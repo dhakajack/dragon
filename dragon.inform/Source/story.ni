@@ -955,7 +955,7 @@ To say finalVictorPayload:
 	if the reviewed flag is true:
 		say "I trust that you have indeed followed my instructions to review the ";
 		place a link to the command "link TDWTYYFN" reading "shameful document";
-		say " that you and your ilk let into your contest in 2017 and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to alter, at least for now, in the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh.[run paragraph on]";
+		say " that you and your ilk let into your contest in 2017 and persist in flaunting on your ill-reputed website.[paragraph break]Well, I suppose that little bit of suffering may have done you some good and brought you closer to our way of thinking [unicode 8212] no one could look upon pile of suppurating invective without coming away… changed.[paragraph break]And this brings me to alter, at least for now, the nature of our relationship: my associates at the AAPDO have informed me that my customary approach, while motivated entirely by their best interests, may come across as unnecessarily harsh.[run paragraph on]";
 	otherwise:
 		say "I can’t really say that I blame you. Much. Except in a legally binding sense.[paragraph break]Your reluctance to again cast your eyes for even the most infinitesimal instant of time on ";
 		place a link to the command "link TDWTYYFN" reading "that pile of suppurating invective";
