@@ -225,7 +225,7 @@ After Linkaging when topicDuJour matches the text "mail-":
 Section 2 - Top Level Links
 	
 After Linkaging when topicDuJour is "TDWTYYFN":
-	let outLinkURL be "http://ifarchive.org/if-archive/games/competition2017/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now.html";
+	let outLinkURL be "https://ifarchive.org/if-archive/games/competition2017/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now/The%20Dragon%20Will%20Tell%20You%20Your%20Future%20Now.html";
 	set output focus to the element called "column-right";
 	now reviewed flag is true;
 	open HTML tag "a" called "link-outLink";
