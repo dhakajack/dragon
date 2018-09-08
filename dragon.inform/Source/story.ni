@@ -839,7 +839,7 @@ To say stillAway:
 	place a link to the command "link worm-stillAway" reading "still a way".
 	
 After Linkaging when topicDuJour is "worm-stillAway":
-	say "Yes, it is definitely your client out there doing Ialdagorth-knows-what at the edge of the forest. You will need to do your best to avoid scaring him off, knowing how jittery he was earlier in the day.[paragraph break][crouchingShrubs]".
+	say "Yes, it is definitely your client out there doing Nyarlathotep-knows-what at the edge of the forest. You will need to do your best to avoid scaring him off, knowing how jittery he was earlier in the day.[paragraph break][crouchingShrubs]".
 	
 Section 4 - Pick An Option
 
