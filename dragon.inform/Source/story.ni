@@ -259,7 +259,7 @@ After Linkaging when topicDuJour is "credits":
 	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Future Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz, Ben Collins-Sussman, Denise Jobin, Lara Welch, David White, Ryan Tan, and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
 	
 After Linkaging when topicDuJour is "bugs":
-	say "I appreciate any sort of feedback about this game, positive, negative, or anywhere in between.[paragraph break]Please shoot an email to [italic type]redragon@templaro.com[roman type][paragraph break]Thanks!".
+	say "I appreciate any sort of feedback about this game, positive, negative, or anywhere in between.[paragraph break]Please shoot an email to [italic type]redragon@templaro.com[roman type]. It would be help me if you could mention that you played version number [release number].[paragraph break]Thanks!".
 	
 After Linkaging when topicDuJour is "vorple":
 	say "[bold type]Vorple[roman type] version 3.0 [italic type]preview[roman type] by Juhana Leinonen[paragraph break]";
@@ -1071,7 +1071,7 @@ To receive (email - an epistle) into (folder - a mailfolder):
 		now the date of email is the text returned by the JavaScript command;
 		add email at entry 1 in the manifest of folder;
 		play the sound effect file "plucky.mp3";
-		execute javascript command "toastr.info('<a href=\[quotation mark]#\[quotation mark] data-command=\[quotation mark]link mail-[email]\[quotation mark] data-silent=\[quotation mark]false\[quotation mark] class=\[quotation mark]vorple-link vorple-commandlink toasterLink \[quotation mark]>[subject of email]</a>', 'New Mail in [bracket][folder][close bracket]');";
+		execute javascript command "toastr.info('<a href=\[quotation mark]#\[quotation mark] data-command=\[quotation mark]link mail-[email]\[quotation mark] data-silent=\[quotation mark]false\[quotation mark] class=\[quotation mark]vorple-link vorple-commandlink toasterLink \[quotation mark]>[subject of email]</a>', 'New Mail in [bracket][folder][close bracket]', {timeOut: 3000});";
 		set output focus to the element called "debugWindow";
 		if debug flag is true:
 			say "added [email] to [folder].";
