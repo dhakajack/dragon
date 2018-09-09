@@ -12,6 +12,16 @@ body {
 	background-color: white;
 }
 
+.toast-message a:link, .toast-message a:visited {
+	color:yellow;
+}
+
+.toast-message a:hover, .toast-message a:active{
+	color:orange;
+}
+
+
+
 #output {
 	max-width: none;
 	padding: 0px;
