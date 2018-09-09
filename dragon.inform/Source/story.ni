@@ -20,7 +20,7 @@ Chapter 1 - Vorple Overrides
 [to add the "followMouse" attribute so tooltip location follows pointing device]
 To attach a/-- tooltip (tip - text) on/to all the/-- elements called (classes - text):
 	execute JavaScript command "$('.[classes]').last().attr('title','[escaped tip]').powerTip({followMouse:true})".
-
+	
 Chapter 2 - Globals
 
 The topicDuJour is a text that varies. The topicDuJour is "inbox".
@@ -250,7 +250,7 @@ After Linkaging when topicDuJour is "inform":
 	say "Thanks to all those who have worked on Inform and in the Inform ecosystem. This story was written in [bold type]Inform 7[roman type] and compiled for the [bold type]Glulx[roman type] virtual machine."
 	
 After Linkaging when topicDuJour is "about":
-	say "There really was a game entered into the 2017 Interactive Fiction Competition (IFcomp: the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. The author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]Because the original game was unwinnable, most folks considered it a joke entry, so relatively few people played it. I thought that the writing in that game was very good, however, and that it was a shame that it didn't reach a wider audience. After playing it, I lingered over the question of why the client wanted their fortune told and most of all, why it was so hard to get through the door to meet the dragon. Well, now the story can be told at last.[paragraph break]Source code for [italic type][quotation mark]Re: Dragon[quotation mark][roman type] is available at: [ReDragonSource]."
+	say "There really was a game entered into the 2017 Interactive Fiction Competition (IFcomp: the real one) with the title [quotation mark][italic type]Now The Dragon Will Tell You Your Fortune[roman type][quotation mark]. The author entered under a pseudonym. As far as I know, the identify of the author is not known, but let me assert that it wasn't me. This current game can, therefore, be considered an [quotation mark]unauthorized[quotation mark] sequel.[paragraph break]Because the original game was unwinnable, most folks considered it a joke entry, so relatively few people played it. I thought that the writing in that game was very good, however, and that it was a shame that it didn't reach a wider audience. After playing it, I lingered over the question of why the client wanted their fortune told and most of all, why it was so hard to get through the door to meet the dragon. Well, now the story can be told at last.[paragraph break]Source code for [quotation mark][italic type]Re: Dragon[roman type][quotation mark] is available at: [ReDragonSource]."
 	
 To say ReDragonSource:
 	place a link to web site "https://github.com/dhakajack/dragon"  called "redragonURL" reading "github.com/dhakajack/dragon".
@@ -1071,14 +1071,14 @@ To receive (email - an epistle) into (folder - a mailfolder):
 		now the date of email is the text returned by the JavaScript command;
 		add email at entry 1 in the manifest of folder;
 		play the sound effect file "plucky.mp3";
-		display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
+		execute javascript command "toastr.info('<a href=\[quotation mark]#\[quotation mark] data-command=\[quotation mark]link mail-[email]\[quotation mark] data-silent=\[quotation mark]false\[quotation mark] class=\[quotation mark]vorple-link vorple-commandlink toasterLink \[quotation mark]>[subject of email]</a>', 'New Mail in [bracket][folder][close bracket]');";
 		set output focus to the element called "debugWindow";
 		if debug flag is true:
 			say "added [email] to [folder].";
 		set output focus to the element called "column-right";
 		if the topicDuJour is "inbox":
 			clear the element called "column-right";
-			show index of inboxFolder.
+			show index of inboxFolder.			
 		
 Section 5 - Previous Mail
 
