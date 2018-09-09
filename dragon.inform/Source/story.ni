@@ -42,6 +42,7 @@ The coffee_gone flag is a truth state that varies. The coffee_gone flag is false
 The squeaky_hinge flag is a truth state that varies. The squeaky_hinge flag is true.
 The dimensionality_explained flag is a truth state that varies. The dimensionality_explained flag is false.
 The last_mail_received flag is a truth state that varies. The last_mail_received flag is false.
+The debug flag is a truth state that varies. The debug flag is false.
 
 Chapter 3 - Kinds
 
@@ -159,7 +160,8 @@ To backdate email:
 		repeat with mail running through manifest of folder:
 			let timeSalt be a random number between 1 and 13;
 			now timeOffset is timeOffset + minuteDecrement + timeSalt;
-			say "folder [folder] / mail [mail] - maxage [maxage of the folder], minutedec [minuteDecrement], timeOffset [timeOffset].";
+			if debug flag is true:
+				say "folder [folder] / mail [mail] - maxage [maxage of the folder], minutedec [minuteDecrement], timeOffset [timeOffset].";
 			execute JavaScript command "timestamp([timeOffset]);";
 			now the date of the mail is the text returned by the JavaScript command.
 			
@@ -174,16 +176,19 @@ Linkaging is an action applying to one topic.  Understand "link [text]" as linka
 Check Linkaging:
 	[don't do something unless it's a change from current display]
 	if the topicDuJour is the topic understood:
-		say "Duplicate action rejected: [topicDuJour].";
+		if debug flag is true:
+			say "Duplicate action rejected: [topicDuJour].";
 		now the turn hold flag is true;
 		stop the action.
 	
 Carry out Linkaging:
-	say "The topic understood is [quotation mark][topic understood][quotation mark].";
+	if debug flag is true:
+		say "The topic understood is [quotation mark][topic understood][quotation mark].";
 	now the topicDuJour is the topic understood;[it's a new topic]
 	if the topicDuJour is "ScryDragon":
 		now the TopicDuJour is lastWormTopic;
-		say "Redirecting to the most recent Scrying topic: [lastWormTopic].";
+		if debug flag is true:
+			say "Redirecting to the most recent Scrying topic: [lastWormTopic].";
 	if the topicDuJour matches the text "worm-":
 		now the lastWormTopic is the topicDuJour;[book mark it as the most recent worm command];
 		hide the element called "ScryDragon";
@@ -196,7 +201,8 @@ Carry out Linkaging:
 	set output focus to the element called "column-right".
 
 Report Linkaging:[fires if no after rule supersedes it]
-	say "Error. If you are seeing this, no After Rule has captured a link click event. The [topic understood] link was selected and the current topic is [topicDuJour]. Tracking the last worm topic as [lastWormTopic]."
+	if debug flag is true:
+		say "Error. If you are seeing this, no After Rule has captured a link click event. The [topic understood] link was selected and the current topic is [topicDuJour]. Tracking the last worm topic as [lastWormTopic]."
 
 Section 1 - Mail Links
 
@@ -208,9 +214,11 @@ After Linkaging when topicDuJour matches the text "mail-":
 	let V be topicDuJour;
 	replace the text "mail-" in V with "";
 	set output focus to the element called "debugWindow";
-	say "V is [V].";
+	if debug flag is true:
+		say "V is [V].";
 	repeat with item running through epistles:
-		say "Checking out [item].";
+		if debug flag is true:
+			say "Checking out [item].";
 		if "[item]" is "[v]":
 			clear the element called "column-right";
 			set output focus to the element called "column-right";
@@ -1065,7 +1073,8 @@ To receive (email - an epistle) into (folder - a mailfolder):
 		play the sound effect file "plucky.mp3";
 		display a notification with title "New Mail in [bracket][folder][close bracket]" reading "[subject of email]";
 		set output focus to the element called "debugWindow";
-		say "added [email] to [folder].";
+		if debug flag is true:
+			say "added [email] to [folder].";
 		set output focus to the element called "column-right";
 		if the topicDuJour is "inbox":
 			clear the element called "column-right";
