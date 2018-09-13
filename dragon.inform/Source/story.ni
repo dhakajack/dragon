@@ -976,7 +976,7 @@ To say finalVictorPayload:
 	say " I reminded them that I personally wrote eight of the twelve Indomitable Torments in the Unmerciful Book of Zamru, but they suggested we try settling out of court first.[paragraph break]Therefore, I propose the following: Through the magic invested in my office in legal matters pertaining to the Good Repute of Draconian Oracles, I decree that you [unicode 8212] and this so-called Competition of yours [unicode 8212] shall become the very instrument of their Redemption. To wit, I have attached to this electronic letter a ";
 	place a link to the command "link tmworm" reading "theosophic mentality worm";
 	say ".[paragraph break]I savor the sweet irony of perverting the very tools of your crimes [unicode 8212] the internet, your computer, this very email! [unicode 8212] to serve our ";
-	place a link to the command "link worm-start" reading "true narrative";
+	place a link to the command "link ScryDragon" reading "true narrative";
 	say " and force you to experience the events of that evening in 2017 as they actually took place.[paragraph break]Don't fret. You can still go back and forth to your precious email without losing your place, but know this: Ignore this gift at your peril! I have started polishing up Indomitable Torture Number Seven as a contingency, and I assure you, it would be my most sincere pleasure to inflict it upon you.[paragraph break]Sincerely,[paragraph break]Victor Cragne";
 	show the element called "ScryDragon";
 	now ScryView enabled flag is true.
