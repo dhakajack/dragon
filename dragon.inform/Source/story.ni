@@ -1012,7 +1012,7 @@ The subject of AAPDOReprimand is "Silence, dog!".
 The payload of AAPDOReprimand is "[AAPDOReprimand]".
 
 To say AAPDOReprimand:
-	say "Remember your place, Mr. Cragne. How dare you gainsay one of our Association, much less one of such prominence! What a dragon has said, let no mortal contradict.[paragraph break]You should know better. One more outburst like that, and we will leave you to rot in that 19th Century opium den, where we dredged you up.[paragraph break]Marzitrex of the Withered Claw,[line break]On Behalf of the AAPDO Board of Trustees".
+	say "Remember your place, Mr. Cragne. How dare you gainsay one of our Association, much less one of such prominence! What a dragon has said, let no mortal contradict.[paragraph break]You should know better. One more outburst like that, and we will leave you to rot in that 19th Century opium den where we dredged you up.[paragraph break]Marzitrex of the Withered Claw,[line break]On Behalf of the AAPDO Board of Trustees".
 
 Rover is an epistle. Rover is not read.
 The correspondent of Rover is "Jack Welch".
