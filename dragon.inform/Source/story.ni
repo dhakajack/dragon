@@ -562,7 +562,7 @@ To say rosemarySyrup:
 After Linkaging when topicDuJour is "worm-interactions":
 	say "Adverse Reactions:[paragraph break]";
 	open HTML tag "div" called "finePrint";
-	say "Like most potions, Kusmiz’s Concoction of Placid Compliance has absolutely no effect on dwarves. Most other species find it deeply reassuring, with minimal sedation. Except imps. They have been reported to experience adverse reactions including astromania and lunacy, drapophila, and disaffective phototropism after ingesting even trace amounts of the concoction. More severe overdoses have results in persistent tetanic planking, which can become life-threatening.[paragraph break]";
+	say "Like most potions, Kusmiz’s Concoction of Placid Compliance has absolutely no effect on dwarves. Most other species find it deeply reassuring, with minimal sedation. Except imps. They have been reported to experience adverse reactions including astromania and lunacy, drapophila, and disaffective phototropism after ingesting even trace amounts of the concoction. More severe overdoses have resulted in persistent tetanic planking, which can become life-threatening.[paragraph break]";
 	close HTML tag;
 	say b2kusmiz.
 	
