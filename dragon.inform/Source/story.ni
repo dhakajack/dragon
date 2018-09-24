@@ -1,7 +1,7 @@
 "Re: Dragon" by Jack Welch
 
 The story genre is "fantasy".
-The release number is 5. [beta]
+The release number is 6.
 The story creation year is 2018.
 
 Include Vorple Element Manipulation by Juhana Leinonen.
@@ -258,7 +258,7 @@ To say ReDragonSource:
 	place a link to web site "https://github.com/dhakajack/dragon"  called "redragonURL" reading "github.com/dhakajack/dragon".
 	
 After Linkaging when topicDuJour is "credits":
-	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Future Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz, Ben Collins-Sussman, Denise Jobin, Lara Welch, David White, Ryan Tan, Chris Conley and XXX other folks.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
+	say "Thanks to the real IFTF and everyone who has taken on the mantle of coordinating IFcomp over the years for providing a forum for games like this. Of course, thanks to the author of [italic type]The Dragon Will Tell You Your Future Now[roman type], known by the pseudonym Newsreparter.[paragraph break]I would also like to acknowledge beta testers including Andrew Schultz, Ben Collins-Sussman, Denise Jobin, Lara Welch, David White, Ryan Tan, and Chris Conley.[paragraph break]The toy balloon image is public domain[line break][italic type](Balloons-aj.svg on commons.wikimedia.org)[roman type][paragraph break]This project used sounds effects made available under creative commons licenses:[paragraph break]plucky.mp3[line break][italic type](notificationsounds.com)[roman type][paragraph break]Fax-machine-sound.mp3[line break][italic type](www.orangefreesounds.com)[roman type]".
 	
 After Linkaging when topicDuJour is "bugs":
 	say "I would appreciate any sort of feedback about this game, positive, negative, or anywhere in between.[paragraph break]Please shoot an email to [italic type]redragon@templaro.com[roman type].[paragraph break]It would be help me if you could mention that you played version number [release number].[paragraph break]Thanks!".
