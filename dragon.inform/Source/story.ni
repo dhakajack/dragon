@@ -1,7 +1,7 @@
 "Re: Dragon" by Jack Welch
 
 The story genre is "fantasy".
-The release number is 8.
+The release number is 9.
 The story creation year is 2018.
 
 Include Vorple Element Manipulation by Juhana Leinonen.
@@ -13,7 +13,7 @@ Include Vorple Tooltips by Juhana Leinonen.
 
 Release along with the "Vorple" interpreter.
 Release along with style sheet "dragon.css".
-Release along with cover art, a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "place65.png".
+Release along with cover art, a file of "Blurb" called "blurb.txt", a file of "Walkthrough" called "walkthrough.txt", the file of "Readme" called "README.txt", the file "balloons.png", the file "plucky.mp3", the file "Fax-machine-sound.mp3", and the file "place65.png".
 
 Chapter 1 - Vorple Overrides
 
