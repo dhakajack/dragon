@@ -25,7 +25,7 @@ Clicking “Inform” or “Vorple” will bring up the sort of information that
 
 Victor Cragne will send you a series of increasingly urgent emails, which provide the backstory. 
 
-* Dragon: The subject of his first email is just “dragon” and it refers to a previous game, which you can play to get a sense of what he’s talking ab out. Don’t worry about not being able to navigate back: everything stays within the current browser window and you can always move back and forth between your email and whatever the game is doing without losing you place.
+* Dragon: The subject of his first email is just “dragon” and it refers to a previous game, which you can play to get a sense of what he’s talking about. Don’t worry about not being able to navigate back: everything stays within the current browser window and you can always move back and forth between your email and whatever the game is doing without losing you place.
 
 * Inbox
 * RE: Dragon: If you don’t follow the advice in his previous letter immediately, Victor will send a follow-up letter.
