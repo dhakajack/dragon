@@ -1,7 +1,7 @@
 "Re: Dragon" by Jack Welch
 
 The story genre is "fantasy".
-The release number is 9.
+The release number is 11.
 The story creation year is 2018.
 
 Include Vorple Element Manipulation by Juhana Leinonen.
@@ -222,7 +222,7 @@ After Linkaging when topicDuJour matches the text "mail-":
 		if "[item]" is "[v]":
 			clear the element called "column-right";
 			set output focus to the element called "column-right";
-			say "[bold type]Subject: [subject of item][roman type][line break][bold type]Date: [roman type][date of item][line break][bold type]To: [roman type][correspondent of item][line break]";
+			say "[bold type]Subject: [subject of item][roman type][line break][bold type]Date: [roman type][date of item][line break][bold type][roman type][bold type][if item is listed in the manifest of SentFolder]To[otherwise]From[end if]: [roman type][correspondent of item][line break]";
 			if carboncopy of the item is not "":
 				say "[bold type]CC: [roman type][carboncopy of the item][line break]";
 			place a block level element called "hrsub";
